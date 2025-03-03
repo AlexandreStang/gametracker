@@ -2,10 +2,21 @@ import {getToken} from "@/app/api/token";
 // import {NextApiRequest, NextApiResponse} from "next";
 
 export default async function test() {
-    try {
-        const token = getToken()
-        return token
-    } catch (error) {
-        throw new Error('Test failed')
+    const token = await getToken()
+
+    const response = await
+        fetch(`https://api.igdb.com/v4/games`, {
+            method: 'POST',
+            headers: {
+                'Client-ID': process.env.TWITCH_CLIENT_ID as string,
+                'Authorization': `Bearer ${token}`,
+            },
+            body: "fields name, release_dates, genres; limit 10;",
+        })
+
+    if (!response.ok) {
+        throw new Error('Failed to fetch games');
     }
+
+    return await response.json();
 }
