@@ -1,8 +1,11 @@
-import Image from "next/image";
 import {prisma} from "@/lib/db";
+import test from "@/app/api/route";
 
 export default async function Home() {
     const games = await prisma.game.findMany()
+
+    // await fetchData()
+    console.log(await test())
 
   return (
     <div>
@@ -10,9 +13,10 @@ export default async function Home() {
 
         <ul>
             {games?.map((game) => (
-                <li>{game.title}, {game.platform}, {game.playtime}</li>
+                <li key={game.id}>{game.title}, {game.platform}, {game.playtime}</li>
             ))}
         </ul>
     </div>
   );
 }
+
