@@ -1,4 +1,4 @@
-import {getToken} from "@/app/api/token";
+import {getToken} from "@/api/token";
 // import {NextApiRequest, NextApiResponse} from "next";
 
 export default async function test() {

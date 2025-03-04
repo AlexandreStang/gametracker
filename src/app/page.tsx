@@ -1,5 +1,5 @@
 import {prisma} from "@/lib/db";
-import test from "@/app/api/route";
+import test from "@/api/route";
 
 export default async function Home() {
     const games = await prisma.game.findMany()
