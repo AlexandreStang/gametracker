@@ -19,6 +19,7 @@ export default function Search({placeholder, onSearch}: SearchProps) {
             onChange={e => {
                 handleSearch(e.target.value)
             }}
+            className={"border border-black"}
         />
     )
 }

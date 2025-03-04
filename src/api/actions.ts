@@ -1,8 +1,8 @@
 'use server'
 
 import {getToken} from "@/api/token";
-// import {NextApiRequest, NextApiResponse} from "next";
 
+// Search for games that fit a certain query
 export default async function searchGames(query: string) {
     const token = await getToken()
 
@@ -13,11 +13,11 @@ export default async function searchGames(query: string) {
                 'Client-ID': process.env.TWITCH_CLIENT_ID as string,
                 'Authorization': `Bearer ${token}`,
             },
-            body: `search "${query}"; fields name, release_dates; limit 10;`,
+            body: `search "${query}"; fields name, first_release_date; limit 10;`,
         })
 
     if (!response.ok) {
-        throw new Error('Failed to get games');
+        throw new Error('Failed to search games');
     }
 
     return await response.json();
