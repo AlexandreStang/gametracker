@@ -1,4 +1,4 @@
-import {NextApiRequest, NextApiResponse} from "next";
+'use server'
 
 let cachedToken: string | null = null
 let tokenExpirationTime: number | null = null

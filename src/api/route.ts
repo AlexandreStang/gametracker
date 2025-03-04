@@ -1,7 +1,9 @@
+'use server'
+
 import {getToken} from "@/api/token";
 // import {NextApiRequest, NextApiResponse} from "next";
 
-export default async function test() {
+export default async function searchGames(query: string) {
     const token = await getToken()
 
     const response = await
@@ -11,11 +13,11 @@ export default async function test() {
                 'Client-ID': process.env.TWITCH_CLIENT_ID as string,
                 'Authorization': `Bearer ${token}`,
             },
-            body: "fields name, release_dates, genres; limit 10;",
+            body: `search "${query}"; fields name, release_dates; limit 10;`,
         })
 
     if (!response.ok) {
-        throw new Error('Failed to fetch games');
+        throw new Error('Failed to get games');
     }
 
     return await response.json();

@@ -4,12 +4,13 @@ import {useDebouncedCallback} from "use-debounce";
 
 interface SearchProps {
     placeholder: string
+    onSearch: (query: string) => void
 }
 
-export default function Search({placeholder}: SearchProps) {
+export default function Search({placeholder, onSearch}: SearchProps) {
 
-    const handleSearch = useDebouncedCallback((term: string) => {
-        console.log(term)
+    const handleSearch = useDebouncedCallback((query: string) => {
+        onSearch(query)
     }, 300)
 
     return (
