@@ -13,7 +13,7 @@ export default async function searchGames(query: string) {
                 'Client-ID': process.env.TWITCH_CLIENT_ID as string,
                 'Authorization': `Bearer ${token}`,
             },
-            body: `search "${query}"; fields name, first_release_date; limit 10;`,
+            body: `search "${query}"; fields name, first_release_date, category; where category = (0, 8, 9) & version_parent = null; limit 10;`,
         })
 
     if (!response.ok) {

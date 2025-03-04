@@ -39,7 +39,10 @@ export default function Test() {
 
         <ul>
             {games?.map((game) => (
-                <li key={game.id}>{game.name} ({convertDate(game.first_release_date).year})</li>
+                <li key={game.id}>
+                    <span>{game.name} ({convertDate(game.first_release_date).year})</span>
+                    <button className={"bg-blue-500"}>Add me</button>
+                </li>
             ))}
         </ul>
 
