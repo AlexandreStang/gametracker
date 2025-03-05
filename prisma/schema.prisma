@@ -14,28 +14,42 @@ datasource db {
 }
 
 model User {
-  id       String @id @default(cuid())
-  username String
-  email    String
-  password String
-  lists    List[]
+  id        String   @id @default(cuid())
+  username  String
+  email     String
+  password  String
+  lists     List[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model List {
-  id      String   @id @default(cuid())
-  title   String
-  date    DateTime @default(now())
-  games   Game[]
-  owner   User     @relation(fields: [ownerId], references: [id])
-  ownerId String
+  id        String       @id @default(cuid())
+  title     String
+  date      DateTime     @default(now())
+  games     ListedGame[]
+  user      User         @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
 }
 
 model Game {
-  id       String @id @default(cuid())
-  igdb_id  String
-  title    String
-  platform String
-  playtime Int
-  list     List   @relation(fields: [listId], references: [id])
-  listId   String
+  id          String       @id @default(cuid())
+  igdbId      String
+  title       String
+  ListedGames ListedGame[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model ListedGame {
+  id        String   @id @default(cuid())
+  game      Game     @relation(fields: [gameId], references: [id])
+  gameId    String
+  playtime  Int      @default(0)
+  list      List     @relation(fields: [listId], references: [id])
+  listId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

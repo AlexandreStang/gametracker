@@ -6,10 +6,6 @@ import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
 
 export default function Test() {
-    // const games = await prisma.game.findMany()
-    //
-    // // await fetchData()
-
     const [games, setGames] = useState([]);
     const [query, setQuery] = useState('');
 
@@ -23,7 +19,6 @@ export default function Test() {
             try {
                 const results = await searchGames(query);
                 setGames(results)
-                console.log(results)
             } catch (error) {
                 console.error(error);
             }
@@ -31,6 +26,10 @@ export default function Test() {
 
         fetchGames();
     }, [query]);
+
+    const handleClick = (id: string) => {
+        console.log(id)
+    }
 
   return (
     <div>
@@ -41,7 +40,7 @@ export default function Test() {
             {games?.map((game) => (
                 <li key={game.id}>
                     <span>{game.name} ({convertDate(game.first_release_date).year})</span>
-                    <button className={"bg-blue-500"}>Add me</button>
+                    <button className={"bg-blue-500"} onClick={(e) => handleClick(game.id)}>Add me</button>
                 </li>
             ))}
         </ul>
