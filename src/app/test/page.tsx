@@ -1,6 +1,6 @@
 'use client'
 
-import {fetchGameFromIGDB, searchGamesFromIGDB} from "@/api/actions";
+import {fetchAllGenresFromIGDB, fetchAllPlatformsFromIGDB, fetchGameFromIGDB, searchGamesFromIGDB} from "@/api/actions";
 import Search from "@/ui/search";
 import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
@@ -32,6 +32,8 @@ export default function Test() {
     const handleClick = async (id: string) => {
         console.log(id)
         console.log(await fetchGameFromIGDB(id))
+        console.log(await fetchAllGenresFromIGDB())
+        console.log(await fetchAllPlatformsFromIGDB())
     }
 
   return (

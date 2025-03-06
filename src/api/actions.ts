@@ -42,3 +42,67 @@ export async function fetchGameFromIGDB(igdbId: string) {
 
     return response.json()
 }
+
+export async function fetchAllGenresFromIGDB() {
+    const token = await getToken()
+
+    let allGenres : any[] = []
+    let offset = 0
+    const limit = 50;
+    let hasMore = true;
+
+    while (hasMore) {
+        const response = await
+            fetch(`https://api.igdb.com/v4/genres`, {
+                method: 'POST',
+                headers: {
+                    'Client-ID': process.env.TWITCH_CLIENT_ID as string,
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: `fields name; limit ${limit}; offset ${offset};`,
+            })
+
+        if (!response.ok) {
+            throw new Error('Genres not found on IGDB')
+        }
+
+        const genres = await response.json()
+        allGenres = allGenres.concat(genres)
+        offset += limit
+        hasMore = genres.length === limit
+    }
+
+    return allGenres
+}
+
+export async function fetchAllPlatformsFromIGDB() {
+    const token = await getToken()
+
+    let allPlatforms : any[] = []
+    let offset = 0
+    const limit = 50;
+    let hasMore = true;
+
+    while (hasMore) {
+        const response = await
+            fetch(`https://api.igdb.com/v4/platforms`, {
+                method: 'POST',
+                headers: {
+                    'Client-ID': process.env.TWITCH_CLIENT_ID as string,
+                    'Authorization': `Bearer ${token}`,
+                },
+                body: `fields name; limit ${limit}; offset ${offset};`,
+            })
+
+        if (!response.ok) {
+            throw new Error('Platforms not found on IGDB')
+        }
+
+        const platforms = await response.json()
+        allPlatforms = allPlatforms.concat(platforms)
+        offset += limit
+        hasMore = platforms.length === limit
+    }
+
+    return allPlatforms
+}
