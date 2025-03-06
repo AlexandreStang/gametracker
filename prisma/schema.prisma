@@ -14,42 +14,67 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  username  String
-  email     String
-  password  String
-  lists     List[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model List {
-  id        String       @id @default(cuid())
-  title     String
-  date      DateTime     @default(now())
-  games     ListedGame[]
-  user      User         @relation(fields: [userId], references: [id])
-  userId    String
-  createdAt DateTime     @default(now())
-  updatedAt DateTime     @updatedAt
-}
-
-model Game {
   id          String       @id @default(cuid())
-  igdbId      String
-  title       String
-  ListedGames ListedGame[]
+  username    String
+  email       String
+  password    String
+  playedGames playedGame[]
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
 }
 
-model ListedGame {
+model Game {
+  id               String       @id @default(cuid())
+  igdbId           String       @unique
+  slug             String       @unique
+  title            String
+  firstReleaseDate DateTime?
+  cover            Cover        @relation(fields: [coverId], references: [id])
+  coverId          String
+  genres           Genre[]
+  platforms        platform[]
+  playedGames      playedGame[]
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+}
+
+model playedGame {
   id        String   @id @default(cuid())
   game      Game     @relation(fields: [gameId], references: [id])
   gameId    String
+  platform  String
   playtime  Int      @default(0)
-  list      List     @relation(fields: [listId], references: [id])
-  listId    String
+  like      Boolean  @default(false)
+  User      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Cover {
+  id        String   @id @default(cuid())
+  url       String
+  width     Int
+  height    Int
+  Game      Game[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Genre {
+  id        String   @id @default(cuid())
+  igdbId    String   @unique
+  name      String
+  Game      Game[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model platform {
+  id        String   @id @default(cuid())
+  igdbId    String   @unique
+  name      String
+  Game      Game[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
