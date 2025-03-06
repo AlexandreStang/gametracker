@@ -1,9 +1,10 @@
 'use client'
 
-import searchGames from "@/api/actions";
+import {fetchGameFromIGDB, searchGamesFromIGDB} from "@/api/actions";
 import Search from "@/ui/search";
 import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
+import Image from "next/image";
 
 export default function Test() {
     const [games, setGames] = useState([]);
@@ -17,8 +18,9 @@ export default function Test() {
 
         const fetchGames = async () => {
             try {
-                const results = await searchGames(query);
+                const results = await searchGamesFromIGDB(query);
                 setGames(results)
+                console.log(results)
             } catch (error) {
                 console.error(error);
             }
@@ -27,8 +29,9 @@ export default function Test() {
         fetchGames();
     }, [query]);
 
-    const handleClick = (id: string) => {
+    const handleClick = async (id: string) => {
         console.log(id)
+        console.log(await fetchGameFromIGDB(id))
     }
 
   return (
@@ -39,11 +42,13 @@ export default function Test() {
         <ul>
             {games?.map((game) => (
                 <li key={game.id}>
-                    <span>{game.name} ({convertDate(game.first_release_date).year})</span>
+                    <span> {game.name} ({convertDate(game.first_release_date).year})</span>
                     <button className={"bg-blue-500"} onClick={(e) => handleClick(game.id)}>Add me</button>
                 </li>
             ))}
         </ul>
+
+        <Image src={"https://images.igdb.com/igdb/image/upload/t_thumb/co1wvr.jpg"} width="90" height="90" alt={"Poster"} />
 
     </div>
   );
