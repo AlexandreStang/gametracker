@@ -18,7 +18,7 @@ model User {
   username    String       @unique
   email       String       @unique
   password    String
-  playedGames playedGame[]
+  playedGames PlayedGame[]
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
 }
@@ -32,13 +32,13 @@ model Game {
   cover            Cover        @relation(fields: [coverId], references: [id])
   coverId          String
   genres           Genre[]
-  platforms        platform[]
-  playedGames      playedGame[]
+  platforms        Platform[]
+  playedGames      PlayedGame[]
   createdAt        DateTime     @default(now())
   updatedAt        DateTime     @updatedAt
 }
 
-model playedGame {
+model PlayedGame {
   id        String   @id @default(cuid())
   game      Game     @relation(fields: [gameId], references: [id])
   gameId    String
@@ -53,10 +53,10 @@ model playedGame {
 
 model Cover {
   id        String   @id @default(cuid())
-  url       String
+  imageId   String   @unique
   width     Int
   height    Int
-  Game      Game[]
+  game      Game[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -70,7 +70,7 @@ model Genre {
   updatedAt DateTime @updatedAt
 }
 
-model platform {
+model Platform {
   id        String   @id @default(cuid())
   igdbId    String   @unique
   name      String
