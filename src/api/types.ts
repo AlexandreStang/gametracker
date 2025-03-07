@@ -11,7 +11,6 @@ export interface Genre {
     name: string;
 }
 
-
 export interface Platform {
     id: string;
     name: string;
