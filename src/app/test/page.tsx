@@ -5,10 +5,13 @@ import Search from "@/ui/search";
 import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
 import Image from "next/image";
+import RegisterPlayedGame from "@/ui/registerPlayedGame";
+import {Game} from "@/api/types";
 
 export default function Test() {
-    const [games, setGames] = useState([]);
+    const [games, setGames] = useState<Game[]>([]);
     const [query, setQuery] = useState('');
+    const [selectedGameId, setSelectedGameId] = useState('')
 
     useEffect(() => {
         if (!query) {
@@ -20,7 +23,6 @@ export default function Test() {
             try {
                 const results = await searchGamesFromIGDB(query);
                 setGames(results)
-                console.log(results)
             } catch (error) {
                 console.error(error);
             }
@@ -30,27 +32,31 @@ export default function Test() {
     }, [query]);
 
     const handleClick = async (id: string) => {
-        console.log(id)
-        console.log(await fetchGameFromIGDB(id))
+        setSelectedGameId(id)
     }
 
-  return (
-    <div>
+    return (
+        <div>
 
-        <Search placeholder={"Search game"} onSearch={setQuery}></Search>
+            <Search placeholder={"Search game"} onSearch={setQuery}></Search>
 
-        <ul>
-            {games?.map((game) => (
-                <li key={game.id}>
-                    <span> {game.name} ({convertDate(game.first_release_date).year})</span>
-                    <button className={"bg-blue-500"} onClick={(e) => handleClick(game.id)}>Add me</button>
-                </li>
-            ))}
-        </ul>
+            <ul>
+                {games?.map((game) => (
+                    <li key={game.id}>
+                        <span> {game.name} {game.first_release_date && <>({convertDate(game.first_release_date).year})</>}</span>
+                        <button className={"bg-blue-500"} onClick={
+                            (e) => handleClick(game.id)
+                        }>Add me</button>
+                    </li>
+                ))}
+            </ul>
 
-        <Image src={"https://images.igdb.com/igdb/image/upload/t_thumb/co1wvr.jpg"} width="90" height="90" alt={"Poster"} />
+            {/*<Image src={"https://images.igdb.com/igdb/image/upload/t_thumb/co1wvr.jpg"} width="90" height="90"*/}
+            {/*       alt={"Poster"}/>*/}
 
-    </div>
-  );
+            {selectedGameId && <RegisterPlayedGame id={selectedGameId} onComplete={() => setSelectedGameId('')} />}
+
+        </div>
+    );
 }
 
