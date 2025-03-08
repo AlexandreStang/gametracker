@@ -28,7 +28,7 @@ model Game {
   igdbId           String       @unique
   slug             String       @unique
   title            String
-  firstReleaseDate DateTime?
+  firstReleaseDate DateTime
   cover            Cover        @relation(fields: [coverId], references: [id])
   coverId          String
   genres           Genre[]
@@ -39,16 +39,17 @@ model Game {
 }
 
 model PlayedGame {
-  id        String   @id @default(cuid())
-  game      Game     @relation(fields: [gameId], references: [id])
-  gameId    String
-  platform  String
-  playtime  Int      @default(0)
-  like      Boolean  @default(false)
-  User      User     @relation(fields: [userId], references: [id])
-  userId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id @default(cuid())
+  game       Game     @relation(fields: [gameId], references: [id])
+  gameId     String
+  platform   Platform @relation(fields: [platformId], references: [id])
+  platformId String
+  playtime   Int      @default(0)
+  like       Boolean  @default(false)
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model Cover {
@@ -65,16 +66,17 @@ model Genre {
   id        String   @id @default(cuid())
   igdbId    String   @unique
   name      String
-  Game      Game[]
+  games     Game[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Platform {
-  id        String   @id @default(cuid())
-  igdbId    String   @unique
-  name      String
-  Game      Game[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String       @id @default(cuid())
+  igdbId      String       @unique
+  name        String
+  games       Game[]
+  playedGames PlayedGame[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 }
