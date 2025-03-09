@@ -5,7 +5,7 @@ import Search from "@/ui/search";
 import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
 import Image from "next/image";
-import RegisterPlayedGame from "@/ui/registerPlayedGame";
+import RegisterPlayedGameForm from "@/ui/registerPlayedGameForm";
 import {Game} from "@/api/types";
 
 export default function Test() {
@@ -44,7 +44,7 @@ export default function Test() {
                 {games?.map((game) => (
                     <li key={game.id}>
                         <span> {game.name} {game.first_release_date && <>({convertDate(game.first_release_date).year})</>}</span>
-                        <button className={"bg-blue-500"} onClick={
+                        <button onClick={
                             (e) => handleClick(game.id)
                         }>Add me</button>
                     </li>
@@ -54,7 +54,11 @@ export default function Test() {
             {/*<Image src={"https://images.igdb.com/igdb/image/upload/t_thumb/co1wvr.jpg"} width="90" height="90"*/}
             {/*       alt={"Poster"}/>*/}
 
-            {selectedGameId && <RegisterPlayedGame id={selectedGameId} onComplete={() => setSelectedGameId('')} />}
+            <hr/>
+
+            {selectedGameId && <RegisterPlayedGameForm id={selectedGameId} onComplete={() => setSelectedGameId('')} />}
+
+            <hr/>
 
         </div>
     );

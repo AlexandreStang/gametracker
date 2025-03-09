@@ -7,7 +7,7 @@ export class PlatformController {
         })
     }
 
-    static async getByIgdbId(igdbId: string) {
+    static async getByIgdbId(igdbId: number) {
         return prisma.platform.findUnique({
             where: {igdbId}
         })
@@ -17,7 +17,7 @@ export class PlatformController {
         return prisma.platform.findMany()
     }
 
-    static async create(data: {igdbId: string, name: string}) {
+    static async create(data: {igdbId: number, name: string}) {
         return prisma.platform.create({
             data
         })

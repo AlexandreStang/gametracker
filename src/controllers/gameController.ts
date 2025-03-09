@@ -7,7 +7,7 @@ export class GameController {
         })
     }
 
-    static async getByIgdbId(igdbId: string) {
+    static async getByIgdbId(igdbId: number) {
         return prisma.game.findUnique({
             where: {igdbId}
         })
@@ -18,7 +18,7 @@ export class GameController {
     }
 
     static async create(data: {
-        igdbId: string,
+        igdbId: number,
         slug: string,
         title: string,
         firstReleaseDate: Date,

@@ -7,7 +7,7 @@ export class GenreController {
         })
     }
 
-    static async getByIgdbId(igdbId: string) {
+    static async getByIgdbId(igdbId: number) {
         return prisma.genre.findUnique({
             where: {igdbId}
         })
@@ -17,7 +17,7 @@ export class GenreController {
         return prisma.genre.findMany()
     }
 
-    static async create(data: {igdbId: string, name: string}) {
+    static async create(data: {igdbId: number, name: string}) {
         return prisma.genre.create({
             data
         })

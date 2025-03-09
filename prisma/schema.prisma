@@ -25,7 +25,7 @@ model User {
 
 model Game {
   id               String       @id @default(cuid())
-  igdbId           String       @unique
+  igdbId           Int          @unique
   slug             String       @unique
   title            String
   firstReleaseDate DateTime
@@ -64,7 +64,7 @@ model Cover {
 
 model Genre {
   id        String   @id @default(cuid())
-  igdbId    String   @unique
+  igdbId    Int      @unique
   name      String
   games     Game[]
   createdAt DateTime @default(now())
@@ -73,7 +73,7 @@ model Genre {
 
 model Platform {
   id          String       @id @default(cuid())
-  igdbId      String       @unique
+  igdbId      Int          @unique
   name        String
   games       Game[]
   playedGames PlayedGame[]
