@@ -4,6 +4,9 @@
 // Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
 // Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
+// Push changes (no changelogs, good for development): npx prisma db push
+// Migrate changes (save migrations, good for production): npx prisma migrate dev --name
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -27,10 +30,10 @@ model Game {
   id               String       @id @default(cuid())
   igdbId           Int          @unique
   slug             String       @unique
-  title            String
+  name             String
   firstReleaseDate DateTime
-  cover            Cover        @relation(fields: [coverId], references: [id])
-  coverId          String
+  cover            Cover?       @relation(fields: [coverId], references: [id])
+  coverId          String?
   genres           Genre[]
   platforms        Platform[]
   playedGames      PlayedGame[]

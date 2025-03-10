@@ -3,17 +3,17 @@
 import {useEffect, useState} from "react";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {convertDate} from "@/lib/utils";
-import {Game} from "@/api/types";
+import {GameIGDB} from "@/api/types";
 import {registerPlayedGame} from "@/services/playedGameService";
 
 interface RegisterPlayedGameProps {
-    id: string
+    id: number
     onComplete: () => void
 }
 
 export default function RegisterPlayedGameForm({id, onComplete}: RegisterPlayedGameProps) {
 
-    const [game, setGame] = useState<Game | null>(null)
+    const [game, setGame] = useState<GameIGDB | null>(null)
     const [playtime, setPlaytime] = useState<number>(0)
     const [platformId, setPlatformId] = useState<number>(NaN)
     const [like, setLike] = useState<boolean>(false)
@@ -26,10 +26,11 @@ export default function RegisterPlayedGameForm({id, onComplete}: RegisterPlayedG
         const fetchGame = async () => {
             try {
                 const results = await fetchGameFromIGDB(id);
-                const game = results[0]
 
-                setGame(game)
-                setPlatformId(game.platforms[0].id)
+                if (results) {
+                    setGame(results)
+                    setPlatformId(results.platforms[0].id)
+                }
             } catch (error) {
                 console.error(error);
             }
@@ -47,13 +48,13 @@ export default function RegisterPlayedGameForm({id, onComplete}: RegisterPlayedG
         if (game) {
 
             const newGame = await registerPlayedGame({
-                gameIgbdId: game.id,
-                platformIgdbId: platformId,
+                gameIdIGDB: game.id,
+                platformIdIGDB: platformId,
                 playtime: playtime,
                 like: like
             })
 
-            console.log(newGame)
+            console.log("Return value: ", newGame)
         }
 
         // Reset values

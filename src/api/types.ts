@@ -1,21 +1,22 @@
-export interface Game {
+export interface GameIGDB {
     id: number;
     name: string;
-    first_release_date?: number;
-    platforms?: Platform[];
-    genres?: Genre[];
-    updated_at?: Date;
+    slug: string;
+    first_release_date: number;
+    platforms: PlatformIGDB[];
+    genres: GenreIGDB[];
+    updated_at: number;
 }
 
-export interface Genre {
+export interface GenreIGDB {
     id: number;
     name: string;
-    updated_at?: Date;
+    updated_at: number;
 }
 
-export interface Platform {
+export interface PlatformIGDB {
     id: number;
     name: string;
-    updated_at?: Date;
+    updated_at: number;
 }
 

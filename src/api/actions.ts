@@ -1,9 +1,10 @@
 'use server'
 
 import {getToken} from "@/api/token";
+import {GameIGDB} from "@/api/types";
 
 // Search for games that fit a certain query
-export async function searchGamesFromIGDB(query: string) {
+export async function searchGamesFromIGDB(query: string): Promise<GameIGDB[] | null> {
     const token = await getToken()
 
     const response = await
@@ -20,10 +21,12 @@ export async function searchGamesFromIGDB(query: string) {
         throw new Error('Failed to search games');
     }
 
-    return response.json();
+    const data = response.json()
+
+    return data || null;
 }
 
-export async function fetchGameFromIGDB(igdbId: string) {
+export async function fetchGameFromIGDB(igdbId: number): Promise<GameIGDB | null> {
     const token = await getToken()
 
     const response = await
@@ -33,14 +36,16 @@ export async function fetchGameFromIGDB(igdbId: string) {
                 'Client-ID': process.env.TWITCH_CLIENT_ID as string,
                 'Authorization': `Bearer ${token}`,
             },
-            body: `fields name, cover.image_id, first_release_date, genres.name, platforms.name; where id = ${igdbId};`,
+            body: `fields name, slug, cover.image_id, first_release_date, genres.name, genres.updated_at, platforms.name, platforms.updated_at, updated_at; where id = ${igdbId};`,
         })
 
     if (!response.ok) {
         throw new Error('Game not found on IGDB')
     }
 
-    return response.json()
+    const data = await response.json()
+
+    return data[0] || null
 }
 
 export async function fetchAllGenresFromIGDB() {

@@ -6,12 +6,12 @@ import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
 import Image from "next/image";
 import RegisterPlayedGameForm from "@/ui/registerPlayedGameForm";
-import {Game} from "@/api/types";
+import {GameIGDB} from "@/api/types";
 
 export default function Test() {
-    const [games, setGames] = useState<Game[]>([]);
+    const [games, setGames] = useState<GameIGDB[] | null>([]);
     const [query, setQuery] = useState('');
-    const [selectedGameId, setSelectedGameId] = useState('')
+    const [selectedGameId, setSelectedGameId] = useState(NaN)
 
     useEffect(() => {
         if (!query) {
@@ -31,7 +31,7 @@ export default function Test() {
         fetchGames();
     }, [query]);
 
-    const handleClick = async (id: string) => {
+    const handleClick = async (id: number) => {
         setSelectedGameId(id)
     }
 
@@ -46,7 +46,8 @@ export default function Test() {
                         <span> {game.name} {game.first_release_date && <>({convertDate(game.first_release_date).year})</>}</span>
                         <button onClick={
                             (e) => handleClick(game.id)
-                        }>Add me</button>
+                        }>Add me
+                        </button>
                     </li>
                 ))}
             </ul>
@@ -56,7 +57,8 @@ export default function Test() {
 
             <hr/>
 
-            {selectedGameId && <RegisterPlayedGameForm id={selectedGameId} onComplete={() => setSelectedGameId('')} />}
+            {!isNaN(selectedGameId) &&
+                <RegisterPlayedGameForm id={selectedGameId} onComplete={() => setSelectedGameId(NaN)}/>}
 
             <hr/>
 

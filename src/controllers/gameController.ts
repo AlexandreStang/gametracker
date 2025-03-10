@@ -20,26 +20,26 @@ export class GameController {
     static async create(data: {
         igdbId: number,
         slug: string,
-        title: string,
+        name: string,
         firstReleaseDate: Date,
-        coverId: string,
-        genres: string[],
-        platforms: string[]
+        coverId?: string,
+        genresId: string[],
+        platformsId: string[]
     }) {
         return prisma.game.create({
             data: {
                 igdbId: data.igdbId,
                 slug: data.slug,
-                title: data.title,
+                name: data.name,
                 firstReleaseDate: data.firstReleaseDate,
-                cover: {
+                cover: data.coverId ? {
                     connect: {id: data.coverId}
-                },
+                } : {},
                 genres: {
-                    connect: data.genres.map((id) => ({id}))
+                    connect: data.genresId.map((id) => ({id}))
                 },
                 platforms: {
-                    connect: data.platforms.map((id) => ({id}))
+                    connect: data.platformsId.map((id) => ({id}))
                 }
             }
         })
@@ -47,7 +47,7 @@ export class GameController {
 
     static async update(id: string, data: {
         slug?: string,
-        title?: string,
+        name?: string,
         firstReleaseDate?: Date,
         coverId?: string,
         genres?: string[],
@@ -56,7 +56,7 @@ export class GameController {
         return prisma.game.update({
             where: {id},
             data: {
-                title: data.title,
+                name: data.name,
                 slug: data.slug,
                 firstReleaseDate: data.firstReleaseDate,
                 cover: data.coverId ? {
