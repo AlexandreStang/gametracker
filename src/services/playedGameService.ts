@@ -16,9 +16,13 @@ export async function registerPlayedGame(data: PlayedGameFormData) {
     const game = await createOrUpdateGame(data.gameIGDBid)
     const platform = await PlatformController.getByIgdbId(data.platformIGDBid)
 
+    if (!game || !platform) {
+        return null
+    }
+
     return await PlayedGameController.create({
         gameId: game.id,
-        platformId: platform ? platform.id : '',
+        platformId: platform.id,
         playtime: data.playtime,
         like: data.like,
         userId: 'cm7xuh4di0000vmxwj7x7am9r',
