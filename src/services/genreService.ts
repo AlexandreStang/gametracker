@@ -1,3 +1,5 @@
+'use server'
+
 import {GenreIGDB} from "@/api/types";
 import {GenreController} from "@/controllers/genreController";
 

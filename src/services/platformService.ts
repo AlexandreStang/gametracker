@@ -1,3 +1,5 @@
+'use server'
+
 import {PlatformIGDB} from "@/api/types";
 import {PlatformController} from "@/controllers/platformController";
 

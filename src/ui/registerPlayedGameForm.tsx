@@ -48,8 +48,8 @@ export default function RegisterPlayedGameForm({id, onComplete}: RegisterPlayedG
         if (game) {
 
             const newGame = await registerPlayedGame({
-                gameIdIGDB: game.id,
-                platformIdIGDB: platformId,
+                gameIGDBid: game.id,
+                platformIGDBid: platformId,
                 playtime: playtime,
                 like: like
             })

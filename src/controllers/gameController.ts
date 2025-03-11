@@ -50,8 +50,8 @@ export class GameController {
         name?: string,
         firstReleaseDate?: Date,
         coverId?: string,
-        genres?: string[],
-        platforms?: string[]
+        genresId?: string[],
+        platformsId?: string[]
     }) {
         return prisma.game.update({
             where: {id},
@@ -62,11 +62,11 @@ export class GameController {
                 cover: data.coverId ? {
                     connect: {id: data.coverId}
                 } : undefined,
-                genres: data.genres ? {
-                    set: data.genres.map((id) => ({id}))
+                genres: data.genresId ? {
+                    set: data.genresId.map((id) => ({id}))
                 } : undefined,
-                platforms: data.platforms ? {
-                    set: data.platforms.map((id) => ({id}))
+                platforms: data.platformsId ? {
+                    set: data.platformsId.map((id) => ({id}))
                 } : undefined
             }
         })
