@@ -17,12 +17,8 @@ export async function createOrUpdateGame(IGDBid: number) {
 
     const game = await GameController.getByIgdbId(IGDBid)
 
-    console.log("Game in database: ", game)
-
     // Create a new game inside the database if it doesn't already exist
     if (!game) {
-
-        console.log("Fetched game in API:", fetchedGame)
 
         let genres: string[] = await getGenresList(fetchedGame.genres)
         let platforms: string[] = await getPlatformsList(fetchedGame.platforms)
