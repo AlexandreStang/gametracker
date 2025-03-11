@@ -13,19 +13,28 @@ export interface PlayedGameFormData {
 
 export async function registerPlayedGame(data: PlayedGameFormData) {
 
-    const game = await createOrUpdateGame(data.gameIGDBid)
-    const platform = await PlatformController.getByIgdbId(data.platformIGDBid)
+    try {
+        const [game, platform] = await Promise.all([
+            createOrUpdateGame(data.gameIGDBid),
+            PlatformController.getByIgdbId(data.platformIGDBid),
+        ]);
 
-    if (!game || !platform) {
+        if (!game || !platform) {
+            console.warn("Game or platform not found; cannot register played game.");
+            return null
+        }
+
+        return PlayedGameController.create({
+            gameId: game.id,
+            platformId: platform.id,
+            playtime: data.playtime,
+            like: data.like,
+            userId: 'cm7xuh4di0000vmxwj7x7am9r',
+        })
+
+    } catch (error) {
+        console.error('Error registering played game: ', error)
         return null
     }
-
-    return await PlayedGameController.create({
-        gameId: game.id,
-        platformId: platform.id,
-        playtime: data.playtime,
-        like: data.like,
-        userId: 'cm7xuh4di0000vmxwj7x7am9r',
-    })
 
 }
