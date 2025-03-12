@@ -7,17 +7,17 @@ import {createOrUpdateGenre} from "@/services/genreService";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {GenreIGDB, PlatformIGDB} from "@/api/types";
 
-export async function createOrUpdateGame(IGDBid: number) {
+export async function createOrUpdateGame(igdbId: number) {
 
     try {
-        const fetchedGame = await fetchGameFromIGDB(IGDBid)
+        const fetchedGame = await fetchGameFromIGDB(igdbId)
 
         if (!fetchedGame) {
             console.error("There are no games with this id on IGDB")
             return null
         }
 
-        const game = await GameController.getByIgdbId(IGDBid)
+        const game = await GameController.getByIgdbId(igdbId)
 
         // Create a new game inside the database if it doesn't already exist
         if (!game) {
