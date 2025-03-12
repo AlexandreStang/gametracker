@@ -5,8 +5,8 @@ import {PlayedGameController} from "@/controllers/playedGameController";
 import {PlatformController} from "@/controllers/platformController";
 
 export interface PlayedGameFormData {
-    gameIGDBid: number,
-    platformIGDBid: number,
+    gameIgdbId: number,
+    platformIgdbId: number,
     playtime: number,
     like: boolean
 }
@@ -14,13 +14,24 @@ export interface PlayedGameFormData {
 export async function registerPlayedGame(data: PlayedGameFormData) {
 
     try {
+        const hasPlayedGame = await PlayedGameController.hasPlayedGameOnPlatform({
+            userId: 'cm7xuh4di0000vmxwj7x7am9r',
+            gameIgdbId: data.gameIgdbId,
+            platformIgdbId: data.platformIgdbId
+        })
+
+        if (hasPlayedGame) {
+            console.error("You already have this game on this platform");
+            return null
+        }
+
         const [game, platform] = await Promise.all([
-            createOrUpdateGame(data.gameIGDBid),
-            PlatformController.getByIgdbId(data.platformIGDBid),
+            createOrUpdateGame(data.gameIgdbId),
+            PlatformController.getByIgdbId(data.platformIgdbId),
         ]);
 
         if (!game || !platform) {
-            console.warn("Game or platform not found; cannot register played game.");
+            console.error("Game or platform not found; cannot register played game.");
             return null
         }
 

@@ -57,4 +57,20 @@ export class PlayedGameController {
             where: {id}
         })
     }
+
+    static async hasPlayedGameOnPlatform(data: {userId: string, gameIgdbId: number, platformIgdbId: number}) {
+        const playedGame = await prisma.playedGame.findFirst({
+            where: {
+                userId: data.userId,
+                game: {
+                    igdbId: data.gameIgdbId
+                },
+                platform: {
+                    igdbId: data.platformIgdbId
+                }
+            }
+        })
+
+        return Boolean(playedGame)
+    }
 }
