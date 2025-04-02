@@ -5,7 +5,7 @@
     border: 1px solid var(--border-primary);
     border-radius: var(--radius-global);
 
-    padding: 0 var(--size-3);
+    padding: 0 var(--input-padding-x);
 
     color: var(--text-primary);
     background-color: var(--input-background);
@@ -20,6 +20,12 @@
     border: 1px solid transparent;
 }
 
-.input_icon {
+.input_text_w_icon {
+    padding-left: calc(var(--input-padding-x) + var(--icon-size-md) + var(--size-2));
+}
 
+.input_icon {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+    margin-left: var(--input-padding-x);
 }
