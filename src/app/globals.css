@@ -1,24 +1,61 @@
-/*@import "tailwindcss";*/
+@import "tailwindcss";
+@import "../styles/tokens.css";
 
 @theme {
-  /*--font-sans: var(--font-geist-sans);*/
+  --font-sans: "Inter";
   /*--font-mono: var(--font-geist-mono);*/
 }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  /*PRIMITIVES: COLORS _________________________________________________________________*/
+  --color-grey-200: #F6F8FA;
+  --color-grey-250: #EEF1F4;
+  --color-grey-300: #DCE4EB;
+  --color-grey-400: #C2D0DC;
+
+  --color-neutral-600: #515151;
+
+  --color-purple-550: #9A4FE5;
+  --color-purple-500: #AC58FF;
+  --color-purple-400: #BC79FF;
+  --color-purple-300: #CD9AFF;
+  --color-purple-200: #DDBCFF;
+
+  --color-white-100: #FFFFFF;
+
+  /*PRIMITIVES: SIZES _________________________________________________________________*/
+  --size-05: 4px;
+  --size-1: 8px;
+  --size-2: 16px;
+  --size-3: 24px;
+  --size-4: 32px;
+  --size-5: 40px;
+  --size-6: 48px;
+  --size-7: 56px;
+  --size-8: 64px;
+  --size-10: 80px;
+  --size-12: 96px;
+  --size-16: 128px;
+  --size-20: 160px;
+  --size-24: 192px;
+  --size-32: 256px;
+
+  /*BACKGROUND & FOREGROUND _________________________________________________________________*/
+  --background: var(--color-grey-200);
+  --foreground: var(--color-neutral-600);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-neutral-600);
+    --foreground: var(--color-grey-200);
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans) Arial, Helvetica, sans-serif;
 }
+

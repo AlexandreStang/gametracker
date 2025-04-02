@@ -1,5 +1,7 @@
 'use client'
 
+import styles from "@/styles/input.module.css"
+
 import {useDebouncedCallback} from "use-debounce";
 
 interface SearchProps {
@@ -19,7 +21,7 @@ export default function Search({placeholder, onSearch}: SearchProps) {
             onChange={e => {
                 handleSearch(e.target.value)
             }}
-            className={"border border-black"}
+            className={styles.input_text}
         />
     )
 }
