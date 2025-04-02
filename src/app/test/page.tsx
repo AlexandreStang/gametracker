@@ -38,7 +38,7 @@ export default function Test() {
     return (
         <div>
 
-            <Search placeholder={"Search game"} onSearch={setQuery}></Search>
+            <Search placeholder={"Search games..."} onSearch={setQuery}></Search>
 
             <ul>
                 {games?.map((game) => (
