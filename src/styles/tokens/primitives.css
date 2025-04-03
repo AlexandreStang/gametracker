@@ -1,5 +1,5 @@
 :root {
-    /*PRIMITIVES: COLORS _________________________________________________________________*/
+    /*COLORS _________________________________________________________________*/
     --color-grey-200: #F6F8FA;
     --color-grey-250: #EEF1F4;
     --color-grey-300: #DCE4EB;
@@ -11,11 +11,16 @@
     --color-purple-500: #AC58FF;
     --color-purple-400: #BC79FF;
     --color-purple-300: #CD9AFF;
+    --color-purple-250: #D5ABFF;
     --color-purple-200: #DDBCFF;
 
     --color-white-100: #FFFFFF;
 
-    /*PRIMITIVES: SIZES _________________________________________________________________*/
+    /*FONT SIZES _________________________________________________________________*/
+    --fs-body: 0.875rem;        /* 14px */
+    --fs-body-lg: 1rem;         /* 16px */
+
+    /*SIZES _________________________________________________________________*/
     --size-05: 4px;
     --size-1: 8px;
     --size-2: 16px;
@@ -31,4 +36,7 @@
     --size-20: 160px;
     --size-24: 192px;
     --size-32: 256px;
+
+    /*TRANSITION _________________________________________________________________*/
+    --transition-global: all 75ms ease-in-out;
 }

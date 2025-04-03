@@ -6,6 +6,102 @@ export default function Collection() {
         <div>
 
             Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
+            <hr/>
+            Collection Page
 
         </div>
     );

@@ -1,11 +1,65 @@
 import styles from "@/styles/sidebar.module.css"
+import SidebarNavLink from "@/ui/sidebarNavLink";
+import clsx from "clsx";
+
+import {ListBulletIcon} from "@heroicons/react/24/outline";
+import {ChartBarIcon} from "@heroicons/react/24/outline";
+import {UserGroupIcon} from "@heroicons/react/24/outline";
+import {Cog6ToothIcon} from "@heroicons/react/24/outline";
+import {ArrowRightStartOnRectangleIcon} from "@heroicons/react/24/outline";
 
 export default function Sidebar() {
 
+    interface Link {
+        text: string,
+        icon: React.ElementType,
+        href?: string,
+        isActive?: boolean
+    }
+
+    const generalLinks: Link[] = [
+        {text: "Collection", icon: ListBulletIcon, href: "/dashboard/collection"},
+        {text: "Statistics", icon: ChartBarIcon, isActive: false},
+        {text: "Community", icon: UserGroupIcon, isActive: false},
+    ]
+
+    const accountLinks: Link[] = [
+        {text: "Settings", icon: Cog6ToothIcon, isActive: false},
+        {text: "Log Out", icon: ArrowRightStartOnRectangleIcon, isActive: false}
+    ]
+
+    const renderLinks = (links: Link[]) => {
+        return links.map((link) => {
+            const Icon = link.icon;
+
+            return (
+                <SidebarNavLink href={link.href && link.href} isActive={link.isActive && link.isActive}>
+                    <Icon className={styles.sidebar_icon}></Icon>
+                    <span>{link.text}</span>
+                </SidebarNavLink>
+            )
+        })
+    }
+
     return (
         <aside className={styles.sidebar}>
-            <div className="text-5xl text-center font-black tracking-widest">LOGO</div>
-            <div></div>
+            <div className={clsx("text-5xl text-center font-black tracking-widest", styles.sidebar_bottom_gap)}>
+                LOGO
+            </div>
+            <nav>
+                <section className={styles.sidebar_bottom_gap}>
+                    <h2 className={styles.sidebar_category}>General</h2>
+                    <div>
+                        {renderLinks(generalLinks)}
+                    </div>
+                </section>
+                <section>
+                    <h2 className={styles.sidebar_category}>Account</h2>
+                    <div>
+                        {renderLinks(accountLinks)}
+                    </div>
+                </section>
+            </nav>
         </aside>
     )
 }
