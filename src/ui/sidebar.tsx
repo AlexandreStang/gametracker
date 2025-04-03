@@ -29,11 +29,14 @@ export default function Sidebar() {
     ]
 
     const renderLinks = (links: Link[]) => {
-        return links.map((link) => {
+        return links.map((link, index) => {
             const Icon = link.icon;
 
             return (
-                <SidebarNavLink href={link.href && link.href} isActive={link.isActive && link.isActive}>
+                <SidebarNavLink
+                    key={index}
+                    href={link.href && link.href}
+                    isActive={link.isActive && link.isActive}>
                     <Icon className={styles.sidebar_icon}></Icon>
                     <span>{link.text}</span>
                 </SidebarNavLink>
@@ -46,7 +49,7 @@ export default function Sidebar() {
             <div className={clsx("text-5xl text-center font-black tracking-widest", styles.sidebar_bottom_gap)}>
                 LOGO
             </div>
-            <nav>
+            <nav className={styles.sidebar_nav}>
                 <section className={styles.sidebar_bottom_gap}>
                     <h2 className={styles.sidebar_category}>General</h2>
                     <div>
