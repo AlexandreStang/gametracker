@@ -9,14 +9,14 @@
 
 :root {
   /*BACKGROUND & FOREGROUND _________________________________________________________________*/
-  --background: var(--color-grey-200);
-  --foreground: var(--color-neutral-600);
+  --background: var(--surface-primary);
+  --foreground: var(--text-primary);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--color-neutral-600);
-    --foreground: var(--color-grey-200);
+    --background: var(--text-primary);
+    --foreground: var(--surface-primary);
   }
 }
 
