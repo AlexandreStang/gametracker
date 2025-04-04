@@ -1,6 +1,7 @@
 import {GameIGDB} from "@/api/types";
 import SearchResult from "@/ui/search/searchResult";
 import {convertDate} from "@/lib/utils";
+import styles from "@/styles/search.module.css"
 
 interface searchDropdownInterface {
     games: GameIGDB[]
@@ -8,11 +9,17 @@ interface searchDropdownInterface {
 
 export default function SearchDropdown({games}: searchDropdownInterface) {
 
-    return(
-        <div>
-            {games.map(game => (
-                <SearchResult name={game.name} year={convertDate(game.first_release_date).year} key={game.id}></SearchResult>
-            ))}
-        </div>
+    return (
+        <>
+            {games[0] &&
+                <div className={styles.search_dropdown}>
+                    {games.map(game => (
+                        <SearchResult name={game.name}
+                                      year={convertDate(game.first_release_date).year}
+                                      key={game.id}>
+                        </SearchResult>
+                    ))}
+                </div>}
+        </>
     )
 }

@@ -7,7 +7,7 @@
 
     --color-neutral-600: #515151;
 
-    --color-purple-550: #9A4FE5;
+    --color-purple-550: #984FE5;
     --color-purple-500: #AC58FF;
     --color-purple-400: #BC79FF;
     --color-purple-300: #CD9AFF;
@@ -17,8 +17,15 @@
     --color-white-100: #FFFFFF;
 
     /*FONT SIZES _________________________________________________________________*/
-    --fs-body: 0.875rem;        /* 14px */
-    --fs-body-lg: 1rem;         /* 16px */
+    --fs-body: 0.875rem; /* 14px */
+    --fs-body-lg: 1rem; /* 16px */
+    --fs-heading: 1.5rem; /* 24px */
+
+    /*FONT WEIGHT _________________________________________________________________*/
+    --fw-heading-bold: 600;
+
+    /*SHADOW _________________________________________________________________*/
+    --shadow-main: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
 
     /*SIZES _________________________________________________________________*/
     --size-05: 4px;
@@ -39,4 +46,6 @@
 
     /*TRANSITION _________________________________________________________________*/
     --transition-global: all 75ms ease-in-out;
+
+
 }

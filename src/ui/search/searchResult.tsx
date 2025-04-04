@@ -1,3 +1,6 @@
+import styles from "@/styles/search.module.css"
+import {PlusIcon} from "@heroicons/react/24/solid";
+
 interface searchResultProps {
     name: string,
     year: number
@@ -6,8 +9,11 @@ interface searchResultProps {
 export default function SearchResult({name, year}: searchResultProps) {
 
     return(
-        <div>
-            {name} ({year})
+        <div className={styles.search_result}>
+            <span>
+                {name} ({year})
+            </span>
+            <PlusIcon className={styles.search_result_icon}></PlusIcon>
         </div>
     )
 }

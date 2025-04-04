@@ -11,6 +11,7 @@
 
     /*INPUT _________________________________________________________________*/
     --input-background: var(--color-white-100);
+    --input-background-hover: var(--color-grey-250);
     --input-padding-x: var(--size-3);
 
     /*MARGIN _________________________________________________________________*/

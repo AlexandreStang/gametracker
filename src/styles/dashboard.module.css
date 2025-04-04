@@ -10,3 +10,8 @@
 .dashboard_content {
     width: 100%;
 }
+
+.dashboard_heading {
+    font-size: var(--fs-heading);
+    font-weight: var(--fw-heading-bold);
+}
