@@ -1,0 +1,12 @@
+.dashboard_layout {
+    display: flex;
+    gap: var(--margin-page);
+
+    margin-top: var(--margin-page);
+    margin-right: var(--margin-page);
+    margin-left: var(--margin-page);
+}
+
+.dashboard_content {
+    width: 100%;
+}

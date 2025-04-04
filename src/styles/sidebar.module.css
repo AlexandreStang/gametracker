@@ -3,8 +3,12 @@
     top: var(--margin-page);
     height: calc(100vh - 2 * var(--margin-page));
     width: 320px;
+    flex-shrink: 0;
 
-    margin: var(--margin-page);
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-7);
+
     padding: var(--size-7) var(--size-5);
 
     border-radius: var(--radius-global);
@@ -36,7 +40,7 @@
 }
 
 .sidebar_link:hover, .sidebar_link_current {
-    background-color: #9a4fe5;
+    background-color: var(--surface-brand-hover);
 }
 
 .sidebar_link_inactive {

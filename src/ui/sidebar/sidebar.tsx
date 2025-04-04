@@ -46,22 +46,20 @@ export default function Sidebar() {
 
     return (
         <aside className={styles.sidebar}>
-            <div className={clsx("text-5xl text-center font-black tracking-widest", styles.sidebar_bottom_gap)}>
+            <div className="text-5xl text-center font-black tracking-widest">
                 LOGO
             </div>
-            <nav className={styles.sidebar_nav}>
-                <section className={styles.sidebar_bottom_gap}>
-                    <h2 className={styles.sidebar_category}>General</h2>
-                    <div>
-                        {renderLinks(generalLinks)}
-                    </div>
-                </section>
-                <section>
-                    <h2 className={styles.sidebar_category}>Account</h2>
-                    <div>
-                        {renderLinks(accountLinks)}
-                    </div>
-                </section>
+            <nav>
+                <h2 className={styles.sidebar_category}>General</h2>
+                <div>
+                    {renderLinks(generalLinks)}
+                </div>
+            </nav>
+            <nav>
+                <h2 className={styles.sidebar_category}>Account</h2>
+                <div>
+                    {renderLinks(accountLinks)}
+                </div>
             </nav>
         </aside>
     )
