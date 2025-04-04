@@ -1,5 +1,5 @@
 import styles from "@/styles/sidebar.module.css"
-import SidebarNavLink from "@/ui/sidebarNavLink";
+import SidebarNavLink from "@/ui/sidebar/sidebarNavLink";
 import clsx from "clsx";
 
 import {ListBulletIcon} from "@heroicons/react/24/outline";

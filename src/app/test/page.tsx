@@ -1,7 +1,7 @@
 'use client'
 
 import {fetchGameFromIGDB, searchGamesFromIGDB} from "@/api/actions";
-import Search from "@/ui/search";
+import Search from "@/ui/search/search";
 import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
 import Image from "next/image";
