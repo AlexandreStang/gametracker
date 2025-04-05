@@ -2,24 +2,26 @@
 
 :root {
 
+
+
     /*BUTTON _________________________________________________________________*/
 
 
     /*ICON _________________________________________________________________*/
-    --icon-size-md: var(--size-3);
+    --icon-size-md: calc(var(--spacing) * 6);
 
     /*INPUT _________________________________________________________________*/
     --input-background: var(--color-white-100);
     --input-background-hover: var(--color-grey-250);
     --input-border: var(--color-grey-400);
     --input-border-select: var(--color-purple-500);
-    --input-padding-x: var(--size-3);
+    --input-padding-x: calc(var(--spacing) * 6);
 
     /*MARGIN _________________________________________________________________*/
-    --margin-page: var(--size-3);
+    --margin-page: calc(var(--spacing) * 6);
 
     /*RADIUS _________________________________________________________________*/
-    --radius-global: var(--size-1);
+    --radius-global: calc(var(--spacing) * 2);
 
     /*SURFACE _________________________________________________________________*/
     --surface-brand: var(--color-purple-500);

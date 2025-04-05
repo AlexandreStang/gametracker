@@ -10,8 +10,6 @@
 :root {
   --background: var(--surface-primary);
   --foreground: var(--text-primary);
-
-  --spacing: var(--size-1); /* Replaces Tailwind's spacing variable (0.25rem) */
 }
 
 @media (prefers-color-scheme: dark) {

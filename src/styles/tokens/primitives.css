@@ -1,4 +1,7 @@
 :root {
+
+    --spacing: 0.25rem; /* Same as the default Tailwind spacing */
+
     /*COLORS _________________________________________________________________*/
     --color-grey-200: #F6F8FA;
     --color-grey-250: #EEF1F4;
@@ -26,23 +29,6 @@
 
     /*SHADOW _________________________________________________________________*/
     --shadow-main: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
-
-    /*SIZES _________________________________________________________________*/
-    --size-05: 4px;
-    --size-1: 8px;
-    --size-2: 16px;
-    --size-3: 24px;
-    --size-4: 32px;
-    --size-5: 40px;
-    --size-6: 48px;
-    --size-7: 56px;
-    --size-8: 64px;
-    --size-10: 80px;
-    --size-12: 96px;
-    --size-16: 128px;
-    --size-20: 160px;
-    --size-24: 192px;
-    --size-32: 256px;
 
     /*TRANSITION _________________________________________________________________*/
     --transition-global: all 75ms ease-in-out;
