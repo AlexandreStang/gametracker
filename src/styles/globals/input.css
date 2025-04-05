@@ -2,7 +2,7 @@ input[type=text], input[type=date] {
     height: calc(var(--spacing) * 12);
     width: 100%;
 
-    border: 1px solid var(--input-border);
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-global);
 
     padding: 0 var(--input-padding-x);
@@ -16,7 +16,7 @@ input[type=text]::placeholder {
 }
 
 input[type=text]:focus {
-    outline: 1px solid var(--input-border-select);
+    outline: 1px solid var(--border-brand);
     border: 1px solid transparent;
 }
 

@@ -2,6 +2,7 @@
 @import "../styles/tokens/primitives.css";
 @import "../styles/tokens/theme.css";
 @import "../styles/globals/input.css";
+@import "../styles/globals/table.css";
 
 @theme {
   /*--font-sans: "Inter";*/

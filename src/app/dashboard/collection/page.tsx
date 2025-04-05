@@ -2,7 +2,6 @@
 
 import {useEffect, useState} from "react";
 import dashboard_styles from "@/styles/dashboard.module.css"
-import input_styles from "@/styles/input.module.css"
 import {searchGamesFromIGDB} from "@/api/actions";
 import SearchBar from "@/ui/search/searchBar";
 import SearchDropdown from "@/ui/search/searchDropdown";
@@ -54,24 +53,22 @@ export default function Collection() {
                         Total playtime: <span className={"body_bold"}>{formatHours(3253)}</span>
                     </div>
                 </div>
-                <div>
-                    <table>
-                        <thead>
-                        <tr>
-                            <th>Rank</th>
-                            <th>Game</th>
-                            <th>Released</th>
-                            <th>Support</th>
-                            <th>Playtime</th>
-                            <th>Like</th>
-                            <th>Edit</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                            <CollectionGame></CollectionGame>
-                        </tbody>
-                    </table>
-                </div>
+                <table className={dashboard_styles.dashboard_wrapper_lg}>
+                    <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Game</th>
+                        <th>Released</th>
+                        <th>Support</th>
+                        <th>Playtime</th>
+                        <th>Like</th>
+                        <th>Edit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <CollectionGame></CollectionGame>
+                    </tbody>
+                </table>
             </div>
         </>
     );

@@ -1,0 +1,16 @@
+table {
+    width: 100%;
+
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-global);
+
+    background-color: var(--surface-secondary);
+
+    th {
+        font-weight: var(--fw-normal);
+    }
+
+    td {
+        font-weight: var(--fw-bold);
+    }
+}
