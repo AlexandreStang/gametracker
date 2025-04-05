@@ -1,4 +1,4 @@
-.input_text {
+input[type=text], input[type=date] {
     height: calc(var(--spacing) * 12);
     width: 100%;
 
@@ -11,20 +11,20 @@
     background-color: var(--input-background);
 }
 
-.input_text::placeholder {
+input[type=text]::placeholder {
     color: var(--text-muted);
 }
 
-.input_text:focus {
+input[type=text]:focus {
     outline: 1px solid var(--input-border-select);
     border: 1px solid transparent;
 }
 
-.input_text_w_icon {
+input.app_input_text_w_icon {
     padding-left: calc(var(--input-padding-x) + var(--icon-size-md) + calc(var(--spacing) * 4));
 }
 
-.input_icon {
+.app_input_icon {
     width: var(--icon-size-md);
     height: var(--icon-size-md);
     margin-left: var(--input-padding-x);

@@ -48,7 +48,7 @@ export default function Collection() {
                 <div className={clsx("flex justify-center items-center gap-4", dashboard_styles.dashboard_wrapper_md)}>
                     <div className="flex justify-center items-center gap-2">
                         <span className="w-full">Last updated on:</span>
-                        <input type="date" className={input_styles.input_text}/>
+                        <input type="date"/>
                     </div>
                     <div>
                         Total playtime: <span className={"body_bold"}>{formatHours(3253)}</span>
