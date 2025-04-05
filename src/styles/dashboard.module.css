@@ -13,5 +13,15 @@
 
 .dashboard_heading {
     font-size: var(--fs-heading);
-    font-weight: var(--fw-heading-bold);
+    font-weight: var(--fw-bold);
+}
+
+.dashboard_wrapper_md {
+    width: 100%;
+    max-width: 720px;
+}
+
+.dashboard_wrapper_lg {
+    width: 100%;
+    max-width: 960px;
 }

@@ -11,7 +11,7 @@ interface SearchProps {
     onSearch: (query: string) => void
 }
 
-export default function Search({placeholder, onSearch}: SearchProps) {
+export default function SearchBar({placeholder, onSearch}: SearchProps) {
 
     const handleSearch = useDebouncedCallback((query: string) => {
         onSearch(query) // Return query to the parent

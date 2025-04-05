@@ -1,7 +1,7 @@
 'use client'
 
 import {fetchGameFromIGDB, searchGamesFromIGDB} from "@/api/actions";
-import Search from "@/ui/search/search";
+import SearchBar from "@/ui/search/searchBar";
 import {useEffect, useState} from "react";
 import {convertDate} from "@/lib/utils";
 import Image from "next/image";
@@ -38,7 +38,7 @@ export default function Test() {
     return (
         <div>
 
-            <Search placeholder={"Search games..."} onSearch={setQuery}></Search>
+            <SearchBar placeholder={"SearchBar games..."} onSearch={setQuery}></SearchBar>
 
             <ul>
                 {games?.map((game) => (

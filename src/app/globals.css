@@ -8,9 +8,10 @@
 }
 
 :root {
-  /*BACKGROUND & FOREGROUND _________________________________________________________________*/
   --background: var(--surface-primary);
   --foreground: var(--text-primary);
+
+  --spacing: var(--size-1); /* Replaces Tailwind's spacing variable (0.25rem) */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -28,3 +29,6 @@ body {
   font-size: var(--fs-body);
 }
 
+.body_bold {
+  font-weight: var(--fw-bold);
+}

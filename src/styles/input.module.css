@@ -16,7 +16,7 @@
 }
 
 .input_text:focus {
-    outline: 2px solid var(--input-border-select);
+    outline: 1px solid var(--input-border-select);
     border: 1px solid transparent;
 }
 
@@ -28,4 +28,6 @@
     width: var(--icon-size-md);
     height: var(--icon-size-md);
     margin-left: var(--input-padding-x);
+
+    color: var(--text-muted);
 }

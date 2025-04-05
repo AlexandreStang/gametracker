@@ -1,11 +1,13 @@
 'use client'
 
 import {useEffect, useState} from "react";
-import styles from "@/styles/dashboard.module.css"
+import dashboard_styles from "@/styles/dashboard.module.css"
+import input_styles from "@/styles/input.module.css"
 import {searchGamesFromIGDB} from "@/api/actions";
-import Search from "@/ui/search/search";
+import SearchBar from "@/ui/search/searchBar";
 import SearchDropdown from "@/ui/search/searchDropdown";
 import {GameIGDB} from "@/api/types";
+import clsx from "clsx";
 
 export default function Collection() {
     const [games, setGames] = useState<GameIGDB[]>([]);
@@ -33,17 +35,29 @@ export default function Collection() {
         fetchGames();
     }, [query]);
 
-    return (
-        <div>
-            <h1 className={styles.dashboard_heading}>Collection</h1>
-            <div className="relative">
-                <Search placeholder={"Search games..."} onSearch={setQuery}></Search>
-                <SearchDropdown games={games}></SearchDropdown>
-            </div>
-            <div>
+    console.log(new Date().getTime())
 
+    return (
+        <>
+            <h1 className={dashboard_styles.dashboard_heading}>Collection</h1>
+            <div className="flex flex-col items-center">
+                <div className={clsx("relative", dashboard_styles.dashboard_wrapper_md)}>
+                    <SearchBar placeholder={"SearchBar games..."} onSearch={setQuery}></SearchBar>
+                    <SearchDropdown games={games}></SearchDropdown>
+                </div>
+                <div className={clsx("flex justify-center items-center gap-4", dashboard_styles.dashboard_wrapper_md)}>
+                    <div className="flex justify-center items-center gap-2">
+                        <span className="w-full">Last updated on:</span>
+                        <input type="date" className={input_styles.input_text}/>
+                    </div>
+                    <div>
+                        Total playtime: <span className={"body_bold"}>3253 hrs</span>
+                    </div>
+                </div>
+                <div>
+                    Hello
+                </div>
             </div>
-            <div></div>
-        </div>
+        </>
     );
 }
