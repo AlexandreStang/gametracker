@@ -9,6 +9,7 @@ import SearchDropdown from "@/ui/search/searchDropdown";
 import {GameIGDB} from "@/api/types";
 import clsx from "clsx";
 import {formatHours} from "@/lib/utils";
+import CollectionGame from "@/ui/collection/collectionGame";
 
 export default function Collection() {
     const [games, setGames] = useState<GameIGDB[]>([]);
@@ -36,8 +37,6 @@ export default function Collection() {
         fetchGames();
     }, [query]);
 
-    console.log(new Date().getTime())
-
     return (
         <>
             <h1 className={dashboard_styles.dashboard_heading}>Collection</h1>
@@ -56,7 +55,22 @@ export default function Collection() {
                     </div>
                 </div>
                 <div>
-                    Hello
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Game</th>
+                            <th>Released</th>
+                            <th>Support</th>
+                            <th>Playtime</th>
+                            <th>Like</th>
+                            <th>Edit</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            <CollectionGame></CollectionGame>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </>
