@@ -4,3 +4,8 @@ export const convertDate= (unix_timestamp: number)=> {
 
     return {date: date, year:date.getFullYear()}
 }
+
+// Format hours
+export const formatHours = (hours: number) => {
+    return `${hours} hrs`
+}

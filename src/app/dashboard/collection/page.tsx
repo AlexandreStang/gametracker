@@ -8,6 +8,7 @@ import SearchBar from "@/ui/search/searchBar";
 import SearchDropdown from "@/ui/search/searchDropdown";
 import {GameIGDB} from "@/api/types";
 import clsx from "clsx";
+import {formatHours} from "@/lib/utils";
 
 export default function Collection() {
     const [games, setGames] = useState<GameIGDB[]>([]);
@@ -51,7 +52,7 @@ export default function Collection() {
                         <input type="date" className={input_styles.input_text}/>
                     </div>
                     <div>
-                        Total playtime: <span className={"body_bold"}>3253 hrs</span>
+                        Total playtime: <span className={"body_bold"}>{formatHours(3253)}</span>
                     </div>
                 </div>
                 <div>
