@@ -2,7 +2,7 @@
     height: var(--size-6);
     width: 100%;
 
-    border: 1px solid var(--border-primary);
+    border: 1px solid var(--input-border);
     border-radius: var(--radius-global);
 
     padding: 0 var(--input-padding-x);
@@ -16,7 +16,7 @@
 }
 
 .input_text:focus {
-    outline: 2px solid var(--border-select);
+    outline: 2px solid var(--input-border-select);
     border: 1px solid transparent;
 }
 

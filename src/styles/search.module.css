@@ -6,6 +6,7 @@
 
     padding: var(--size-2) 0;
 
+    border: 1px solid var(--input-border);
     border-radius: var(--radius-global);
 
     background-color: var(--input-background);
