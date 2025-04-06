@@ -3,14 +3,23 @@ table {
 
     border: 1px solid var(--border-primary);
     border-radius: var(--radius-global);
+    border-collapse: separate;
+    border-spacing: 0;
 
     background-color: var(--surface-secondary);
 
     th {
+        height: calc(var(--spacing) * 16);
+        border-bottom: 1px solid var(--border-primary);
+
         font-weight: var(--fw-normal);
     }
 
     td {
         font-weight: var(--fw-bold);
+    }
+
+    th, td {
+        padding: 0 calc(var(--spacing) * 2);
     }
 }

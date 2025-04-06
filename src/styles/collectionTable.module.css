@@ -1,0 +1,31 @@
+.collection_table {
+
+    td {
+        height: calc(var(--spacing) * 20);
+    }
+}
+
+.th_rank, .td_rank {
+    text-align: center;
+}
+
+.th_game, .td_game  {
+    text-align: left;
+}
+
+
+.th_release, .td_release {
+    text-align: center;
+}
+
+.th_support, .td_support {
+    text-align: center;
+}
+
+.th_playtime, .td_playtime {
+    text-align: center;
+}
+
+.th_like, .th_edit {
+    text-align: center;
+}

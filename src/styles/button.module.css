@@ -1,0 +1,4 @@
+.button_icon_md {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+}

@@ -1,9 +1,10 @@
 import {HeartIcon} from "@heroicons/react/24/solid";
+import styles from "@/styles/button.module.css";
 
 export default function ButtonLike() {
 
     return (
-        <div>
+        <div className={styles.button_icon_md}>
             <HeartIcon></HeartIcon>
         </div>
     )
