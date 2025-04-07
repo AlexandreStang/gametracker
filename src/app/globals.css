@@ -29,6 +29,6 @@ body {
   font-size: var(--fs-body);
 }
 
-.body_bold {
+.app_body_bold {
   font-weight: var(--fw-bold);
 }

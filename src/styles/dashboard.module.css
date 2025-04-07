@@ -1,10 +1,36 @@
+.dashboard_top {
+    height: var(--margin-page);
+    width: 100%;
+
+    position: sticky;
+    top: 0;
+
+    z-index: var(--z-index-top);
+
+    background-color: var(--surface-primary);
+}
+
 .dashboard_layout {
     display: flex;
     gap: var(--margin-page);
 
-    margin-top: var(--margin-page);
     margin-right: var(--margin-page);
     margin-left: var(--margin-page);
+}
+
+.dashboard_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: var(--margin-page);
+
+    padding-bottom: calc(var(--margin-page)/2);
+
+    z-index: var(--z-index-top);
+
+    background-color: var(--surface-primary);
 }
 
 .dashboard_content {

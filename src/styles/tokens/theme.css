@@ -8,6 +8,7 @@
 
     /*ICON _________________________________________________________________*/
     --icon-size-md: calc(var(--spacing) * 6);
+    --icon-size-lg: calc(var(--spacing) * 12);
 
     /*INPUT _________________________________________________________________*/
     --input-background: var(--color-white-100);

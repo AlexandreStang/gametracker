@@ -47,10 +47,13 @@ export default function Sidebar() {
 
     return (
         <aside className={styles.sidebar}>
-            <div className="text-5xl text-center font-extrabold flex content-center items-center gap-4">
+
+            {/*PLACEHOLDER LOGO*/}
+            <div className="text-5xl text-center font-extrabold flex content-center items-center gap-4 mx-auto">
                 <PuzzlePieceIcon className={clsx("h-12 w-12", styles.sidebar_logo_icon)}></PuzzlePieceIcon>
                 <span className={styles.sidebar_logo_text}>Logo</span>
             </div>
+
             <nav>
                 <h2 className={styles.sidebar_category}>General</h2>
                 <div>

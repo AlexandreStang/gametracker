@@ -1,0 +1,15 @@
+.user {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: calc((var(--spacing) * 4));
+
+    font-weight: var(--fw-bold);
+}
+
+.user_icon {
+    height: var(--icon-size-lg);
+    width: var(--icon-size-lg);
+
+    color: var(--border-primary);
+}
