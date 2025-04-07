@@ -11,11 +11,12 @@
 
     padding: calc(var(--spacing) * 14) calc(var(--spacing) * 10);
 
+    border: 1px solid var(--border-primary);
     border-radius: var(--radius-global);
 
-    background-color: var(--surface-brand);
+    background-color: var(--surface-secondary);
 
-    color: var(--text-brand-invert);
+    color: var(--text-primary);
     font-size: var(--fs-body-lg);
 }
 
@@ -23,7 +24,7 @@
     margin-left: calc(var(--spacing) * 4);
     margin-bottom: calc(var(--spacing) * 2);
 
-    color: var(--text-brand-muted);
+    color: var(--text-muted);
 }
 
 .sidebar_link {
@@ -40,11 +41,11 @@
 }
 
 .sidebar_link:hover, .sidebar_link_current {
-    background-color: var(--surface-brand-hover);
+    background-color: var(--surface-secondary-hover);
 }
 
 .sidebar_link_inactive {
-    color: var(--text-brand-muted);
+    color: var(--text-muted);
 
     cursor: not-allowed;
 }
@@ -56,4 +57,16 @@
 
 .sidebar_bottom_gap {
     margin-bottom: calc(var(--spacing) * 14);
+}
+
+
+
+
+/* PLACEHOLDER LOGO */
+.sidebar_logo_text {
+    color: var(--color-neutral-900);
+}
+
+.sidebar_logo_icon {
+    color: var(--text-brand);
 }

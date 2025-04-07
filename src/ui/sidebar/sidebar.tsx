@@ -1,12 +1,13 @@
 import styles from "@/styles/sidebar.module.css"
 import SidebarNavLink from "@/ui/sidebar/sidebarNavLink";
-import clsx from "clsx";
 
 import {ListBulletIcon} from "@heroicons/react/24/outline";
 import {ChartBarIcon} from "@heroicons/react/24/outline";
 import {UserGroupIcon} from "@heroicons/react/24/outline";
 import {Cog6ToothIcon} from "@heroicons/react/24/outline";
 import {ArrowRightStartOnRectangleIcon} from "@heroicons/react/24/outline";
+import {PuzzlePieceIcon} from "@heroicons/react/24/solid";
+import clsx from "clsx";
 
 export default function Sidebar() {
 
@@ -46,8 +47,9 @@ export default function Sidebar() {
 
     return (
         <aside className={styles.sidebar}>
-            <div className="text-5xl text-center font-black tracking-widest">
-                LOGO
+            <div className="text-5xl text-center font-extrabold flex content-center items-center gap-4">
+                <PuzzlePieceIcon className={clsx("h-12 w-12", styles.sidebar_logo_icon)}></PuzzlePieceIcon>
+                <span className={styles.sidebar_logo_text}>Logo</span>
             </div>
             <nav>
                 <h2 className={styles.sidebar_category}>General</h2>

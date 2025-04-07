@@ -5,10 +5,14 @@
     /*COLORS _________________________________________________________________*/
     --color-grey-200: #F6F8FA;
     --color-grey-250: #EEF1F4;
-    --color-grey-300: #DCE4EB;
-    --color-grey-400: #C2D0DC;
+    --color-grey-300: #E0E6EB;
+    --color-grey-350: #C8D0D7;
+    --color-grey-400: #BBC3CA;
+    --color-grey-450: #AAB3BB;
+    --color-grey-500: #969FA8;
 
     --color-neutral-600: #515151;
+    --color-neutral-900: #272727;
 
     --color-purple-550: #984FE5;
     --color-purple-500: #AC58FF;
