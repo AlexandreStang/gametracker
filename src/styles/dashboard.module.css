@@ -4,8 +4,7 @@
 
     /*position: sticky;*/
     /*top: 0;*/
-
-    z-index: var(--z-index-top);
+    /*z-index: var(--z-index-top);*/
 
     background-color: var(--surface-primary);
 }
@@ -25,10 +24,9 @@
 
     /*position: sticky;*/
     /*top: var(--margin-page);*/
+    /*z-index: var(--z-index-top);*/
 
     padding-bottom: calc(var(--margin-page)/2);
-
-    z-index: var(--z-index-top);
 
     background-color: var(--surface-primary);
 }
@@ -40,7 +38,7 @@
 }
 
 .dashboard_heading {
-    font-size: var(--fs-heading);
+    font-size: var(--fs-heading-dashboard);
     font-weight: var(--fw-bold);
 }
 

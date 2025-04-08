@@ -2,6 +2,9 @@
 
     --spacing: 0.25rem; /* Same as the default Tailwind spacing */
 
+    /*BLUR _________________________________________________________________*/
+    --blur-global: 12px;
+
     /*COLORS _________________________________________________________________*/
     --color-grey-200: #F6F8FA;
     --color-grey-250: #EEF1F4;
@@ -26,7 +29,8 @@
     /*FONT SIZES _________________________________________________________________*/
     --fs-body: 0.875rem; /* 14px */
     --fs-body-lg: 1rem; /* 16px */
-    --fs-heading: 1.5rem; /* 24px */
+    --fs-heading-modal: 1.25rem; /* 20px */
+    --fs-heading-dashboard: 1.5rem; /* 24px */
 
     /*FONT WEIGHT _________________________________________________________________*/
     --fw-normal: 400;
@@ -39,5 +43,5 @@
     --transition-global: all 75ms ease-in-out;
 
     /*Z-INDEX _________________________________________________________________*/
-    --z-index-top: 9999;
+    --z-index-modal: 9999;
 }

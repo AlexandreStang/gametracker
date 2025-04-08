@@ -21,12 +21,12 @@ input:focus {
 }
 
 input.app_input_text_w_icon {
-    padding-left: calc(var(--input-padding-x) + var(--icon-size-md) + calc(var(--spacing) * 4));
+    padding-left: calc(var(--input-padding-x) + var(--icon-size-sm) + calc(var(--spacing) * 4));
 }
 
 .app_input_icon {
-    width: var(--icon-size-md);
-    height: var(--icon-size-md);
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
     margin-left: var(--input-padding-x);
 
     color: var(--text-muted);

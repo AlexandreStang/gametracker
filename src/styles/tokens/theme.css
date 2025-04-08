@@ -11,8 +11,9 @@
     --button-disabled: var(--color-grey-350);
 
     /*ICON _________________________________________________________________*/
-    --icon-size-md: calc(var(--spacing) * 6);
-    --icon-size-lg: calc(var(--spacing) * 12);
+    --icon-size-sm: calc(var(--spacing) * 6);
+    --icon-size-md: calc(var(--spacing) * 8);
+    --icon-size-xl: calc(var(--spacing) * 12);
 
     /*INPUT _________________________________________________________________*/
     --input-background: var(--color-white-100);
@@ -32,6 +33,7 @@
     --surface-primary: var(--color-grey-200);
     --surface-secondary: var(--color-grey-250);
     --surface-secondary-hover: var(--color-grey-300);
+    --surface-tertiary: var(--color-grey-300);
 
     /*TEXT _________________________________________________________________*/
     --text-primary: var(--color-neutral-600);
