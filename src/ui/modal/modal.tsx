@@ -2,7 +2,7 @@ import styles from "@/styles/modal.module.css"
 import {XMarkIcon} from "@heroicons/react/24/solid";
 import clsx from "clsx";
 
-export default function ModalForm() {
+export default function Modal() {
 
     return (
         <div className={styles.overlay}>
