@@ -2,8 +2,8 @@
     height: var(--margin-page);
     width: 100%;
 
-    position: sticky;
-    top: 0;
+    /*position: sticky;*/
+    /*top: 0;*/
 
     z-index: var(--z-index-top);
 
@@ -23,8 +23,8 @@
     justify-content: space-between;
     align-items: center;
 
-    position: sticky;
-    top: var(--margin-page);
+    /*position: sticky;*/
+    /*top: var(--margin-page);*/
 
     padding-bottom: calc(var(--margin-page)/2);
 
