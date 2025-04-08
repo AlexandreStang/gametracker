@@ -5,7 +5,7 @@ export default function ButtonLike() {
 
     return (
         <div className={styles.button_icon_md}>
-            <HeartIcon></HeartIcon>
+            <HeartIcon className={styles.button_like}></HeartIcon>
         </div>
     )
 }

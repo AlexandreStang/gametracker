@@ -18,6 +18,18 @@ export default function CollectionTable() {
             </thead>
             <tbody>
             <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
+            <CollectionGame></CollectionGame>
             </tbody>
         </table>
     )

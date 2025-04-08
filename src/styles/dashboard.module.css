@@ -35,6 +35,8 @@
 
 .dashboard_content {
     width: 100%;
+
+    margin-bottom: var(--margin-page);
 }
 
 .dashboard_heading {

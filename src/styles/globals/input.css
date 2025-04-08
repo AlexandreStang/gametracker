@@ -15,9 +15,9 @@ input[type=text]::placeholder {
     color: var(--text-muted);
 }
 
-input[type=text]:focus {
-    outline: 1px solid var(--border-brand);
-    border: 1px solid transparent;
+input:focus {
+    outline: none;
+    border: 1px solid var(--border-brand);
 }
 
 input.app_input_text_w_icon {

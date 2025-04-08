@@ -33,14 +33,6 @@ export default function Collection() {
                 </div>
                 <div className={styles.dashboard_wrapper_lg}>
                     <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
-                    <CollectionTable></CollectionTable>
                 </div>
             </div>
         </>

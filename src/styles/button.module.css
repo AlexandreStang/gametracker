@@ -2,3 +2,7 @@
     width: var(--icon-size-md);
     height: var(--icon-size-md);
 }
+
+.button_like {
+    color: var(--button-disabled);
+}
