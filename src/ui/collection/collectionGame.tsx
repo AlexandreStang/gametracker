@@ -2,7 +2,7 @@ import {formatHours} from "@/lib/utils";
 import ButtonLike from "@/ui/button/buttonLike";
 import ButtonEdit from "@/ui/button/buttonEdit";
 import styles from "@/styles/collectionTable.module.css"
-import {PlayedGame} from "@/db/types";
+import {PlayedGame} from "@prisma/client";
 
 interface CollectionGameProps {
     rank: number,

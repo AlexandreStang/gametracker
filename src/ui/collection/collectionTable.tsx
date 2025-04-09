@@ -2,7 +2,7 @@ import styles from "@/styles/collectionTable.module.css";
 import CollectionGame from "@/ui/collection/collectionGame";
 import {useEffect, useState} from "react";
 import {getAllFromUser} from "@/db/services/playedGameService";
-import {PlayedGame} from "@/db/types";
+import {PlayedGame} from "@prisma/client";
 
 export default function CollectionTable() {
 
