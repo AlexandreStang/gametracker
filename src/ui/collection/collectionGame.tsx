@@ -3,11 +3,16 @@ import ButtonLike from "@/ui/button/buttonLike";
 import ButtonEdit from "@/ui/button/buttonEdit";
 import styles from "@/styles/collectionTable.module.css"
 
-export default function CollectionGame() {
+interface CollectionGameProps {
+    rank: number,
+    game: any
+}
+
+export default function CollectionGame({rank, game}: CollectionGameProps) {
 
     return (
         <tr>
-            <td className={styles.td_rank}>#1</td>
+            <td className={styles.td_rank}>#{rank}</td>
             <td className={styles.td_game}>Terraria</td>
             <td className={styles.td_release}>2011</td>
             <td className={styles.td_support}>PC</td>

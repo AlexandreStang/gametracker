@@ -11,6 +11,14 @@ export class PlayedGameController {
         return prisma.playedGame.findMany()
     }
 
+    static async getAllFromUser(id: string) {
+        return prisma.playedGame.findMany({
+            where: {
+                userId: id
+            }
+        })
+    }
+
     static async create(data: {
         gameId: string,
         platformId: string,

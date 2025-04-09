@@ -1,6 +1,5 @@
 'use client'
 
-import {useState} from "react";
 import styles from "@/styles/dashboard.module.css"
 import clsx from "clsx";
 import {formatHours} from "@/lib/utils";
@@ -10,8 +9,6 @@ import User from "@/ui/user";
 import ModalAddGame from "@/ui/modal/modalAddGame";
 
 export default function Collection() {
-
-    const [selectedGameId, setSelectedGameId] = useState(NaN)
 
     return (
         <>

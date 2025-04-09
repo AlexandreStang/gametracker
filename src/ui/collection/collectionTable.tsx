@@ -1,7 +1,27 @@
 import styles from "@/styles/collectionTable.module.css";
 import CollectionGame from "@/ui/collection/collectionGame";
+import {useEffect, useState} from "react";
+import {getAllFromUser} from "@/services/playedGameService";
 
 export default function CollectionTable() {
+
+    const [games, setGames] = useState<any[] | null>([])
+
+    useEffect(() => {
+
+        const fetchGames = async () => {
+            try {
+                const results = await getAllFromUser("cm7xuh4di0000vmxwj7x7am9r");
+                setGames(results)
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchGames();
+    }, []);
+
+    console.log(games)
 
     return (
         <table className={styles.collection_table}>
@@ -17,19 +37,9 @@ export default function CollectionTable() {
             </tr>
             </thead>
             <tbody>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
-            <CollectionGame></CollectionGame>
+            {games?.map((game, index) => (
+                <CollectionGame rank={index+1} game={game} key={game.id}></CollectionGame>
+            ))}
             </tbody>
         </table>
     )

@@ -49,3 +49,12 @@ export async function registerPlayedGame(data: PlayedGameFormData) {
     }
 
 }
+
+export async function getAllFromUser(id: string) {
+    try {
+        return await PlayedGameController.getAllFromUser(id);
+    } catch (error) {
+        console.error('Error finding played games from user: ', error)
+        return null
+    }
+}
