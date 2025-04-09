@@ -18,6 +18,12 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
     const [platform, setPlatform] = useState<Platform | null>(null)
 
     useEffect(() => {
+        if (!playedGame) {
+            setGame(null)
+            setPlatform(null)
+            return
+        }
+
         const fetchGame = async () => {
             try {
                 const results = await getGameById(playedGame.gameId)
