@@ -13,6 +13,7 @@ export async function getGameById(id: string) {
 
     } catch (error) {
         console.error("Could not find a game with this ID: ", error)
+        return null
     }
 }
 

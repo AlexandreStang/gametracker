@@ -9,6 +9,7 @@ export async function getPlatformById(id: string) {
 
     } catch (error) {
         console.error("Could not find a platform with this ID: ", error)
+        return null
     }
 }
 

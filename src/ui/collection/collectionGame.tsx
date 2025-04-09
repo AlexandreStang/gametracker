@@ -27,7 +27,7 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
         const fetchGame = async () => {
             try {
                 const results = await getGameById(playedGame.gameId)
-                setGame(results ?? null)
+                setGame(results)
             } catch (error) {
                 console.error(error);
             }
@@ -36,7 +36,7 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
         const fetchPlatform = async () => {
             try {
                 const results = await getPlatformById(playedGame.platformId)
-                setPlatform(results ?? null)
+                setPlatform(results)
             } catch (error) {
                 console.error(error);
             }
