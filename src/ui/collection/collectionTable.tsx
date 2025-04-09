@@ -1,19 +1,19 @@
 import styles from "@/styles/collectionTable.module.css";
 import CollectionGame from "@/ui/collection/collectionGame";
 import {useEffect, useState} from "react";
-import {getAllFromUser} from "@/db/services/playedGameService";
+import {getAllPlayedGamesFromUser} from "@/db/services/playedGameService";
 import {PlayedGame} from "@prisma/client";
 
 export default function CollectionTable() {
 
-    const [playedGames, setplayedGames] = useState<PlayedGame[] | null>([])
+    const [playedGames, setPlayedGames] = useState<PlayedGame[] | null>([])
 
     useEffect(() => {
 
         const fetchPlayedGames = async () => {
             try {
-                const results = await getAllFromUser("cm7xuh4di0000vmxwj7x7am9r");
-                setplayedGames(results)
+                const results = await getAllPlayedGamesFromUser("cm7xuh4di0000vmxwj7x7am9r");
+                setPlayedGames(results)
             } catch (error) {
                 console.error(error);
             }
@@ -21,8 +21,6 @@ export default function CollectionTable() {
 
         fetchPlayedGames();
     }, []);
-
-    console.log(playedGames)
 
     return (
         <table className={styles.collection_table}>

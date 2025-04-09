@@ -3,6 +3,15 @@
 import {PlatformIGDB} from "@/api/types";
 import {PlatformController} from "@/db/controllers/platformController";
 
+export async function getPlatformById(id: string) {
+    try {
+        return await PlatformController.getById(id)
+
+    } catch (error) {
+        console.error("Could not find a platform with this ID: ", error)
+    }
+}
+
 export async function createOrUpdatePlatform(data: PlatformIGDB) {
 
     try {

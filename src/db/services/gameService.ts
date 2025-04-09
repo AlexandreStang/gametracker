@@ -7,6 +7,15 @@ import {createOrUpdateGenre} from "@/db/services/genreService";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {GenreIGDB, PlatformIGDB} from "@/api/types";
 
+export async function getGameById(id: string) {
+    try {
+        return await GameController.getById(id)
+
+    } catch (error) {
+        console.error("Could not find a game with this ID: ", error)
+    }
+}
+
 export async function createOrUpdateGame(igdbId: number) {
 
     try {

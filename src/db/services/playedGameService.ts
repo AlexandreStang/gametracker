@@ -11,6 +11,15 @@ export interface PlayedGameFormData {
     like: boolean
 }
 
+export async function getAllPlayedGamesFromUser(id: string) {
+    try {
+        return await PlayedGameController.getAllFromUser(id);
+    } catch (error) {
+        console.error('Error finding played games from user: ', error)
+        return null
+    }
+}
+
 export async function registerPlayedGame(data: PlayedGameFormData) {
 
     try {
@@ -48,13 +57,4 @@ export async function registerPlayedGame(data: PlayedGameFormData) {
         return null
     }
 
-}
-
-export async function getAllFromUser(id: string) {
-    try {
-        return await PlayedGameController.getAllFromUser(id);
-    } catch (error) {
-        console.error('Error finding played games from user: ', error)
-        return null
-    }
 }
