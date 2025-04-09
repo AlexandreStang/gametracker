@@ -35,6 +35,8 @@
     justify-content: space-between;
     align-items: center;
 
+    height: calc(var(--spacing) * 16);
+
     border-bottom: 1px solid var(--border-primary);
     border-radius: var(--radius-global) var(--radius-global) 0 0;
 
@@ -61,6 +63,8 @@
     display: flex;
     justify-content: end;
     align-items: center;
+
+    height: calc(var(--spacing) * 20);
 
     border-radius: 0 0 var(--radius-global) var(--radius-global);
 

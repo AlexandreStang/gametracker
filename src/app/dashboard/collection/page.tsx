@@ -7,7 +7,7 @@ import {formatHours} from "@/lib/utils";
 import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
 import User from "@/ui/user";
-import Modal from "@/ui/modal/modal";
+import ModalAddGame from "@/ui/modal/modalAddGame";
 
 export default function Collection() {
 
@@ -15,7 +15,7 @@ export default function Collection() {
 
     return (
         <>
-            <Modal></Modal>
+            <ModalAddGame></ModalAddGame>
             <header className={styles.dashboard_header}>
                 <h1 className={styles.dashboard_heading}>Collection</h1>
                 <User></User>
