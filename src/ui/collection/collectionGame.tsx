@@ -2,13 +2,14 @@ import {formatHours} from "@/lib/utils";
 import ButtonLike from "@/ui/button/buttonLike";
 import ButtonEdit from "@/ui/button/buttonEdit";
 import styles from "@/styles/collectionTable.module.css"
+import {PlayedGame} from "@/db/types";
 
 interface CollectionGameProps {
     rank: number,
-    game: any
+    playedGame: PlayedGame
 }
 
-export default function CollectionGame({rank, game}: CollectionGameProps) {
+export default function CollectionGame({rank, playedGame}: CollectionGameProps) {
 
     return (
         <tr>
@@ -16,7 +17,7 @@ export default function CollectionGame({rank, game}: CollectionGameProps) {
             <td className={styles.td_game}>Terraria</td>
             <td className={styles.td_release}>2011</td>
             <td className={styles.td_support}>PC</td>
-            <td className={styles.td_playtime}>{formatHours(789)}</td>
+            <td className={styles.td_playtime}>{formatHours(playedGame.playtime)}</td>
             <td className={styles.td_like}>
                 <div className="flex justify-center items-center">
                     <ButtonLike></ButtonLike>
