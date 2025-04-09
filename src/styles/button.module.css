@@ -1,4 +1,25 @@
-.button_icon_md {
+.button {
+    padding: calc(var(--spacing) * 2) calc(var(--spacing) * 4);
+    border-radius: var(--radius-global);
+
+    color: var(--text-brand-invert);
+    font-weight: var(--fw-black);
+    text-transform: uppercase;
+
+    background-color: var(--surface-brand);
+
+    box-shadow: var(--shadow-main);
+
+    transition: var(--transition-global);
+
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: var(--surface-brand-hover);
+}
+
+.button_icon {
     width: var(--icon-size-sm);
     height: var(--icon-size-sm);
 }

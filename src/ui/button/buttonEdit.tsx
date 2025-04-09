@@ -4,7 +4,7 @@ import styles from "@/styles/button.module.css"
 export default function ButtonEdit() {
 
     return (
-        <div className={styles.button_icon_md}>
+        <div className={styles.button_icon}>
             <PencilIcon></PencilIcon>
         </div>
     )
