@@ -1,9 +1,9 @@
 'use server'
 
 import {convertDate} from "@/lib/utils";
-import {GameController} from "@/controllers/gameController";
-import {createOrUpdatePlatform} from "@/services/platformService";
-import {createOrUpdateGenre} from "@/services/genreService";
+import {GameController} from "@/db/controllers/gameController";
+import {createOrUpdatePlatform} from "@/db/services/platformService";
+import {createOrUpdateGenre} from "@/db/services/genreService";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {GenreIGDB, PlatformIGDB} from "@/api/types";
 

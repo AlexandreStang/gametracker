@@ -1,8 +1,8 @@
 'use server'
 
-import {createOrUpdateGame} from "@/services/gameService";
-import {PlayedGameController} from "@/controllers/playedGameController";
-import {PlatformController} from "@/controllers/platformController";
+import {createOrUpdateGame} from "@/db/services/gameService";
+import {PlayedGameController} from "@/db/controllers/playedGameController";
+import {PlatformController} from "@/db/controllers/platformController";
 
 export interface PlayedGameFormData {
     gameIgdbId: number,

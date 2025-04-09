@@ -1,7 +1,7 @@
 'use server'
 
 import {GenreIGDB} from "@/api/types";
-import {GenreController} from "@/controllers/genreController";
+import {GenreController} from "@/db/controllers/genreController";
 
 export async function createOrUpdateGenre(data: GenreIGDB) {
 

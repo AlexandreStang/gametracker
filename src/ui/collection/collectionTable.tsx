@@ -1,7 +1,7 @@
 import styles from "@/styles/collectionTable.module.css";
 import CollectionGame from "@/ui/collection/collectionGame";
 import {useEffect, useState} from "react";
-import {getAllFromUser} from "@/services/playedGameService";
+import {getAllFromUser} from "@/db/services/playedGameService";
 
 export default function CollectionTable() {
 

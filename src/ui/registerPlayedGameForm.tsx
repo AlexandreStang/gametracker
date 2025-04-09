@@ -4,7 +4,7 @@ import {useEffect, useState} from "react";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {convertDate} from "@/lib/utils";
 import {GameIGDB} from "@/api/types";
-import {registerPlayedGame} from "@/services/playedGameService";
+import {registerPlayedGame} from "@/db/services/playedGameService";
 
 interface RegisterPlayedGameProps {
     id: number

@@ -1,7 +1,7 @@
 'use server'
 
 import {PlatformIGDB} from "@/api/types";
-import {PlatformController} from "@/controllers/platformController";
+import {PlatformController} from "@/db/controllers/platformController";
 
 export async function createOrUpdatePlatform(data: PlatformIGDB) {
 
