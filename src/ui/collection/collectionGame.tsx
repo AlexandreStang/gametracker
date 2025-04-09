@@ -52,10 +52,10 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
             <td className={styles.td_game}>{game?.name}</td>
             <td className={styles.td_release}>{game?.firstReleaseDate ? game.firstReleaseDate.getFullYear() : ""}</td>
             <td className={styles.td_support}>{platform?.name}</td>
-            <td className={styles.td_playtime}>{formatHours(playedGame.playtime)}</td>
+            <td className={styles.td_playtime}>{formatHours(playedGame?.playtime)}</td>
             <td className={styles.td_like}>
                 <div className="flex justify-center items-center">
-                    <ButtonLike></ButtonLike>
+                    <ButtonLike initialLike={playedGame?.like}></ButtonLike>
                 </div>
             </td>
             <td className={styles.td_edit}>

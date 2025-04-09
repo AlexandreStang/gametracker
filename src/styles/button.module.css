@@ -24,6 +24,10 @@
     height: var(--icon-size-sm);
 }
 
-.button_like {
+.button_toggle_active {
+    color: var(--text-brand);
+}
+
+.button_toggle_inactive {
     color: var(--button-disabled);
 }
