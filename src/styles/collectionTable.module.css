@@ -6,26 +6,32 @@
 }
 
 .th_rank, .td_rank {
+    width: 10%;
     text-align: center;
 }
 
 .th_game, .td_game  {
+    /*width: Take remaining width */
     text-align: left;
 }
 
 
 .th_release, .td_release {
+    width: 10%;
     text-align: center;
 }
 
 .th_support, .td_support {
+    width: 20%;
     text-align: center;
 }
 
 .th_playtime, .td_playtime {
+    width: 10%;
     text-align: center;
 }
 
 .th_like, .th_edit {
+    width: 10%;
     text-align: center;
 }
