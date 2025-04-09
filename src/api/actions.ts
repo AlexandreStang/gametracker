@@ -14,7 +14,7 @@ export async function searchGamesFromIGDB(query: string): Promise<GameIGDB[] | n
                 'Client-ID': process.env.TWITCH_CLIENT_ID as string,
                 'Authorization': `Bearer ${token}`,
             },
-            body: `search "${query}"; fields name, first_release_date; where category = (0, 8, 9) & version_parent = null; limit 10;`,
+            body: `search "${query}"; fields name, first_release_date; where game_type = (0, 8, 9, 10) & version_parent = null; limit 10;`,
         })
 
     if (!response.ok) {
