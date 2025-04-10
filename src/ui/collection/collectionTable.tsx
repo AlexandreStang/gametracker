@@ -2,11 +2,11 @@ import styles from "@/styles/collectionTable.module.css";
 import CollectionGame from "@/ui/collection/collectionGame";
 import {useEffect, useState} from "react";
 import {getAllPlayedGamesFromUser} from "@/db/services/playedGameService";
-import {PlayedGame} from "@prisma/client";
+import {PlayedGameWithGamePlatform} from "@/db/types";
 
 export default function CollectionTable() {
 
-    const [playedGames, setPlayedGames] = useState<PlayedGame[] | null>([])
+    const [playedGames, setPlayedGames] = useState<PlayedGameWithGamePlatform[] | null>([])
 
     useEffect(() => {
 

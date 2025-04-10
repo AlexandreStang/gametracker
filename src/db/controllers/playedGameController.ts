@@ -15,6 +15,10 @@ export class PlayedGameController {
         return prisma.playedGame.findMany({
             where: {
                 userId: id
+            },
+            include: {
+                game: true,
+                platform: true
             }
         })
     }
