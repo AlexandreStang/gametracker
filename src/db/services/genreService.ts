@@ -2,8 +2,9 @@
 
 import {GenreIGDB} from "@/api/types";
 import {GenreController} from "@/db/controllers/genreController";
+import {Genre} from "@prisma/client";
 
-export async function createOrUpdateGenre(data: GenreIGDB) {
+export async function createOrUpdateGenre(data: GenreIGDB): Promise<Genre | null> {
 
     try {
         const genre = await GenreController.getByIgdbId(data.id)

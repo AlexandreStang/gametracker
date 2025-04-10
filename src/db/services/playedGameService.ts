@@ -3,6 +3,8 @@
 import {createOrUpdateGame} from "@/db/services/gameService";
 import {PlayedGameController} from "@/db/controllers/playedGameController";
 import {PlatformController} from "@/db/controllers/platformController";
+import {PlayedGame} from "@prisma/client";
+import {PlayedGameWithGamePlatform} from "@/db/types";
 
 export interface PlayedGameFormData {
     gameIgdbId: number,
@@ -11,7 +13,7 @@ export interface PlayedGameFormData {
     like: boolean
 }
 
-export async function getAllPlayedGamesFromUser(id: string) {
+export async function getAllPlayedGamesFromUser(id: string): Promise<PlayedGameWithGamePlatform[] | null> {
     try {
         return await PlayedGameController.getAllFromUser(id);
     } catch (error) {
@@ -20,7 +22,7 @@ export async function getAllPlayedGamesFromUser(id: string) {
     }
 }
 
-export async function registerPlayedGame(data: PlayedGameFormData) {
+export async function registerPlayedGame(data: PlayedGameFormData): Promise<PlayedGame | null> {
 
     try {
         const hasPlayedGame = await PlayedGameController.hasPlayedGameOnPlatform({

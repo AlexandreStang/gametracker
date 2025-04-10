@@ -2,8 +2,9 @@
 
 import {PlatformIGDB} from "@/api/types";
 import {PlatformController} from "@/db/controllers/platformController";
+import {Platform} from "@prisma/client";
 
-export async function getPlatformById(id: string) {
+export async function getPlatformById(id: string): Promise<Platform | null> {
     try {
         return await PlatformController.getById(id)
 
@@ -13,7 +14,7 @@ export async function getPlatformById(id: string) {
     }
 }
 
-export async function createOrUpdatePlatform(data: PlatformIGDB) {
+export async function createOrUpdatePlatform(data: PlatformIGDB): Promise<Platform | null> {
 
     try {
         const platform = await PlatformController.getByIgdbId(data.id)

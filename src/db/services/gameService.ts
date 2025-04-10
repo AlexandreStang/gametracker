@@ -6,8 +6,9 @@ import {createOrUpdatePlatform} from "@/db/services/platformService";
 import {createOrUpdateGenre} from "@/db/services/genreService";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {GenreIGDB, PlatformIGDB} from "@/api/types";
+import {Game} from "@prisma/client";
 
-export async function getGameById(id: string) {
+export async function getGameById(id: string): Promise<Game | null> {
     try {
         return await GameController.getById(id)
 
@@ -17,7 +18,7 @@ export async function getGameById(id: string) {
     }
 }
 
-export async function createOrUpdateGame(igdbId: number) {
+export async function createOrUpdateGame(igdbId: number): Promise<Game | null> {
 
     try {
         const fetchedGame = await fetchGameFromIGDB(igdbId)
@@ -69,7 +70,7 @@ export async function createOrUpdateGame(igdbId: number) {
 
 }
 
-async function getPlatformsList(platforms: PlatformIGDB[]) {
+async function getPlatformsList(platforms: PlatformIGDB[]): Promise<string[]> {
     let platformsList: string[] = []
 
     for (let i = 0; i < platforms.length; i++) {
@@ -80,7 +81,7 @@ async function getPlatformsList(platforms: PlatformIGDB[]) {
     return platformsList
 }
 
-async function getGenresList(genres: GenreIGDB[]) {
+async function getGenresList(genres: GenreIGDB[]): Promise<string[]> {
     let genresList: string[] = []
 
     for (let i = 0; i < genres.length; i++) {
