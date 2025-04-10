@@ -34,7 +34,7 @@
 }
 
 .button_toggle_active {
-    color: var(--text-brand);
+    color: var(--button-primary);
 }
 
 .button_toggle_inactive {
