@@ -24,6 +24,15 @@
     height: var(--icon-size-sm);
 }
 
+.button_toggle {
+    cursor: pointer;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
 .button_toggle_active {
     color: var(--text-brand);
 }
