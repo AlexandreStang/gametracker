@@ -32,8 +32,7 @@ model Game {
   slug             String       @unique
   name             String
   firstReleaseDate DateTime
-  cover            Cover?       @relation(fields: [coverId], references: [id])
-  coverId          String?
+  cover            String?
   genres           Genre[]
   platforms        Platform[]
   playedGames      PlayedGame[]
@@ -53,16 +52,6 @@ model PlayedGame {
   userId     String
   createdAt  DateTime @default(now())
   updatedAt  DateTime @updatedAt
-}
-
-model Cover {
-  id        String   @id @default(cuid())
-  imageId   String   @unique
-  width     Int
-  height    Int
-  game      Game[]
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model Genre {

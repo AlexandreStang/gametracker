@@ -3,6 +3,7 @@ export interface GameIGDB {
     name: string;
     slug: string;
     first_release_date: number;
+    cover: CoverIGDB;
     platforms: PlatformIGDB[];
     genres: GenreIGDB[];
     updated_at: number;
@@ -20,3 +21,7 @@ export interface PlatformIGDB {
     updated_at: number;
 }
 
+export interface CoverIGDB {
+    id: number;
+    image_id: string;
+}

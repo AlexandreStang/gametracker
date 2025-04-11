@@ -28,6 +28,7 @@ export default function RegisterPlayedGameForm({id, onComplete}: RegisterPlayedG
                 const results = await fetchGameFromIGDB(id);
 
                 if (results) {
+                    console.log(results)
                     setGame(results)
                     setPlatformId(results.platforms[0].id)
                 }

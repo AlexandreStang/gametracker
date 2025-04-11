@@ -41,6 +41,7 @@ export async function createOrUpdateGame(igdbId: number): Promise<Game | null> {
                 slug: fetchedGame.slug,
                 name: fetchedGame.name,
                 firstReleaseDate: convertDate(fetchedGame.first_release_date).date,
+                cover: fetchedGame.cover.image_id,
                 platformsId: platforms,
                 genresId: genres
             })

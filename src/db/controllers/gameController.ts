@@ -22,7 +22,7 @@ export class GameController {
         slug: string,
         name: string,
         firstReleaseDate: Date,
-        coverId?: string,
+        cover: string,
         genresId: string[],
         platformsId: string[]
     }) {
@@ -32,9 +32,7 @@ export class GameController {
                 slug: data.slug,
                 name: data.name,
                 firstReleaseDate: data.firstReleaseDate,
-                cover: data.coverId ? {
-                    connect: {id: data.coverId}
-                } : {},
+                cover: data.cover,
                 genres: {
                     connect: data.genresId.map((id) => ({id}))
                 },
@@ -49,7 +47,7 @@ export class GameController {
         slug?: string,
         name?: string,
         firstReleaseDate?: Date,
-        coverId?: string,
+        cover?: string,
         genresId?: string[],
         platformsId?: string[]
     }) {
@@ -59,9 +57,7 @@ export class GameController {
                 name: data.name,
                 slug: data.slug,
                 firstReleaseDate: data.firstReleaseDate,
-                cover: data.coverId ? {
-                    connect: {id: data.coverId}
-                } : undefined,
+                cover: data.cover,
                 genres: data.genresId ? {
                     set: data.genresId.map((id) => ({id}))
                 } : undefined,
