@@ -11,10 +11,14 @@
 }
 
 .th_game, .td_game  {
-    /*width: Take remaining width */
     text-align: left;
 }
 
+.td_game {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--spacing) * 3);
+}
 
 .th_release, .td_release {
     width: 10%;

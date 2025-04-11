@@ -1,0 +1,7 @@
+.poster {
+    display: block;
+
+    border-radius: var(--radius-global);
+
+    box-shadow: var(--shadow-main);
+}

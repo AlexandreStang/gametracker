@@ -24,6 +24,6 @@ table {
     }
 
     th, td {
-        padding: 0 calc(var(--spacing) * 2);
+        padding: calc(var(--spacing) * 2);
     }
 }

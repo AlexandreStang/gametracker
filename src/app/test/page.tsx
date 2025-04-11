@@ -53,7 +53,7 @@ export default function Test() {
             </ul>
 
             {/*<Image src={"https://images.igdb.com/igdb/image/upload/t_thumb/co1wvr.jpg"} width="90" height="90"*/}
-            {/*       alt={"Poster"}/>*/}
+            {/*       alt={"Cover"}/>*/}
 
             <hr/>
 
