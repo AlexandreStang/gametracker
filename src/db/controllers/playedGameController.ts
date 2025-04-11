@@ -19,6 +19,9 @@ export class PlayedGameController {
             include: {
                 game: true,
                 platform: true
+            },
+            orderBy: {
+                playtime: 'desc'
             }
         })
     }
