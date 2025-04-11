@@ -22,7 +22,7 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
                     </td>
                     {/*POSTER + NAME*/}
                     <td className={styles.td_game}>
-                        <Cover game={playedGame.game} size={"small"} unoptimized={true}></Cover>
+                        <Cover game={playedGame.game} size={"small"}></Cover>
                         {playedGame.game.name}
                     </td>
                     {/*RELEASE*/}

@@ -1,5 +1,8 @@
-.poster {
+.cover {
     display: block;
+
+    height: 100%;
+    width: auto;
 
     border-radius: var(--radius-global);
 
