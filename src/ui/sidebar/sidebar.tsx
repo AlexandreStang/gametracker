@@ -12,10 +12,10 @@ import clsx from "clsx";
 export default function Sidebar() {
 
     interface Link {
-        text: string,
-        icon: React.ElementType,
-        href?: string,
-        isActive?: boolean
+        text: string;
+        icon: React.ElementType;
+        href?: string;
+        isActive?: boolean;
     }
 
     const generalLinks: Link[] = [

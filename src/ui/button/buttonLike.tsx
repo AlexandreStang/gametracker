@@ -6,7 +6,7 @@ import {useState} from "react";
 import clsx from "clsx";
 
 interface ButtonLikeProps {
-    initialLike: boolean,
+    initialLike: boolean
     onClick?: () => void
 }
 

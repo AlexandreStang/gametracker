@@ -1,7 +1,7 @@
 import styles from "@/styles/button.module.css"
 
 interface ButtonProps {
-    text?: string;
+    text?: string
 }
 
 export default function Button({text}: ButtonProps) {

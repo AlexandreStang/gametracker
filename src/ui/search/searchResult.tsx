@@ -2,7 +2,7 @@ import styles from "@/styles/search.module.css"
 import {PlusIcon} from "@heroicons/react/24/solid";
 
 interface searchResultProps {
-    name: string,
+    name: string
     year: number
 }
 

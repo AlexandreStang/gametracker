@@ -6,7 +6,7 @@ import {PlayedGameWithGamePlatform} from "@/db/types";
 import Cover from "@/ui/cover";
 
 interface CollectionGameProps {
-    rank: number,
+    rank: number
     playedGame: PlayedGameWithGamePlatform
 }
 

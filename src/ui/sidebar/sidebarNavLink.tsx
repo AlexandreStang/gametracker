@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { usePathname } from 'next/navigation'
 
 interface SidebarLinkProps {
-    children: React.ReactNode
+    children: React.ReactNode;
     href?: string;
     isActive?: boolean;
 }

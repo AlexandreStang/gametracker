@@ -3,8 +3,8 @@ import {Game} from "@prisma/client";
 import Image from 'next/image'
 
 interface PosterProps {
-    game: Game,
-    size: "small" | "big",
+    game: Game
+    size: "small" | "big"
     unoptimized: boolean
 }
 
