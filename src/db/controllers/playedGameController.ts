@@ -23,6 +23,19 @@ export class PlayedGameController {
         })
     }
 
+    static async getTotalPlaytimeFromUser(id: string) {
+        const total = await prisma.playedGame.aggregate({
+            where: {
+                userId: id
+            },
+            _sum: {
+                playtime: true
+            }
+        })
+
+        return total._sum.playtime
+    }
+
     static async create(data: {
         gameId: string,
         platformId: string,

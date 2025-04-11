@@ -22,6 +22,15 @@ export async function getAllPlayedGamesFromUser(id: string): Promise<PlayedGameW
     }
 }
 
+export async function getTotalPlaytimeFromUser(id: string): Promise<number | null> {
+    try {
+        return await PlayedGameController.getTotalPlaytimeFromUser(id);
+    } catch (error) {
+        console.error('Error finding total playtime from user: ', error)
+        return null
+    }
+}
+
 export async function registerPlayedGame(data: PlayedGameFormData): Promise<PlayedGame | null> {
 
     try {

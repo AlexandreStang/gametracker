@@ -9,7 +9,6 @@ export default function CollectionTable() {
     const [playedGames, setPlayedGames] = useState<PlayedGameWithGamePlatform[] | null>([])
 
     useEffect(() => {
-
         const fetchPlayedGames = async () => {
             try {
                 const results = await getAllPlayedGamesFromUser("cm7xuh4di0000vmxwj7x7am9r");

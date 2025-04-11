@@ -7,8 +7,25 @@ import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
 import User from "@/ui/user";
 import ModalAddGame from "@/ui/modal/modalAddGame";
+import {getAllPlayedGamesFromUser, getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
+import {useEffect, useState} from "react";
 
 export default function Collection() {
+
+    const [totalPlaytime, setTotalPlaytime] = useState<number | null>(null)
+
+    useEffect(() => {
+        const fetchTotalPlaytime = async () => {
+            try {
+                const results = await getTotalPlaytimeFromUser("cm7xuh4di0000vmxwj7x7am9r");
+                setTotalPlaytime(results)
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchTotalPlaytime();
+    }, []);
 
     return (
         <>
@@ -27,7 +44,11 @@ export default function Collection() {
                         <input type="date"/>
                     </div>
                     <div>
-                        Total playtime: <span className={"app_body_bold"}>{formatHours(3253)}</span>
+                        Total playtime:
+                        <span className={"app_body_bold"}>
+                            {" "}
+                            {totalPlaytime && formatHours(totalPlaytime)}
+                        </span>
                     </div>
                 </div>
                 <div className={styles.dashboard_wrapper_lg}>
