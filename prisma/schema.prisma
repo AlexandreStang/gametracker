@@ -32,7 +32,7 @@ model Game {
   slug             String       @unique
   name             String
   firstReleaseDate DateTime
-  cover            String?
+  cover            String
   genres           Genre[]
   platforms        Platform[]
   playedGames      PlayedGame[]
