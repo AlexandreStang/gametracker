@@ -33,7 +33,7 @@
 }
 
 .button_icon:hover {
-    background-color: var(--button-icon-hover);
+    background-color: var(--surface-secondary-hover);
     border-radius: 100%;
 }
 

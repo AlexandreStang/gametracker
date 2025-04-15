@@ -9,7 +9,6 @@
     /*BUTTON _________________________________________________________________*/
     --button-primary: var(--color-purple-500);
     --button-disabled: var(--color-grey-350);
-    --button-icon-hover: var(--color-grey-350);
 
     /*ICON _________________________________________________________________*/
     --icon-size-sm: calc(var(--spacing) * 6);
