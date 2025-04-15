@@ -1,6 +1,7 @@
+import {PencilIcon} from "@heroicons/react/24/outline";
 import {formatHours} from "@/lib/utils";
 import ButtonLike from "@/ui/button/buttonLike";
-import ButtonEdit from "@/ui/button/buttonEdit";
+import ButtonIcon from "@/ui/button/buttonIcon";
 import styles from "@/styles/collectionTable.module.css"
 import {PlayedGameWithGamePlatform} from "@/db/types";
 import Cover from "@/ui/cover";
@@ -46,7 +47,9 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
                     {/*EDIT*/}
                     <td className={styles.td_edit}>
                         <div className="flex justify-center items-center">
-                            <ButtonEdit></ButtonEdit>
+                            <ButtonIcon>
+                                <PencilIcon></PencilIcon>
+                            </ButtonIcon>
                         </div>
                     </td>
                 </tr>

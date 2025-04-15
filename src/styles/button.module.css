@@ -20,6 +20,24 @@
 }
 
 .button_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--icon-size-xl);
+    height: var(--icon-size-xl);
+
+    transition: var(--transition-global);
+
+    cursor: pointer;
+}
+
+.button_icon:hover {
+    background-color: var(--button-icon-hover);
+    border-radius: 100%;
+}
+
+.button_icon_inner {
     width: var(--icon-size-sm);
     height: var(--icon-size-sm);
 }

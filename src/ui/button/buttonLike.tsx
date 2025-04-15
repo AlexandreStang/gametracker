@@ -23,7 +23,7 @@ export default function ButtonLike({initialLike, onClick}: ButtonLikeProps) {
     }
 
     return (
-        <div className={styles.button_icon} onClick={toggleLike}>
+        <div className={styles.button_icon_inner} onClick={toggleLike}>
             <HeartIcon className={clsx(styles.button_toggle, {
                 [styles.button_toggle_active] : liked,
                 [styles.button_toggle_inactive] : !liked
