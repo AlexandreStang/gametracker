@@ -37,6 +37,10 @@
     border-radius: 100%;
 }
 
+.button_icon:active {
+    background-color: var(--surface-secondary-active);
+}
+
 .button_icon_inner {
     width: var(--icon-size-sm);
     height: var(--icon-size-sm);

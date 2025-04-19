@@ -46,6 +46,10 @@
     background-color: var(--surface-secondary-hover);
 }
 
+.sidebar_link:active {
+    background-color: var(--surface-secondary-active);
+}
+
 .sidebar_link_inactive {
     color: var(--text-muted);
 

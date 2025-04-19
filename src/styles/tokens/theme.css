@@ -33,6 +33,7 @@
     --surface-primary: var(--color-grey-200);
     --surface-secondary: var(--color-grey-250);
     --surface-secondary-hover: var(--color-grey-300);
+    --surface-secondary-active: var(--color-grey-350);
     --surface-tertiary: var(--color-grey-300);
 
     /*TEXT _________________________________________________________________*/
