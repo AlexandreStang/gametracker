@@ -36,7 +36,8 @@ TWITCH_CLIENT_SECRET=***
 
 3. Navigate into the project's directory and install all dependencies with `npm install`
 4. Generate Prisma Client with `npx prisma generate`
-5. Run the project locally with `npm run dev`
+5. Seed the database with a test user with `npx prisma db seed`
+6. Run the project locally with `npm run dev`
 
 Optionally, use `npx prisma studio` for a direct look inside the database. 
 
