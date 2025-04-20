@@ -30,6 +30,8 @@
     transition: var(--transition-global);
 
     cursor: pointer;
+
+    user-select: none;
 }
 
 .button_icon:hover {
