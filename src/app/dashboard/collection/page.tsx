@@ -7,12 +7,14 @@ import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
 import User from "@/ui/user";
 import ModalAddGame from "@/ui/modal/modalAddGame";
-import {getAllPlayedGamesFromUser, getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
+import {getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
+import {useGameSelection} from "@/context/gameSelectionContext";
 
 export default function Collection() {
 
     const [totalPlaytime, setTotalPlaytime] = useState<number | null>(null)
+    const { selectedGameIgdbId } = useGameSelection();
 
     useEffect(() => {
         const fetchTotalPlaytime = async () => {

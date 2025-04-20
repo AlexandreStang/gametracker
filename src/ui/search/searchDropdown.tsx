@@ -16,6 +16,7 @@ export default function SearchDropdown({games}: searchDropdownInterface) {
                     {games.map(game => (
                         <SearchResult name={game.name}
                                       year={convertDate(game.first_release_date).year}
+                                      igdbId={game.id}
                                       key={game.id}>
                         </SearchResult>
                     ))}
