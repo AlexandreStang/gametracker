@@ -19,6 +19,10 @@
     background-color: var(--surface-brand-hover);
 }
 
+.button:active {
+    background-color: var(--surface-brand-active);
+}
+
 .button_icon {
     display: flex;
     justify-content: center;
