@@ -16,7 +16,7 @@
 .modal_game_heading {
     font-weight: var(--fw-bold);
     font-size: var(--fs-heading-modal);
-    margin-bottom: calc(var(--spacing) * 6);
+    margin-bottom: calc(var(--spacing) * 4);
 }
 
 .modal_game_heading_date {
@@ -29,7 +29,7 @@
     gap: calc(var(--spacing) * 6);
 }
 
-.modal_game_playtime_like {
+.modal_game_form_row {
     display: flex;
     gap: calc(var(--spacing) * 8);
 }
