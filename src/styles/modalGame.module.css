@@ -1,0 +1,48 @@
+.modal_game_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: calc(var(--spacing) * 6);
+}
+
+.modal_game_cover {
+    max-height: 210px;
+}
+
+.modal_game_text_content {
+    width: 100%;
+}
+
+.modal_game_heading {
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-heading-modal);
+    margin-bottom: calc(var(--spacing) * 6);
+}
+
+.modal_game_heading_date {
+    color: var(--text-muted);
+}
+
+.modal_game_form {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 6);
+}
+
+.modal_game_playtime_like {
+    display: flex;
+    gap: calc(var(--spacing) * 8);
+}
+
+.modal_game_playtime {
+    width: 100%;
+}
+
+.modal_game_like {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    margin-right: calc(var(--spacing) * 6);
+}
+

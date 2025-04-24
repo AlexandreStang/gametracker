@@ -1,4 +1,4 @@
-input[type=text], input[type=date] {
+input[type=text], input[type=date], input[type=number], select {
     height: calc(var(--spacing) * 12);
     width: 100%;
 
@@ -30,4 +30,12 @@ input.app_input_text_w_icon {
     margin-left: var(--input-padding-x);
 
     color: var(--text-muted);
+}
+
+label {
+    font-weight: var(--fw-bold);
+}
+
+.app_label_container {
+    margin-bottom: calc(var(--spacing) * 2);
 }
