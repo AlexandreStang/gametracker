@@ -2,9 +2,10 @@ import styles from "@/styles/cover.module.css"
 import {Game} from "@prisma/client";
 import Image from 'next/image'
 
-interface PosterProps {
-    game: Game
+interface CoverProps {
+    cover: string
     size: "small" | "big"
+    alt: string
     unoptimized?: boolean
 }
 
@@ -13,17 +14,17 @@ const sizeMap = {
     big: {width: 264, height: 352}
 }
 
-export default function Cover({game, size, unoptimized = false}: PosterProps) {
+export default function Cover({cover, size, alt, unoptimized = false}: CoverProps) {
     const {width, height} = sizeMap[size]
 
     return (
         <Image
-            src={`https://images.igdb.com/igdb/image/upload/t_cover_${size}/${game.cover}.webp`}
+            src={`https://images.igdb.com/igdb/image/upload/t_cover_${size}/${cover}.webp`}
             width={width}
             height={height}
             quality={100}
             unoptimized={unoptimized}
-            alt={`${game.name} cover`}
+            alt={alt}
             className={styles.cover}
         >
         </Image>
