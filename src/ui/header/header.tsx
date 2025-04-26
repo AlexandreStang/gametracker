@@ -1,4 +1,4 @@
-import styles from "@/styles/modules/header/headerUser.module.css"
+import styles from "@/styles/modules/header/header.module.css"
 import clsx from "clsx";
 import HeaderUser from "@/ui/header/headerUser";
 
