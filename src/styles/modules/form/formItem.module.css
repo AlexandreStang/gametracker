@@ -1,0 +1,10 @@
+.form_item_label {
+    margin-bottom: calc(var(--spacing) * 2);
+
+    font-weight: var(--fw-bold);
+}
+
+.form_item_centered {
+    display: flex;
+    flex-direction: column;
+}

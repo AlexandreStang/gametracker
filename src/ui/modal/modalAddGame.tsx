@@ -6,6 +6,8 @@ import {useEffect, useState} from "react";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {GameIGDB} from "@/api/types";
 import {convertDate} from "@/lib/utils";
+import FormItem from "@/ui/form/formItem";
+import clsx from "clsx";
 
 export default function ModalAddGame() {
 
@@ -50,37 +52,31 @@ export default function ModalAddGame() {
                 {/*GAME TITLE AND FORM*/}
                 <div className={styles.modal_game_text_content}>
                     {game &&
-                        <h3 className={styles.modal_game_heading}>{game.name} <span className={styles.modal_game_heading_date}>({convertDate(game.first_release_date).year})</span></h3>
+                        <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>{game.name} <span
+                            className={styles.modal_game_heading_date}>({convertDate(game.first_release_date).year})</span>
+                        </h3>
                     }
 
                     <form className={styles.modal_game_form}>
 
-                        <div>
-                            <div className={"app_label_container"}>
-                                <label htmlFor="modalGameConsole">Console</label>
-                            </div>
+                        <FormItem label={"Console"} htmlFor={"modalGameConsole"}>
                             <select name="console" id="modalGameConsole" className="app_select">
                                 {game && game.platforms?.map((platform: { id: number; name: string }) => (
                                     <option key={platform.id} value={platform.id}>{platform.name}</option>
                                 ))}
                             </select>
-                        </div>
+                        </FormItem>
 
                         <div className={styles.modal_game_form_row}>
 
-                            <div className={styles.modal_game_playtime}>
-                                <div className={"app_label_container"}>
-                                    <label htmlFor="modalGamePlaytime">Playtime (in hours)</label>
-                                </div>
-                                <input type="number" defaultValue="0" min="0" id="modalGamePlaytime" className="app_input"/>
-                            </div>
+                            <FormItem label={"Playtime (in hours)"} htmlFor={"modalGamePlaytime"}>
+                                <input type="number" defaultValue="0" min="0" id="modalGamePlaytime"
+                                       className="app_input"/>
+                            </FormItem>
 
-                            <div className={styles.modal_game_like}>
-                                <div className={"app_label_container"}>
-                                    <label htmlFor="modalGameLike">Like</label>
-                                </div>
+                            <FormItem label={"Like"} htmlFor={"modalGameLike"} isCentered={true}>
                                 <input type="checkbox" id="modalGameLike"/>
-                            </div>
+                            </FormItem>
 
                         </div>
 

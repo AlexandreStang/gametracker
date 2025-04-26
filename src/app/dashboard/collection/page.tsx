@@ -31,7 +31,7 @@ export default function Collection() {
 
     return (
         <>
-            {/*<ModalAddGame></ModalAddGame>*/}
+            <ModalAddGame></ModalAddGame>
             <header className={styles.dashboard_header}>
                 <h1 className="app_heading_2">Collection</h1>
                 <User></User>

@@ -89,17 +89,12 @@
 }
 
 .app_input_icon {
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
+
     margin-left: var(--input-padding-x);
 
     color: var(--text-muted);
-}
-
-label {
-    font-weight: var(--fw-bold);
-}
-
-.app_label_container {
-    margin-bottom: calc(var(--spacing) * 2);
 }
 
 /*HEADING _________________________________________________________________*/

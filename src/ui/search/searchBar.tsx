@@ -24,7 +24,7 @@ export default function SearchBar({placeholder, onSearch}: SearchProps) {
                    className={"app_input app_input_text_w_icon"}
             />
             <div className="absolute top-0 h-full flex items-center">
-                <MagnifyingGlassIcon className="app_input_icon app_icon_sm" />
+                <MagnifyingGlassIcon className="app_input_icon" />
             </div>
         </div>
     )
