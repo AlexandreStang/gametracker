@@ -2,11 +2,11 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    gap: calc((var(--spacing) * 4));
+    gap: calc((var(--spacing) * 2));
 
     font-weight: var(--fw-bold);
 }
 
 .user_icon {
-    color: var(--border-primary);
+    color: var(--text-brand-muted);
 }

@@ -8,6 +8,11 @@
     height: var(--icon-size-md);
 }
 
+.app_icon_lg {
+    width: var(--icon-size-lg);
+    height: var(--icon-size-lg);
+}
+
 .app_icon_xl {
     width: var(--icon-size-xl);
     height: var(--icon-size-xl);

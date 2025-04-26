@@ -5,7 +5,7 @@ import clsx from "clsx";
 import {formatHours} from "@/lib/utils";
 import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
-import User from "@/ui/user";
+import User from "@/ui/header/user";
 import ModalAddGame from "@/ui/modal/modalAddGame";
 import {getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
@@ -32,10 +32,9 @@ export default function Collection() {
     return (
         <>
             {/*<ModalAddGame></ModalAddGame>*/}
-            <header className={styles.dashboard_header}>
+            <div className={styles.dashboard_heading}>
                 <h1 className="app_heading_2">Collection</h1>
-                <User></User>
-            </header>
+            </div>
             <div className="flex flex-col items-center gap-8">
                 <div className="app_wrapper_md">
                     <SearchGames></SearchGames>

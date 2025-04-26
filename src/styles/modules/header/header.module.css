@@ -1,0 +1,23 @@
+.header {
+    display: flex;
+    align-items: center;
+
+    height: var(--header-height);
+
+    margin-bottom: var(--margin-page);
+
+    background-color: var(--surface-brand);
+    color: var(--text-brand-invert);
+
+    position: sticky;
+    top: 0;
+    z-index: var(--z-index-header);
+
+    box-shadow: var(--shadow-main);
+}
+
+.header_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

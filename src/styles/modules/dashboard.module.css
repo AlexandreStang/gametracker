@@ -1,22 +1,9 @@
-.dashboard_top {
-    height: var(--margin-page);
-    width: 100%;
-
-    /*position: sticky;*/
-    /*top: 0;*/
-    /*z-index: var(--z-index-top);*/
-
-    background-color: var(--surface-primary);
-}
-
 .dashboard_layout {
     display: flex;
     gap: var(--margin-page);
-
-    margin: 0 var(--margin-page);
 }
 
-.dashboard_header {
+.dashboard_heading {
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -15,3 +15,7 @@
     margin: 0 auto;
     max-width: var(--wrapper-md);
 }
+
+.app_wrapper_margin {
+    margin: 0 var(--margin-page);
+}

@@ -7,7 +7,7 @@ export default function User() {
     return (
         <div className={styles.user}>
             <div>AlexandreStang</div>
-            <UserCircleIcon className={clsx(styles.user_icon, "app_icon_xl")}></UserCircleIcon>
+            <UserCircleIcon className={clsx(styles.user_icon, "app_icon_lg")}></UserCircleIcon>
         </div>
     )
 }

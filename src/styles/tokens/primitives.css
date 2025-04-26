@@ -44,5 +44,6 @@
     --transition-global: all 75ms ease-in-out;
 
     /*Z-INDEX _________________________________________________________________*/
+    --z-index-header: 5000;
     --z-index-modal: 9999;
 }

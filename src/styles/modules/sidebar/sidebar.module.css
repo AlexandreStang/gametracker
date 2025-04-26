@@ -1,20 +1,18 @@
 .sidebar {
     position: sticky;
-    top: var(--margin-page);
-    height: calc(100vh - 2 * var(--margin-page));
-    width: 320px;
+    top: calc(var(--header-height) + var(--margin-page));
+    height: calc(100vh - 2 * var(--margin-page) - var(--header-height));
+    width: 240px;
     flex-shrink: 0;
 
     display: flex;
     flex-direction: column;
     gap: calc(var(--spacing) * 14);
 
-    padding: calc(var(--spacing) * 14) calc(var(--spacing) * 10);
+    /*border: 1px solid var(--border-primary);*/
+    /*border-radius: var(--radius-global);*/
 
-    border: 1px solid var(--border-primary);
-    border-radius: var(--radius-global);
-
-    background-color: var(--surface-secondary);
+    /*background-color: var(--surface-secondary);*/
 
     color: var(--text-primary);
     font-size: var(--fs-body-lg);
@@ -54,13 +52,4 @@
     color: var(--text-muted);
 
     cursor: not-allowed;
-}
-
-/* PLACEHOLDER LOGO */
-.sidebar_logo_text {
-    /*color: var(--text-bold);*/
-}
-
-.sidebar_logo_icon {
-    color: var(--text-brand);
 }
