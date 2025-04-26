@@ -1,6 +1,6 @@
-import styles from "@/styles/modules/header/header.module.css"
+import styles from "@/styles/modules/header/headerUser.module.css"
 import clsx from "clsx";
-import User from "@/ui/header/user";
+import HeaderUser from "@/ui/header/headerUser";
 
 export default function Header() {
 
@@ -12,7 +12,7 @@ export default function Header() {
                     <div className="text-2xl text-center font-extrabold uppercase tracking-widest">
                         Logo
                     </div>
-                    <User></User>
+                    <HeaderUser></HeaderUser>
                 </div>
             </div>
         </header>

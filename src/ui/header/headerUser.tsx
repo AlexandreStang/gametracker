@@ -2,7 +2,7 @@ import {UserCircleIcon} from "@heroicons/react/24/solid";
 import styles from "@/styles/modules/user.module.css"
 import clsx from "clsx";
 
-export default function User() {
+export default function HeaderUser() {
 
     return (
         <div className={styles.user}>

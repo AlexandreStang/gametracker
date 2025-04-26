@@ -5,7 +5,7 @@ import clsx from "clsx";
 import {formatHours} from "@/lib/utils";
 import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
-import User from "@/ui/header/user";
+import HeaderUser from "@/ui/header/headerUser";
 import ModalAddGame from "@/ui/modal/modalAddGame";
 import {getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
