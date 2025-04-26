@@ -1,7 +1,7 @@
 'use client'
 
 import {HeartIcon} from "@heroicons/react/24/solid";
-import styles from "@/styles/button.module.css";
+import styles from "@/styles/buttonLike.module.css";
 import {useState} from "react";
 import clsx from "clsx";
 
@@ -23,7 +23,7 @@ export default function ButtonLike({initialLike, onClick}: ButtonLikeProps) {
     }
 
     return (
-        <div className={styles.button_icon_inner} onClick={toggleLike}>
+        <div className="app_icon_sm" onClick={toggleLike}>
             <HeartIcon className={clsx(styles.button_toggle, {
                 [styles.button_toggle_active] : liked,
                 [styles.button_toggle_inactive] : !liked

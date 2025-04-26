@@ -31,3 +31,8 @@ body {
 .app_body_bold {
   font-weight: var(--fw-bold);
 }
+
+.app_icon_sm {
+  width: var(--icon-size-sm);
+  height: var(--icon-size-sm);
+}

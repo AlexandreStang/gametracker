@@ -1,0 +1,23 @@
+.button_icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: var(--icon-size-xl);
+    height: var(--icon-size-xl);
+
+    transition: var(--transition-global);
+
+    cursor: pointer;
+
+    user-select: none;
+}
+
+.button_icon:hover {
+    background-color: var(--surface-secondary-hover);
+    border-radius: 100%;
+}
+
+.button_icon:active {
+    background-color: var(--surface-secondary-active);
+}

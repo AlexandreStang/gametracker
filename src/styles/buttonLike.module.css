@@ -1,0 +1,16 @@
+.button_toggle {
+    cursor: pointer;
+
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+.button_toggle_active {
+    color: var(--button-primary);
+}
+
+.button_toggle_inactive {
+    color: var(--button-disabled);
+}
