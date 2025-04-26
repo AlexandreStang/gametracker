@@ -38,7 +38,7 @@ export default function Sidebar() {
                     key={index}
                     href={link.href && link.href}
                     isActive={link.isActive && link.isActive}>
-                    <Icon className={styles.sidebar_icon}></Icon>
+                    <Icon className="app_icon_sm"></Icon>
                     <span>{link.text}</span>
                 </SidebarNavLink>
             )

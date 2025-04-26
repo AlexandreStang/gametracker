@@ -8,8 +8,5 @@
 }
 
 .user_icon {
-    height: var(--icon-size-xl);
-    width: var(--icon-size-xl);
-
     color: var(--border-primary);
 }

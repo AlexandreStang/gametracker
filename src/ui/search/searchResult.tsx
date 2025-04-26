@@ -1,6 +1,7 @@
 import styles from "@/styles/modules/search/search.module.css"
 import {PlusIcon} from "@heroicons/react/24/solid";
 import {useGameSelection} from "@/context/gameSelectionContext";
+import clsx from "clsx";
 
 interface searchResultProps {
     name: string
@@ -21,7 +22,7 @@ export default function SearchResult({name, year, igdbId}: searchResultProps) {
             <span>
                 {name} ({year})
             </span>
-            <PlusIcon className={styles.search_result_icon}></PlusIcon>
+            <PlusIcon className={clsx(styles.search_result_icon, "app_icon_sm")}></PlusIcon>
         </div>
     )
 }

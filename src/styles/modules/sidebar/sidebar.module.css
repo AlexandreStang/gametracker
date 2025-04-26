@@ -56,18 +56,6 @@
     cursor: not-allowed;
 }
 
-.sidebar_icon {
-    height: var(--icon-size-sm);
-    width: var(--icon-size-sm);
-}
-
-.sidebar_bottom_gap {
-    margin-bottom: calc(var(--spacing) * 14);
-}
-
-
-
-
 /* PLACEHOLDER LOGO */
 .sidebar_logo_text {
     /*color: var(--text-bold);*/

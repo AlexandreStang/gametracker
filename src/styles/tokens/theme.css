@@ -1,7 +1,6 @@
 @import "./primitives.css";
 
 :root {
-
     /*BORDER _________________________________________________________________*/
     --border-primary: var(--color-grey-350);
     --border-brand: var(--color-purple-500);
@@ -44,4 +43,36 @@
     --text-brand: var(--color-purple-500);
     --text-brand-muted: var(--color-purple-250);
     --text-brand-invert: var(--color-white-100);
+}
+
+/*TEXT _________________________________________________________________*/
+.app_body_bold {
+    font-weight: var(--fw-bold);
+}
+
+/*HEADING _________________________________________________________________*/
+.app_heading_2 {
+    font-size: var(--fs-heading-2);
+    font-weight: var(--fw-bold);
+}
+
+.app_heading_3 {
+    font-size: var(--fs-heading-3);
+    font-weight: var(--fw-bold);
+}
+
+/*ICON _________________________________________________________________*/
+.app_icon_sm {
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
+}
+
+.app_icon_md {
+    width: var(--icon-size-md);
+    height: var(--icon-size-md);
+}
+
+.app_icon_xl {
+    width: var(--icon-size-xl);
+    height: var(--icon-size-xl);
 }

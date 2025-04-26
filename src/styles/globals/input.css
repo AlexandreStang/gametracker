@@ -25,8 +25,6 @@ input.app_input_text_w_icon {
 }
 
 .app_input_icon {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
     margin-left: var(--input-padding-x);
 
     color: var(--text-muted);

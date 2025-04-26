@@ -29,8 +29,8 @@
     /*FONT SIZES _________________________________________________________________*/
     --fs-body: 0.875rem; /* 14px */
     --fs-body-lg: 1rem; /* 16px */
-    --fs-heading-modal: 1.25rem; /* 20px */
-    --fs-heading-dashboard: 1.5rem; /* 24px */
+    --fs-heading-3: 1.25rem; /* 20px */
+    --fs-heading-2: 1.5rem; /* 24px */
 
     /*FONT WEIGHT _________________________________________________________________*/
     --fw-normal: 400;

@@ -33,7 +33,7 @@ export default function Collection() {
         <>
             {/*<ModalAddGame></ModalAddGame>*/}
             <header className={styles.dashboard_header}>
-                <h1 className={styles.dashboard_heading}>Collection</h1>
+                <h1 className="app_heading_2">Collection</h1>
                 <User></User>
             </header>
             <div className="flex flex-col items-center gap-8">

@@ -16,7 +16,7 @@ export default function Modal({header, children, footer, onClose}: ModalProps) {
         <div className={styles.overlay}>
             <div className={styles.modal}>
                 <div className={clsx(styles.modal_header)}>
-                    <span className={styles.modal_heading}>
+                    <span className="app_heading_3">
                         {header}
                     </span>
                     <ButtonIcon>

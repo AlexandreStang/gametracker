@@ -37,11 +37,6 @@
     margin-bottom: var(--margin-page);
 }
 
-.dashboard_heading {
-    font-size: var(--fs-heading-dashboard);
-    font-weight: var(--fw-bold);
-}
-
 .dashboard_wrapper_md {
     width: 100%;
     max-width: 720px;

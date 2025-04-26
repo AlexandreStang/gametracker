@@ -6,7 +6,6 @@
 
     padding: calc(var(--spacing) * 4) 0;
 
-    border: 1px solid var(--input-border);
     border-radius: var(--radius-global);
 
     background-color: var(--input-background);
@@ -34,7 +33,4 @@
 
 .search_result_icon {
     visibility: hidden;
-
-    height: var(--icon-size-sm);
-    width: var(--icon-size-sm);
 }
