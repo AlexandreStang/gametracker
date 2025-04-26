@@ -15,7 +15,7 @@ export default function Modal({header, children, footer, onClose}: ModalProps) {
     return (
         <div className={styles.overlay}>
             <div className={styles.modal}>
-                <div className={clsx(styles.modal_header)}>
+                <div className={styles.modal_header}>
                     <span className="app_heading_3">
                         {header}
                     </span>
@@ -23,7 +23,7 @@ export default function Modal({header, children, footer, onClose}: ModalProps) {
                         <XMarkIcon></XMarkIcon>
                     </ButtonIcon>
                 </div>
-                <div className={clsx(styles.modal_content)}>
+                <div className={styles.modal_content}>
                     {children}
                 </div>
                 <div className={clsx(styles.modal_footer, styles.modal_wrapper)}>
