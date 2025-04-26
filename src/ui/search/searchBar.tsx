@@ -21,7 +21,7 @@ export default function SearchBar({placeholder, onSearch}: SearchProps) {
                    onChange={e => {
                        handleSearch(e.target.value)
                    }}
-                   className="app_input_text_w_icon"
+                   className={"app_input app_input_text_w_icon"}
             />
             <div className="absolute top-0 h-full flex items-center">
                 <MagnifyingGlassIcon className="app_input_icon app_icon_sm" />

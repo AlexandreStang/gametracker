@@ -43,7 +43,7 @@ export default function Collection() {
                 <div className={clsx("flex justify-center items-center gap-8", styles.dashboard_wrapper_md)}>
                     <div className="flex justify-center items-center gap-4">
                         <span className="w-full">Last updated on:</span>
-                        <input type="date"/>
+                        <input type="date" className="app_input"/>
                     </div>
                     <div>
                         Total playtime:

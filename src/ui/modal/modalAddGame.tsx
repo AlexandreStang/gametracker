@@ -59,7 +59,7 @@ export default function ModalAddGame() {
                             <div className={"app_label_container"}>
                                 <label htmlFor="modalGameConsole">Console</label>
                             </div>
-                            <select name="console" id="modalGameConsole">
+                            <select name="console" id="modalGameConsole" className="app_select">
                                 {game && game.platforms?.map((platform: { id: number; name: string }) => (
                                     <option key={platform.id} value={platform.id}>{platform.name}</option>
                                 ))}
@@ -72,7 +72,7 @@ export default function ModalAddGame() {
                                 <div className={"app_label_container"}>
                                     <label htmlFor="modalGamePlaytime">Playtime (in hours)</label>
                                 </div>
-                                <input type="number" defaultValue="0" min="0" id="modalGamePlaytime"/>
+                                <input type="number" defaultValue="0" min="0" id="modalGamePlaytime" className="app_input"/>
                             </div>
 
                             <div className={styles.modal_game_like}>
