@@ -1,7 +1,7 @@
 import Modal from "@/ui/modal/modal";
 import Button from "@/ui/button/button";
 import Cover from "@/ui/cover";
-import styles from "@/styles/modalGame.module.css"
+import styles from "@/styles/modules/modal/modalGame.module.css"
 import {useEffect, useState} from "react";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {GameIGDB} from "@/api/types";

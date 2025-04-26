@@ -1,4 +1,4 @@
-import styles from "@/styles/table.module.css"
+import styles from "@/styles/modules/table.module.css"
 
 interface TableProps {
     children?: React.ReactNode;

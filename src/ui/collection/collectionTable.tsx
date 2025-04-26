@@ -1,4 +1,4 @@
-import styles from "@/styles/collectionTable.module.css";
+import styles from "@/styles/modules/collection/collectionTable.module.css";
 import CollectionGame from "@/ui/collection/collectionGame";
 import {useEffect, useState} from "react";
 import {getAllPlayedGamesFromUser} from "@/db/services/playedGameService";

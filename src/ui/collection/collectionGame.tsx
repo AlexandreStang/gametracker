@@ -2,7 +2,7 @@ import {PencilIcon} from "@heroicons/react/24/outline";
 import {formatHours} from "@/lib/utils";
 import ButtonLike from "@/ui/button/buttonLike";
 import ButtonIcon from "@/ui/button/buttonIcon";
-import styles from "@/styles/collectionTable.module.css"
+import styles from "@/styles/modules/collection/collectionTable.module.css"
 import {PlayedGameWithGamePlatform} from "@/db/types";
 import Cover from "@/ui/cover";
 

@@ -1,4 +1,4 @@
-import styles from "@/styles/modal.module.css"
+import styles from "@/styles/modules/modal/modal.module.css"
 import {XMarkIcon} from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import ButtonIcon from "@/ui/button/buttonIcon";

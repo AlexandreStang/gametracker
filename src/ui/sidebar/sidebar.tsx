@@ -1,4 +1,4 @@
-import styles from "@/styles/sidebar.module.css"
+import styles from "@/styles/modules/sidebar/sidebar.module.css"
 import SidebarNavLink from "@/ui/sidebar/sidebarNavLink";
 
 import {ListBulletIcon} from "@heroicons/react/24/outline";

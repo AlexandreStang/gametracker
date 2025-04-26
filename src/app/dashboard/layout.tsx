@@ -1,7 +1,7 @@
 'use client'
 
 import Sidebar from "@/ui/sidebar/sidebar";
-import styles from "@/styles/dashboard.module.css"
+import styles from "@/styles/modules/dashboard.module.css"
 import {GameSelectionProvider} from "@/context/gameSelectionContext";
 
 export default function Layout({ children }: { children: React.ReactNode }) {

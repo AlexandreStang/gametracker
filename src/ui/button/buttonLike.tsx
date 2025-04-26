@@ -1,7 +1,7 @@
 'use client'
 
 import {HeartIcon} from "@heroicons/react/24/solid";
-import styles from "@/styles/buttonLike.module.css";
+import styles from "@/styles/modules/button/buttonLike.module.css";
 import {useState} from "react";
 import clsx from "clsx";
 

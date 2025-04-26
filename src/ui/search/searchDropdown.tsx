@@ -1,7 +1,7 @@
 import {GameIGDB} from "@/api/types";
 import SearchResult from "@/ui/search/searchResult";
 import {convertDate} from "@/lib/utils";
-import styles from "@/styles/search.module.css"
+import styles from "@/styles/modules/search/search.module.css"
 
 interface searchDropdownInterface {
     games: GameIGDB[]

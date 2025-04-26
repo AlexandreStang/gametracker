@@ -1,6 +1,6 @@
 'use client'
 
-import styles from "@/styles/sidebar.module.css"
+import styles from "@/styles/modules/sidebar/sidebar.module.css"
 import Link from "next/link";
 import clsx from "clsx";
 import { usePathname } from 'next/navigation'

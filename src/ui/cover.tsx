@@ -1,4 +1,4 @@
-import styles from "@/styles/cover.module.css"
+import styles from "@/styles/modules/cover.module.css"
 import {Game} from "@prisma/client";
 import Image from 'next/image'
 

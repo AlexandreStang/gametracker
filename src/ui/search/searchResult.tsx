@@ -1,4 +1,4 @@
-import styles from "@/styles/search.module.css"
+import styles from "@/styles/modules/search/search.module.css"
 import {PlusIcon} from "@heroicons/react/24/solid";
 import {useGameSelection} from "@/context/gameSelectionContext";
 

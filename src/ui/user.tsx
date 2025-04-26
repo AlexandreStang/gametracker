@@ -1,5 +1,5 @@
 import {UserCircleIcon} from "@heroicons/react/24/solid";
-import styles from "@/styles/user.module.css"
+import styles from "@/styles/modules/user.module.css"
 
 export default function User() {
 
