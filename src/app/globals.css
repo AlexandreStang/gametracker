@@ -1,6 +1,14 @@
 @import "tailwindcss";
+
+/*IMPORT TOKENS _________________________________________________________________*/
 @import "../styles/tokens/primitives.css";
 @import "../styles/tokens/theme.css";
+
+/*IMPORT APP _________________________________________________________________*/
+@import "../styles/app/icon.css";
+@import "../styles/app/input.css";
+@import "../styles/app/text.css";
+@import "../styles/app/wrapper.css";
 
 @theme {
   /*--font-sans: "Inter";*/

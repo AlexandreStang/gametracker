@@ -13,8 +13,7 @@
     display: flex;
     gap: var(--margin-page);
 
-    margin-right: var(--margin-page);
-    margin-left: var(--margin-page);
+    margin: 0 var(--margin-page);
 }
 
 .dashboard_header {

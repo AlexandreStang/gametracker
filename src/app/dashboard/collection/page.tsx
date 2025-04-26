@@ -31,16 +31,16 @@ export default function Collection() {
 
     return (
         <>
-            <ModalAddGame></ModalAddGame>
+            {/*<ModalAddGame></ModalAddGame>*/}
             <header className={styles.dashboard_header}>
                 <h1 className="app_heading_2">Collection</h1>
                 <User></User>
             </header>
             <div className="flex flex-col items-center gap-8">
-                <div className={styles.dashboard_wrapper_md}>
+                <div className="app_wrapper_md">
                     <SearchGames></SearchGames>
                 </div>
-                <div className={clsx("flex justify-center items-center gap-8", styles.dashboard_wrapper_md)}>
+                <div className="flex justify-center items-center gap-8">
                     <div className="flex justify-center items-center gap-4">
                         <span className="w-full">Last updated on:</span>
                         <input type="date" className="app_input"/>
@@ -53,9 +53,7 @@ export default function Collection() {
                         </span>
                     </div>
                 </div>
-                <div className={styles.dashboard_wrapper_lg}>
-                    <CollectionTable></CollectionTable>
-                </div>
+                <CollectionTable></CollectionTable>
             </div>
         </>
     );

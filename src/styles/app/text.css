@@ -1,0 +1,15 @@
+/*HEADING _________________________________________________________________*/
+.app_heading_2 {
+    font-size: var(--fs-heading-2);
+    font-weight: var(--fw-bold);
+}
+
+.app_heading_3 {
+    font-size: var(--fs-heading-3);
+    font-weight: var(--fw-bold);
+}
+
+/*TEXT _________________________________________________________________*/
+.app_body_bold {
+    font-weight: var(--fw-bold);
+}

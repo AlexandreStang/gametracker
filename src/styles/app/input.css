@@ -1,0 +1,34 @@
+.app_input, .app_select {
+    height: calc(var(--spacing) * 12);
+    width: 100%;
+
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-global);
+
+    padding: 0 var(--input-padding-x);
+
+    color: var(--text-primary);
+    background-color: var(--input-background);
+}
+
+.app_input::placeholder {
+    color: var(--text-muted);
+}
+
+.app_input:focus, .app_select:focus {
+    outline: none;
+    border: 1px solid var(--border-brand);
+}
+
+.app_input.app_input_text_w_icon {
+    padding-left: calc(var(--input-padding-x) + var(--icon-size-sm) + calc(var(--spacing) * 4));
+}
+
+.app_input_icon {
+    width: var(--icon-size-sm);
+    height: var(--icon-size-sm);
+
+    margin-left: var(--input-padding-x);
+
+    color: var(--text-muted);
+}
