@@ -3,6 +3,7 @@ import CollectionGame from "@/ui/collection/collectionGame";
 import {useEffect, useState} from "react";
 import {getAllPlayedGamesFromUser} from "@/db/services/playedGameService";
 import {PlayedGameWithGamePlatform} from "@/db/types";
+import Table from "@/ui/table";
 
 export default function CollectionTable() {
 
@@ -22,7 +23,7 @@ export default function CollectionTable() {
     }, []);
 
     return (
-        <table className={styles.collection_table}>
+        <Table>
             <thead>
             <tr>
                 <th className={styles.th_rank}>Rank</th>
@@ -36,9 +37,9 @@ export default function CollectionTable() {
             </thead>
             <tbody>
             {playedGames?.map((playedGame, index) => (
-                <CollectionGame rank={index+1} playedGame={playedGame} key={playedGame.id}></CollectionGame>
+                <CollectionGame rank={index + 1} playedGame={playedGame} key={playedGame.id}></CollectionGame>
             ))}
             </tbody>
-        </table>
+        </Table>
     )
 }

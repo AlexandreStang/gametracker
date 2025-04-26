@@ -1,4 +1,4 @@
-table {
+.table {
     width: 100%;
 
     border: 1px solid var(--border-primary);
@@ -16,6 +16,8 @@ table {
     }
 
     td {
+        height: calc(var(--spacing) * 20);
+
         font-weight: var(--fw-bold);
     }
 

@@ -1,10 +1,3 @@
-.collection_table {
-
-    td {
-        height: calc(var(--spacing) * 20);
-    }
-}
-
 .th_rank, .td_rank {
     width: 10%;
     text-align: center;

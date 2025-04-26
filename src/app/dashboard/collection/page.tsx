@@ -31,7 +31,7 @@ export default function Collection() {
 
     return (
         <>
-            <ModalAddGame></ModalAddGame>
+            {/*<ModalAddGame></ModalAddGame>*/}
             <header className={styles.dashboard_header}>
                 <h1 className={styles.dashboard_heading}>Collection</h1>
                 <User></User>
