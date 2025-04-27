@@ -22,13 +22,3 @@
 
     margin-bottom: var(--margin-page);
 }
-
-.dashboard_wrapper_md {
-    width: 100%;
-    max-width: 720px;
-}
-
-.dashboard_wrapper_lg {
-    width: 100%;
-    max-width: 960px;
-}

@@ -10,7 +10,7 @@
     --button-disabled: var(--color-grey-350);
 
     /*HEADER _________________________________________________________________*/
-    --header-height: calc(var(--spacing) * 16);
+    --header-height: calc(var(--spacing) * 14);
 
     /*ICON _________________________________________________________________*/
     --icon-size-sm: calc(var(--spacing) * 6);

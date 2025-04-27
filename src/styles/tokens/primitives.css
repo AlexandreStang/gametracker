@@ -38,7 +38,8 @@
     --fw-black: 800;
 
     /*SHADOW _________________________________________________________________*/
-    --shadow-main: 0px 2px 4px 1px rgba(0, 0, 0, 0.1);
+    --shadow-main: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    --shadow-header: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 
     /*TRANSITION _________________________________________________________________*/
     --transition-global: all 75ms ease-in-out;

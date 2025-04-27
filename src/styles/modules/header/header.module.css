@@ -4,12 +4,9 @@
 
     height: var(--header-height);
 
-    margin-bottom: var(--margin-page);
+    margin-bottom: calc(var(--spacing) * 8);
 
     background-color: var(--surface-brand);
-
-    /*backdrop-filter: blur(10px);*/
-    /*-webkit-backdrop-filter: blur(10px);*/
 
     color: var(--text-brand-invert);
 
@@ -17,7 +14,7 @@
     top: 0;
     z-index: var(--z-index-header);
 
-    box-shadow: var(--shadow-main);
+    box-shadow: var(--shadow-header);
 }
 
 .header_content {
