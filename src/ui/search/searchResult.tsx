@@ -1,6 +1,5 @@
 import styles from "@/styles/modules/search/search.module.css"
 import {PlusIcon} from "@heroicons/react/24/solid";
-import {useGameSelection} from "@/context/gameSelectionContext";
 import clsx from "clsx";
 
 interface searchResultProps {
@@ -11,10 +10,8 @@ interface searchResultProps {
 
 export default function SearchResult({name, year, igdbId}: searchResultProps) {
 
-    const { setSelectedGameIgdbId } = useGameSelection();
-
     const handleClick = () => {
-        setSelectedGameIgdbId(igdbId)
+
     }
 
     return(
