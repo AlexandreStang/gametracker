@@ -5,6 +5,9 @@ import ButtonIcon from "@/ui/button/buttonIcon";
 import styles from "@/styles/modules/collection/collectionTable.module.css"
 import {PlayedGameWithGamePlatform} from "@/db/types";
 import Cover from "@/ui/cover";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/state/store";
+import {openGameModal} from "@/state/modalGame/modalGameSlice";
 
 interface CollectionGameProps {
     rank: number
@@ -12,6 +15,11 @@ interface CollectionGameProps {
 }
 
 export default function CollectionGame({rank, playedGame}: CollectionGameProps) {
+    const dispatch = useDispatch<AppDispatch>();
+
+    const handleEditClick = () => {
+        dispatch(openGameModal({mode: 'edit', gameId: playedGame.id, userId: 'cm7xuh4di0000vmxwj7x7am9r'}));
+    }
 
     return (
         <>
@@ -47,7 +55,7 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
                     {/*EDIT*/}
                     <td className={styles.td_edit}>
                         <div className="flex justify-center items-center">
-                            <ButtonIcon>
+                            <ButtonIcon onClick={handleEditClick}>
                                 <PencilIcon></PencilIcon>
                             </ButtonIcon>
                         </div>

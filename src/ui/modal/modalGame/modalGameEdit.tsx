@@ -1,6 +1,6 @@
 import Modal from "@/ui/modal/modal";
 
-export default function ModalEditGame() {
+export default function ModalGameEdit() {
 
     return (
         <Modal></Modal>

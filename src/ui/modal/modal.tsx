@@ -19,7 +19,7 @@ export default function Modal({header, children, footer, onClose}: ModalProps) {
                     <span className="app_heading_3">
                         {header}
                     </span>
-                    <ButtonIcon>
+                    <ButtonIcon onClick={onClose}>
                         <XMarkIcon></XMarkIcon>
                     </ButtonIcon>
                 </div>

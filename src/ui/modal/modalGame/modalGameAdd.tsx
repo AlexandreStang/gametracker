@@ -8,8 +8,17 @@ import {GameIGDB} from "@/api/types";
 import {convertDate} from "@/lib/utils";
 import FormItem from "@/ui/form/formItem";
 import clsx from "clsx";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "@/state/store";
+import {closeGameModal} from "@/state/modalGame/modalGameSlice";
 
-export default function ModalAddGame() {
+interface modalGameAddProps {
+    igdbId: number
+    userId: string
+}
+
+export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
+    const dispatch = useDispatch<AppDispatch>();
 
     const [game, setGame] = useState<GameIGDB | null>(null)
     const [playtime, setPlaytime] = useState<number>(0)
@@ -18,9 +27,13 @@ export default function ModalAddGame() {
 
     useEffect(() => {
 
+        if (!igdbId) {
+            return
+        }
+
         const fetchGame = async () => {
             try {
-                const results = await fetchGameFromIGDB(7346);
+                const results = await fetchGameFromIGDB(igdbId);
 
                 if (results) {
                     console.log(results)
@@ -33,12 +46,13 @@ export default function ModalAddGame() {
         };
 
         fetchGame();
-    }, []);
+    }, [igdbId]);
 
     return (
         <Modal
             header={"You played..."}
             footer={<Button text={"Save"}></Button>}
+            onClose={() => dispatch(closeGameModal())}
         >
             <div className={styles.modal_game_content}>
 

@@ -3,9 +3,9 @@
 import {formatHours} from "@/lib/utils";
 import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
-import ModalAddGame from "@/ui/modal/modalAddGame";
 import {getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
+import ModalGame from "@/ui/modal/modalGame/modalGame";
 
 export default function Collection() {
 
@@ -26,7 +26,7 @@ export default function Collection() {
 
     return (
         <>
-            {/*<ModalAddGame></ModalAddGame>*/}
+            <ModalGame></ModalGame>
             <div className="flex flex-col items-center gap-8">
                 <div className="app_wrapper_md">
                     <SearchGames></SearchGames>
