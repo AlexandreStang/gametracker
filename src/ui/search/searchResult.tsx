@@ -20,7 +20,7 @@ export default function SearchResult({name, year, igdbId}: searchResultProps) {
     return(
         <div className={styles.search_result} onClick={handleClick}>
             <span>
-                {name} ({year})
+                {name} {year ? `(${year})` : ""}
             </span>
             <PlusIcon className={clsx(styles.search_result_icon, "app_icon_sm")}></PlusIcon>
         </div>
