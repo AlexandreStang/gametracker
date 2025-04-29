@@ -9,7 +9,7 @@
 
 ## ⚡ Technologies Used
 
-- **Frontend:** React, TypeScript, Next.js, Tailwind CSS
+- **Frontend:** React, TypeScript, Next.js, Redux Toolkit, Tailwind CSS
 - **Database:** PostgreSQL, Prisma ORM, Neon
 - **API:** IGDB API
 - **Design:** Figma
