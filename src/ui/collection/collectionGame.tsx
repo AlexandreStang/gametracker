@@ -18,7 +18,7 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
     const dispatch = useDispatch<AppDispatch>();
 
     const handleEditClick = () => {
-        dispatch(openGameModal({mode: 'edit', gameId: playedGame.id, userId: 'cm7xuh4di0000vmxwj7x7am9r'}));
+        dispatch(openGameModal({mode: 'edit', gameId: playedGame.gameId, playedGameId: playedGame.id}));
     }
 
     return (

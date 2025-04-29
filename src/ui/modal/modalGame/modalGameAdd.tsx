@@ -16,10 +16,9 @@ import FormLike from "@/ui/form/formLike";
 
 interface modalGameAddProps {
     igdbId: number
-    userId: string
 }
 
-export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
+export default function ModalGameAdd({igdbId}: modalGameAddProps) {
     const dispatch = useDispatch<AppDispatch>();
 
     const [game, setGame] = useState<GameIGDB | null>(null)
@@ -53,13 +52,13 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
 
         // console.log(game, playtime, platformId, like)
 
-        if (game && userId) {
+        if (game) {
             const newGame = await registerPlayedGame({
                 gameIgdbId: game.id,
                 platformIgdbId: platformId,
                 playtime: playtime,
                 like: like,
-                userId: userId
+                userId: 'cm7xuh4di0000vmxwj7x7am9r'
             })
         }
 

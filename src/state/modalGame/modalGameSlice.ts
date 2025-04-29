@@ -1,11 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {act} from "react";
 
 interface ModalGameState {
     isOpen: boolean
     mode: 'add' | 'edit' | null
     igdbId?: number | null // For adding games
     gameId?: string | null // For editing games
-    userId: string | null
+    playedGameId?: string | null // For editing games
 }
 
 const initialState: ModalGameState = {
@@ -13,7 +14,7 @@ const initialState: ModalGameState = {
     mode: null,
     igdbId: null,
     gameId: null,
-    userId: null
+    playedGameId: null
 }
 
 const modalGameSlice = createSlice({
@@ -24,20 +25,20 @@ const modalGameSlice = createSlice({
             mode: 'add' | 'edit';
             igdbId?: number;
             gameId?: string;
-            userId: string
+            playedGameId?: string;
         }>) {
             state.isOpen = true;
             state.mode = action.payload.mode;
             state.igdbId = action.payload.igdbId;
             state.gameId = action.payload.gameId;
-            state.userId = action.payload.userId;
+            state.playedGameId = action.payload.playedGameId;
         },
         closeGameModal(state) {
             state.isOpen = false;
             state.mode = null;
             state.igdbId = null;
             state.gameId = null;
-            state.userId = null;
+            state.playedGameId = null;
         }
     }
 })
