@@ -6,7 +6,6 @@ export default function Home() {
     <div>
 
         <ul>
-            <li><Link href={"/test"}>Test page</Link></li>
             <li><Link href={"/signin"}>Sign in page</Link></li>
             <li><Link href={"/signup"}>Sign up page</Link></li>
             <li><Link href={"/dashboard/collection"}>Collection page</Link></li>
