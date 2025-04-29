@@ -1,4 +1,4 @@
-.button_toggle {
+.toggle {
     cursor: pointer;
 
     user-select: none;
@@ -7,10 +7,10 @@
     -ms-user-select: none;
 }
 
-.button_toggle_active {
+.toggle_active {
     color: var(--button-primary);
 }
 
-.button_toggle_inactive {
+.toggle_inactive {
     color: var(--button-disabled);
 }

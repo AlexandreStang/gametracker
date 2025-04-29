@@ -12,6 +12,7 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
 import {closeGameModal} from "@/state/modalGame/modalGameSlice";
 import {registerPlayedGame} from "@/db/services/playedGameService";
+import FormLike from "@/ui/form/formLike";
 
 interface modalGameAddProps {
     igdbId: number
@@ -37,7 +38,6 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
                 const results = await fetchGameFromIGDB(igdbId);
 
                 if (results) {
-                    console.log(results)
                     setGame(results)
                     setPlatformId(results.platforms[0].id)
                 }
@@ -50,6 +50,8 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
     }, [igdbId]);
 
     const handleSave = async () => {
+
+        // console.log(game, playtime, platformId, like)
 
         if (game && userId) {
             const newGame = await registerPlayedGame({
@@ -129,12 +131,11 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
                             </FormItem>
 
                             <FormItem label={"Like"} htmlFor={"modalGameLike"} isCentered={true}>
-                                <input
-                                    type="checkbox"
-                                    id="modalGameLike"
-                                    defaultChecked={like}
-                                    onClick={(e) => setLike((e.target as HTMLInputElement).checked)}
-                                />
+                                <FormLike
+                                    id={"modalGameLike"}
+                                    initialLike={like}
+                                    onChange={(newLike) => setLike(newLike)}>
+                                </FormLike>
                             </FormItem>
 
                         </div>
