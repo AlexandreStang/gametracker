@@ -11,6 +11,7 @@ import clsx from "clsx";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
 import {closeGameModal} from "@/state/modalGame/modalGameSlice";
+import {registerPlayedGame} from "@/db/services/playedGameService";
 
 interface modalGameAddProps {
     igdbId: number
@@ -48,10 +49,33 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
         fetchGame();
     }, [igdbId]);
 
+    const handleSave = async () => {
+
+        if (game && userId) {
+            const newGame = await registerPlayedGame({
+                gameIgdbId: game.id,
+                platformIgdbId: platformId,
+                playtime: playtime,
+                like: like,
+                userId: userId
+            })
+        }
+
+        dispatch(closeGameModal())
+        resetStates()
+    }
+
+    const resetStates = () => {
+        setGame(null)
+        setPlaytime(0)
+        setPlatformId(NaN)
+        setLike(false)
+    }
+
     return (
         <Modal
             header={"You played..."}
-            footer={<Button text={"Save"}></Button>}
+            footer={<Button text={"Save"} onClick={handleSave}></Button>}
             onClose={() => dispatch(closeGameModal())}
         >
             <div className={styles.modal_game_content}>
@@ -66,7 +90,8 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
                 {/*GAME TITLE AND FORM*/}
                 <div className={styles.modal_game_text_content}>
                     {game &&
-                        <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>{game.name} <span
+                        <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>
+                            {game.name} <span
                             className={styles.modal_game_heading_date}>({convertDate(game.first_release_date).year})</span>
                         </h3>
                     }
@@ -74,9 +99,18 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
                     <form className={styles.modal_game_form}>
 
                         <FormItem label={"Console"} htmlFor={"modalGameConsole"}>
-                            <select name="console" id="modalGameConsole" className="app_select">
+                            <select
+                                name="console"
+                                id="modalGameConsole"
+                                className="app_select"
+                                onChange={(e) => setPlatformId(Number(e.target.value))}>
                                 {game && game.platforms?.map((platform: { id: number; name: string }) => (
-                                    <option key={platform.id} value={platform.id}>{platform.name}</option>
+                                    <option
+                                        key={platform.id}
+                                        value={platform.id}
+                                    >
+                                        {platform.name}
+                                    </option>
                                 ))}
                             </select>
                         </FormItem>
@@ -84,12 +118,23 @@ export default function ModalGameAdd({igdbId, userId}: modalGameAddProps) {
                         <div className={styles.modal_game_form_row}>
 
                             <FormItem label={"Playtime (in hours)"} htmlFor={"modalGamePlaytime"}>
-                                <input type="number" defaultValue="0" min="0" id="modalGamePlaytime"
-                                       className="app_input"/>
+                                <input
+                                    type="number"
+                                    defaultValue="0"
+                                    min="0"
+                                    id="modalGamePlaytime"
+                                    className="app_input"
+                                    onChange={(e) => setPlaytime(Number(e.target.value))}
+                                />
                             </FormItem>
 
                             <FormItem label={"Like"} htmlFor={"modalGameLike"} isCentered={true}>
-                                <input type="checkbox" id="modalGameLike"/>
+                                <input
+                                    type="checkbox"
+                                    id="modalGameLike"
+                                    defaultChecked={like}
+                                    onClick={(e) => setLike((e.target as HTMLInputElement).checked)}
+                                />
                             </FormItem>
 
                         </div>

@@ -9,15 +9,15 @@ export default function ModalGame() {
 
     if (!isOpen) return null
 
-    if (mode === 'add' && igdbId) {
+    if (mode === 'add' && igdbId && userId) {
         return (
-            <ModalGameAdd igdbId={igdbId}></ModalGameAdd>
+            <ModalGameAdd igdbId={igdbId} userId={userId}></ModalGameAdd>
         )
     }
 
-    // if (mode === 'edit' && gameId) {
-    //     return (
-    //         ModalGameEdit
-    //     )
-    // }
+    if (mode === 'edit' && gameId && userId) {
+        return (
+            <ModalGameEdit></ModalGameEdit>
+        )
+    }
 }

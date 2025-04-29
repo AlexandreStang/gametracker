@@ -53,6 +53,7 @@
     display: flex;
     justify-content: end;
     align-items: center;
+    gap: calc(var(--spacing) * 2);
 
     height: calc(var(--spacing) * 20);
 

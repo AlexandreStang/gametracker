@@ -10,7 +10,8 @@ export interface PlayedGameFormData {
     gameIgdbId: number,
     platformIgdbId: number,
     playtime: number,
-    like: boolean
+    like: boolean,
+    userId: string
 }
 
 export async function getAllPlayedGamesFromUser(id: string): Promise<PlayedGameWithGamePlatform[] | null> {
@@ -35,7 +36,7 @@ export async function registerPlayedGame(data: PlayedGameFormData): Promise<Play
 
     try {
         const hasPlayedGame = await PlayedGameController.hasPlayedGameOnPlatform({
-            userId: 'cm7xuh4di0000vmxwj7x7am9r',
+            userId: data.userId,
             gameIgdbId: data.gameIgdbId,
             platformIgdbId: data.platformIgdbId
         })
@@ -60,7 +61,7 @@ export async function registerPlayedGame(data: PlayedGameFormData): Promise<Play
             platformId: platform.id,
             playtime: data.playtime,
             like: data.like,
-            userId: 'cm7xuh4di0000vmxwj7x7am9r',
+            userId: data.userId,
         })
 
     } catch (error) {

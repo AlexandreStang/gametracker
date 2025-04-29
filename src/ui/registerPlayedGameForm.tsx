@@ -52,7 +52,8 @@ export default function RegisterPlayedGameForm({id, onComplete}: RegisterPlayedG
                 gameIgdbId: game.id,
                 platformIgdbId: platformId,
                 playtime: playtime,
-                like: like
+                like: like,
+                userId: 'cm7xuh4di0000vmxwj7x7am9r'
             })
 
             console.log("Return value: ", newGame)
