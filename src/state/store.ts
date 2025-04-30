@@ -3,7 +3,7 @@ import modalReducer from "@/state/modal/modalSlice"
 
 export const store = configureStore({
     reducer: {
-        modalGame: modalReducer
+        modal: modalReducer
     }
 })
 

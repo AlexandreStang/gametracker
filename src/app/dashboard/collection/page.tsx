@@ -5,7 +5,7 @@ import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
 import {getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
-import ModalGame from "@/ui/modal/modalGame/modalGame";
+import ModalManager from "@/ui/modal/modalManager";
 
 export default function Collection() {
 
@@ -26,7 +26,7 @@ export default function Collection() {
 
     return (
         <>
-            <ModalGame></ModalGame>
+            <ModalManager></ModalManager>
             <div className="flex flex-col items-center gap-8">
                 <div className="app_wrapper_md">
                     <SearchGames></SearchGames>

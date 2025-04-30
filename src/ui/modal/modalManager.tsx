@@ -3,8 +3,8 @@ import ModalGameEdit from "@/ui/modal/modalGame/modalGameEdit";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/state/store";
 
-export default function ModalGame() {
-    const { isOpen, mode, igdbId, playedGameId} = useSelector((state: RootState) => state.modalGame);
+export default function ModalManager() {
+    const { isOpen, mode, igdbId, playedGameId} = useSelector((state: RootState) => state.modal);
     const dispatch = useDispatch<AppDispatch>();
 
     if (!isOpen) return null
