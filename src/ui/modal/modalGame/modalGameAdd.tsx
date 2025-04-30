@@ -9,7 +9,7 @@ import clsx from "clsx";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
 import {closeModal} from "@/state/modal/modalSlice";
-import {registerPlayedGame} from "@/db/services/playedGameService";
+import {createPlayedGame} from "@/db/services/playedGameService";
 import FormLike from "@/ui/form/formLike";
 import {modalGameForm} from "@/ui/modal/modalManager";
 
@@ -31,7 +31,7 @@ export default function ModalGameAdd({formData}: modalGameAddProps) {
             setIsProcessing(true)
 
             if (formData.game) {
-                const newGame = await registerPlayedGame({
+                const playedGame = await createPlayedGame({
                     gameIgdbId: formData.game.id,
                     platformIgdbId: platformId,
                     playtime: playtime,

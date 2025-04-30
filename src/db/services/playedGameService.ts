@@ -6,12 +6,19 @@ import {PlatformController} from "@/db/controllers/platformController";
 import {PlayedGame} from "@prisma/client";
 import {PlayedGameFull} from "@/db/types";
 
-export interface PlayedGameFormData {
+export interface createPlayedGameFormData {
     gameIgdbId: number,
     platformIgdbId: number,
     playtime: number,
     like: boolean,
     userId: string
+}
+
+export interface updatePlayedGameFormData {
+    playedGameId: string,
+    platformIgdbId: number,
+    playtime: number,
+    like: boolean,
 }
 
 export async function getPlayedGameById(id: string): Promise<PlayedGame | null> {
@@ -50,7 +57,7 @@ export async function getTotalPlaytimeFromUser(id: string): Promise<number | nul
     }
 }
 
-export async function registerPlayedGame(data: PlayedGameFormData): Promise<PlayedGame | null> {
+export async function createPlayedGame(data: createPlayedGameFormData): Promise<PlayedGame | null> {
 
     try {
         const hasPlayedGame = await PlayedGameController.hasPlayedGameOnPlatform({
@@ -87,4 +94,26 @@ export async function registerPlayedGame(data: PlayedGameFormData): Promise<Play
         return null
     }
 
+}
+
+export async function updatePlayedGame(data: updatePlayedGameFormData): Promise<PlayedGame | null> {
+    try {
+
+        const platform = await PlatformController.getByIgdbId(data.platformIgdbId);
+
+        if (!platform) {
+            console.error("Platform not found; cannot update played game.");
+            return null
+        }
+
+        return PlayedGameController.update(data.playedGameId, {
+            platformId: platform.id,
+            playtime: data.playtime,
+            like: data.like
+        })
+
+    } catch (error) {
+        console.error('Error updating played game: ', error)
+        return null
+    }
 }

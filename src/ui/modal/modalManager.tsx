@@ -85,9 +85,9 @@ export default function ModalManager() {
         )
     }
 
-    if (mode === 'edit' && formData) {
+    if (mode === 'edit' && formData && playedGameId) {
         return (
-            <ModalGameEdit formData={formData}></ModalGameEdit>
+            <ModalGameEdit formData={formData} playedGameId={playedGameId}></ModalGameEdit>
         )
     }
 
