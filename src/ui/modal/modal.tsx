@@ -13,7 +13,7 @@ interface ModalProps {
 export default function Modal({header, children, footer, onClose}: ModalProps) {
 
     return (
-        <div className={styles.overlay}>
+        <div className={styles.modal_overlay}>
             <div className={styles.modal}>
                 <div className={styles.modal_header}>
                     <span className="app_heading_3">

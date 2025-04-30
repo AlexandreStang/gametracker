@@ -2,8 +2,7 @@ import Modal from "@/ui/modal/modal";
 import Button from "@/ui/button/button";
 import Cover from "@/ui/cover";
 import styles from "@/styles/modules/modal/modalGame.module.css"
-import {useEffect, useState} from "react";
-import {fetchGameFromIGDB} from "@/api/actions";
+import {useState} from "react";
 import {GameIGDB} from "@/api/types";
 import {convertDate} from "@/lib/utils";
 import FormItem from "@/ui/form/formItem";
@@ -13,48 +12,26 @@ import {AppDispatch} from "@/state/store";
 import {closeModal} from "@/state/modal/modalSlice";
 import {registerPlayedGame} from "@/db/services/playedGameService";
 import FormLike from "@/ui/form/formLike";
+import {modalGameForm} from "@/ui/modal/modalManager";
 
 interface modalGameAddProps {
-    igdbId: number
+    data: modalGameForm
 }
 
-export default function ModalGameAdd({igdbId}: modalGameAddProps) {
+export default function ModalGameAdd({data}: modalGameAddProps) {
     const dispatch = useDispatch<AppDispatch>();
 
-    const [game, setGame] = useState<GameIGDB | null>(null)
-    const [playtime, setPlaytime] = useState<number>(0)
-    const [platformId, setPlatformId] = useState<number>(0)
-    const [like, setLike] = useState<boolean>(false)
-
-    useEffect(() => {
-
-        if (!igdbId) {
-            return
-        }
-
-        const fetchGame = async () => {
-            try {
-                const results = await fetchGameFromIGDB(igdbId);
-
-                if (results) {
-                    setGame(results)
-                    setPlatformId(results.platforms[0].id)
-                }
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchGame();
-    }, [igdbId]);
+    const [platformId, setPlatformId] = useState<number>(data.platformId)
+    const [playtime, setPlaytime] = useState<number>(data.playtime)
+    const [like, setLike] = useState<boolean>(data.like)
 
     const handleSave = async () => {
 
-        // console.log(game, playtime, platformId, like)
+        // console.log(data.game, playtime, platformId, like)
 
-        if (game) {
+        if (data.game) {
             const newGame = await registerPlayedGame({
-                gameIgdbId: game.id,
+                gameIgdbId: data.game.id,
                 platformIgdbId: platformId,
                 playtime: playtime,
                 like: like,
@@ -63,14 +40,6 @@ export default function ModalGameAdd({igdbId}: modalGameAddProps) {
         }
 
         dispatch(closeModal())
-        resetStates()
-    }
-
-    const resetStates = () => {
-        setGame(null)
-        setPlaytime(0)
-        setPlatformId(NaN)
-        setLike(false)
     }
 
     return (
@@ -82,18 +51,18 @@ export default function ModalGameAdd({igdbId}: modalGameAddProps) {
             <div className={styles.modal_game_content}>
 
                 {/*COVER*/}
-                {game &&
+                {data.game &&
                     <div className={styles.modal_game_cover}>
-                        <Cover cover={game.cover.image_id} size={"big"} alt={game.name}></Cover>
+                        <Cover cover={data.game.cover.image_id} size={"big"} alt={data.game.name}></Cover>
                     </div>
                 }
 
                 {/*GAME TITLE AND FORM*/}
                 <div className={styles.modal_game_text_content}>
-                    {game &&
+                    {data.game &&
                         <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>
-                            {game.name} <span
-                            className={styles.modal_game_heading_date}>({convertDate(game.first_release_date).year})</span>
+                            {data.game.name} <span
+                            className={styles.modal_game_heading_date}>({convertDate(data.game.first_release_date).year})</span>
                         </h3>
                     }
 
@@ -105,7 +74,7 @@ export default function ModalGameAdd({igdbId}: modalGameAddProps) {
                                 id="modalGameConsole"
                                 className="app_select"
                                 onChange={(e) => setPlatformId(Number(e.target.value))}>
-                                {game && game.platforms?.map((platform: { id: number; name: string }) => (
+                                {data.game && data.game.platforms?.map((platform: { id: number; name: string }) => (
                                     <option
                                         key={platform.id}
                                         value={platform.id}
