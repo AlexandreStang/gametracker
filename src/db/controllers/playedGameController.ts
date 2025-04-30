@@ -7,6 +7,16 @@ export class PlayedGameController {
         })
     }
 
+    static async getFullById(id: string) {
+        return prisma.playedGame.findUnique({
+            where: {id},
+            include: {
+                game: true,
+                platform: true
+            },
+        })
+    }
+
     static async getAll() {
         return prisma.playedGame.findMany()
     }

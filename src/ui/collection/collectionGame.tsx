@@ -3,7 +3,7 @@ import {formatHours} from "@/lib/utils";
 import ButtonLike from "@/ui/button/buttonLike";
 import ButtonIcon from "@/ui/button/buttonIcon";
 import styles from "@/styles/modules/collection/collectionTable.module.css"
-import {PlayedGameWithGamePlatform} from "@/db/types";
+import {PlayedGameFull} from "@/db/types";
 import Cover from "@/ui/cover";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
@@ -11,14 +11,14 @@ import {openGameModal} from "@/state/modalGame/modalGameSlice";
 
 interface CollectionGameProps {
     rank: number
-    playedGame: PlayedGameWithGamePlatform
+    playedGame: PlayedGameFull
 }
 
 export default function CollectionGame({rank, playedGame}: CollectionGameProps) {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleEditClick = () => {
-        dispatch(openGameModal({mode: 'edit', gameId: playedGame.gameId, playedGameId: playedGame.id}));
+        dispatch(openGameModal({mode: 'edit', playedGameId: playedGame.id}));
     }
 
     return (

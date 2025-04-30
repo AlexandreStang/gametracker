@@ -23,7 +23,7 @@ export default function ModalGameAdd({igdbId}: modalGameAddProps) {
 
     const [game, setGame] = useState<GameIGDB | null>(null)
     const [playtime, setPlaytime] = useState<number>(0)
-    const [platformId, setPlatformId] = useState<number>(NaN)
+    const [platformId, setPlatformId] = useState<number>(0)
     const [like, setLike] = useState<boolean>(false)
 
     useEffect(() => {

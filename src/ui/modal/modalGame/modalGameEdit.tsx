@@ -14,47 +14,46 @@ import {GameIGDB} from "@/api/types";
 import {fetchGameFromIGDB} from "@/api/actions";
 import {getGameById} from "@/db/services/gameService";
 import {Game} from "@prisma/client";
+import {getPlayedGameById, getFullPlayedGameById} from "@/db/services/playedGameService";
+import {getPlatformById} from "@/db/services/platformService";
 
 interface modalGameEditProps {
-    gameId: string
     playedGameId: string
 }
 
-export default function ModalGameEdit({gameId, playedGameId}: modalGameEditProps) {
+export default function ModalGameEdit({playedGameId}: modalGameEditProps) {
     const dispatch = useDispatch<AppDispatch>();
 
     const [game, setGame] = useState<GameIGDB | null>(null)
     const [playtime, setPlaytime] = useState<number>(0)
-    const [platformId, setPlatformId] = useState<number>(NaN)
+    const [platformId, setPlatformId] = useState<number>(0)
     const [like, setLike] = useState<boolean>(false)
 
     useEffect(() => {
 
-        if (!gameId) {
-            return
-        }
-
-        const fetchGame = async () => {
+        const fetchData = async () => {
             try {
-                const gameDB = await getGameById(gameId)
+                const playedGame = await getFullPlayedGameById(playedGameId)
 
-                if (!gameDB) {
-                    return
+                if (!playedGame) {
+                    return null
                 }
 
-                const results = await fetchGameFromIGDB(gameDB.igdbId);
+                const results = await fetchGameFromIGDB(playedGame.game.igdbId);
 
                 if (results) {
                     setGame(results)
-                    setPlatformId(results.platforms[0].id)
+                    setPlaytime(playedGame.playtime)
+                    setPlatformId(playedGame.platform.igdbId)
+                    setLike(playedGame.like)
                 }
             } catch (error) {
                 console.error(error);
             }
         };
 
-        fetchGame();
-    }, [gameId]);
+        fetchData();
+    }, [playedGameId]);
 
     return (
         <Modal
@@ -92,7 +91,9 @@ export default function ModalGameEdit({gameId, playedGameId}: modalGameEditProps
                                 name="console"
                                 id="modalGameConsole"
                                 className="app_select"
-                                onChange={(e) => setPlatformId(Number(e.target.value))}>
+                                onChange={(e) => setPlatformId(Number(e.target.value))}
+                                value={platformId}
+                            >
                                 {game && game.platforms?.map((platform: { id: number; name: string }) => (
                                     <option
                                         key={platform.id}
@@ -109,10 +110,10 @@ export default function ModalGameEdit({gameId, playedGameId}: modalGameEditProps
                             <FormItem label={"Playtime (in hours)"} htmlFor={"modalGamePlaytime"}>
                                 <input
                                     type="number"
-                                    defaultValue="0"
                                     min="0"
                                     id="modalGamePlaytime"
                                     className="app_input"
+                                    value={playtime}
                                     onChange={(e) => setPlaytime(Number(e.target.value))}
                                 />
                             </FormItem>

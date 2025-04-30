@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/state/store";
 
 export default function ModalGame() {
-    const { isOpen, mode, igdbId, gameId, playedGameId} = useSelector((state: RootState) => state.modalGame);
+    const { isOpen, mode, igdbId, playedGameId} = useSelector((state: RootState) => state.modalGame);
     const dispatch = useDispatch<AppDispatch>();
 
     if (!isOpen) return null
@@ -15,9 +15,9 @@ export default function ModalGame() {
         )
     }
 
-    if (mode === 'edit' && gameId && playedGameId) {
+    if (mode === 'edit' && playedGameId) {
         return (
-            <ModalGameEdit gameId={gameId} playedGameId={playedGameId}></ModalGameEdit>
+            <ModalGameEdit playedGameId={playedGameId}></ModalGameEdit>
         )
     }
 }

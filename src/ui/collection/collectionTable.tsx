@@ -1,18 +1,18 @@
 import styles from "@/styles/modules/collection/collectionTable.module.css";
 import CollectionGame from "@/ui/collection/collectionGame";
 import {useEffect, useState} from "react";
-import {getAllPlayedGamesFromUser} from "@/db/services/playedGameService";
-import {PlayedGameWithGamePlatform} from "@/db/types";
+import {getAllFullPlayedGamesFromUser} from "@/db/services/playedGameService";
+import {PlayedGameFull} from "@/db/types";
 import Table from "@/ui/table";
 
 export default function CollectionTable() {
 
-    const [playedGames, setPlayedGames] = useState<PlayedGameWithGamePlatform[] | null>([])
+    const [playedGames, setPlayedGames] = useState<PlayedGameFull[] | null>([])
 
     useEffect(() => {
         const fetchPlayedGames = async () => {
             try {
-                const results = await getAllPlayedGamesFromUser("cm7xuh4di0000vmxwj7x7am9r");
+                const results = await getAllFullPlayedGamesFromUser("cm7xuh4di0000vmxwj7x7am9r");
                 setPlayedGames(results)
             } catch (error) {
                 console.error(error);

@@ -4,7 +4,7 @@ import {createOrUpdateGame} from "@/db/services/gameService";
 import {PlayedGameController} from "@/db/controllers/playedGameController";
 import {PlatformController} from "@/db/controllers/platformController";
 import {PlayedGame} from "@prisma/client";
-import {PlayedGameWithGamePlatform} from "@/db/types";
+import {PlayedGameFull} from "@/db/types";
 
 export interface PlayedGameFormData {
     gameIgdbId: number,
@@ -14,7 +14,25 @@ export interface PlayedGameFormData {
     userId: string
 }
 
-export async function getAllPlayedGamesFromUser(id: string): Promise<PlayedGameWithGamePlatform[] | null> {
+export async function getPlayedGameById(id: string): Promise<PlayedGame | null> {
+    try {
+        return await PlayedGameController.getById(id);
+    } catch (error) {
+        console.error('Error finding played game from id: ', id);
+        return null
+    }
+}
+
+export async function getFullPlayedGameById(id: string): Promise<PlayedGameFull | null> {
+    try {
+        return await PlayedGameController.getFullById(id);
+    } catch (error) {
+        console.error('Error finding played game from id: ', id);
+        return null
+    }
+}
+
+export async function getAllFullPlayedGamesFromUser(id: string): Promise<PlayedGameFull[] | null> {
     try {
         return await PlayedGameController.getAllFromUser(id);
     } catch (error) {

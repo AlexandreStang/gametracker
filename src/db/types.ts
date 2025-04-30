@@ -1,6 +1,6 @@
 import { Prisma } from "@prisma/client";
 
-export type PlayedGameWithGamePlatform = Prisma.PlayedGameGetPayload<{
+export type PlayedGameFull = Prisma.PlayedGameGetPayload<{
     include: {
         game: true,
         platform: true

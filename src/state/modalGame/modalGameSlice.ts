@@ -5,7 +5,6 @@ interface ModalGameState {
     isOpen: boolean
     mode: 'add' | 'edit' | null
     igdbId?: number | null // For adding games
-    gameId?: string | null // For editing games
     playedGameId?: string | null // For editing games
 }
 
@@ -13,7 +12,6 @@ const initialState: ModalGameState = {
     isOpen: false,
     mode: null,
     igdbId: null,
-    gameId: null,
     playedGameId: null
 }
 
@@ -30,14 +28,12 @@ const modalGameSlice = createSlice({
             state.isOpen = true;
             state.mode = action.payload.mode;
             state.igdbId = action.payload.igdbId;
-            state.gameId = action.payload.gameId;
             state.playedGameId = action.payload.playedGameId;
         },
         closeGameModal(state) {
             state.isOpen = false;
             state.mode = null;
             state.igdbId = null;
-            state.gameId = null;
             state.playedGameId = null;
         }
     }
