@@ -1,9 +1,9 @@
 import {configureStore} from "@reduxjs/toolkit";
-import modalGameReducer from "@/state/modalGame/modalGameSlice"
+import modalReducer from "@/state/modal/modalSlice"
 
 export const store = configureStore({
     reducer: {
-        modalGame: modalGameReducer
+        modalGame: modalReducer
     }
 })
 

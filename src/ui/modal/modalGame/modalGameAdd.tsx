@@ -10,7 +10,7 @@ import FormItem from "@/ui/form/formItem";
 import clsx from "clsx";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
-import {closeGameModal} from "@/state/modalGame/modalGameSlice";
+import {closeModal} from "@/state/modal/modalSlice";
 import {registerPlayedGame} from "@/db/services/playedGameService";
 import FormLike from "@/ui/form/formLike";
 
@@ -62,7 +62,7 @@ export default function ModalGameAdd({igdbId}: modalGameAddProps) {
             })
         }
 
-        dispatch(closeGameModal())
+        dispatch(closeModal())
         resetStates()
     }
 
@@ -77,7 +77,7 @@ export default function ModalGameAdd({igdbId}: modalGameAddProps) {
         <Modal
             header={"You played..."}
             footer={<Button text={"Save"} onClick={handleSave}></Button>}
-            onClose={() => dispatch(closeGameModal())}
+            onClose={() => dispatch(closeModal())}
         >
             <div className={styles.modal_game_content}>
 

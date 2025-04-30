@@ -1,6 +1,6 @@
 import Modal from "@/ui/modal/modal";
 import Button from "@/ui/button/button";
-import {closeGameModal} from "@/state/modalGame/modalGameSlice";
+import {closeModal} from "@/state/modal/modalSlice";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
 import styles from "@/styles/modules/modal/modalGame.module.css";
@@ -64,7 +64,7 @@ export default function ModalGameEdit({playedGameId}: modalGameEditProps) {
                     <Button text={"Save"}></Button>
                 </>
             }
-            onClose={() => dispatch(closeGameModal())}
+            onClose={() => dispatch(closeModal())}
         >
             <div className={styles.modal_game_content}>
 

@@ -7,7 +7,7 @@ import {PlayedGameFull} from "@/db/types";
 import Cover from "@/ui/cover";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
-import {openGameModal} from "@/state/modalGame/modalGameSlice";
+import {openModal} from "@/state/modal/modalSlice";
 
 interface CollectionGameProps {
     rank: number
@@ -18,7 +18,7 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
     const dispatch = useDispatch<AppDispatch>();
 
     const handleEditClick = () => {
-        dispatch(openGameModal({mode: 'edit', playedGameId: playedGame.id}));
+        dispatch(openModal({mode: 'edit', playedGameId: playedGame.id}));
     }
 
     return (
