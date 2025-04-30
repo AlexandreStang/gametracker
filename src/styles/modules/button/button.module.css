@@ -15,10 +15,15 @@
     cursor: pointer;
 }
 
-.button:hover {
+.button_enabled:hover {
     background-color: var(--surface-brand-hover);
 }
 
-.button:active {
+.button_enabled:active {
     background-color: var(--surface-brand-active);
+}
+
+.button_disabled {
+    opacity: 0.50;
+    cursor: default;
 }

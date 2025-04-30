@@ -10,19 +10,18 @@ import {convertDate} from "@/lib/utils";
 import FormItem from "@/ui/form/formItem";
 import FormLike from "@/ui/form/formLike";
 import {useState} from "react";
-import {GameIGDB} from "@/api/types";
 import {modalGameForm} from "@/ui/modal/modalManager";
 
 interface modalGameEditProps {
-    data: modalGameForm
+    formData: modalGameForm
 }
 
-export default function ModalGameEdit({data}: modalGameEditProps) {
+export default function ModalGameEdit({formData}: modalGameEditProps) {
     const dispatch = useDispatch<AppDispatch>();
 
-    const [playtime, setPlaytime] = useState<number>(data.playtime)
-    const [platformId, setPlatformId] = useState<number>(data.platformId)
-    const [like, setLike] = useState<boolean>(data.like)
+    const [playtime, setPlaytime] = useState<number>(formData.playtime)
+    const [platformId, setPlatformId] = useState<number>(formData.platformId)
+    const [like, setLike] = useState<boolean>(formData.like)
 
     return (
         <Modal
@@ -38,18 +37,18 @@ export default function ModalGameEdit({data}: modalGameEditProps) {
             <div className={styles.modal_game_content}>
 
                 {/*COVER*/}
-                {data.game &&
+                {formData.game &&
                     <div className={styles.modal_game_cover}>
-                        <Cover cover={data.game.cover.image_id} size={"big"} alt={data.game.name}></Cover>
+                        <Cover cover={formData.game.cover.image_id} size={"big"} alt={formData.game.name}></Cover>
                     </div>
                 }
 
                 {/*GAME TITLE AND FORM*/}
                 <div className={styles.modal_game_text_content}>
-                    {data.game &&
+                    {formData.game &&
                         <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>
-                            {data.game.name} <span
-                            className={styles.modal_game_heading_date}>({convertDate(data.game.first_release_date).year})</span>
+                            {formData.game.name} <span
+                            className={styles.modal_game_heading_date}>({convertDate(formData.game.first_release_date).year})</span>
                         </h3>
                     }
 
@@ -63,7 +62,7 @@ export default function ModalGameEdit({data}: modalGameEditProps) {
                                 onChange={(e) => setPlatformId(Number(e.target.value))}
                                 value={platformId}
                             >
-                                {data.game && data.game.platforms?.map((platform: { id: number; name: string }) => (
+                                {formData.game && formData.game.platforms?.map((platform: { id: number; name: string }) => (
                                     <option
                                         key={platform.id}
                                         value={platform.id}

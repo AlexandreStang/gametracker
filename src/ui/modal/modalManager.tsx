@@ -18,7 +18,7 @@ export default function ModalManager() {
     const {isOpen, mode, igdbId, playedGameId} = useSelector((state: RootState) => state.modal);
     const dispatch = useDispatch<AppDispatch>();
 
-    const [data, setData] = useState<modalGameForm | undefined>()
+    const [formData, setFormData] = useState<modalGameForm | undefined>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export default function ModalManager() {
                     const results = await fetchGameFromIGDB(igdbId);
 
                     if (results) {
-                        setData({
+                        setFormData({
                             game: results,
                             platformId: results.platforms[0].id,
                             playtime: 0,
@@ -46,13 +46,14 @@ export default function ModalManager() {
                     const playedGame = await getFullPlayedGameById(playedGameId)
 
                     if (!playedGame) {
+                        setFormData(undefined)
                         return null
                     }
 
                     const results = await fetchGameFromIGDB(playedGame.game.igdbId);
 
                     if (results) {
-                        setData({
+                        setFormData({
                             game: results,
                             platformId: playedGame.platform.igdbId,
                             playtime: playedGame.playtime,
@@ -78,15 +79,15 @@ export default function ModalManager() {
 
     if (isLoading) return <div>Loading data...</div>
 
-    if (mode === 'add' && data) {
+    if (mode === 'add' && formData) {
         return (
-            <ModalGameAdd data={data}></ModalGameAdd>
+            <ModalGameAdd formData={formData}></ModalGameAdd>
         )
     }
 
-    if (mode === 'edit' && data) {
+    if (mode === 'edit' && formData) {
         return (
-            <ModalGameEdit data={data}></ModalGameEdit>
+            <ModalGameEdit formData={formData}></ModalGameEdit>
         )
     }
 
