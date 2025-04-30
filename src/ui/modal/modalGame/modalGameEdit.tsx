@@ -11,7 +11,7 @@ import FormItem from "@/ui/form/formItem";
 import FormLike from "@/ui/form/formLike";
 import {useState} from "react";
 import {modalGameForm} from "@/ui/modal/modalManager";
-import {updatePlayedGame} from "@/db/services/playedGameService";
+import {deletePlayedGame, updatePlayedGame} from "@/db/services/playedGameService";
 
 interface modalGameEditProps {
     formData: modalGameForm
@@ -31,14 +31,25 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
         if (!isProcessing) {
             setIsProcessing(true)
 
-            if (formData.game) {
-                const playedGame = await updatePlayedGame({
-                    playedGameId: playedGameId,
-                    platformIgdbId: platformId,
-                    playtime: playtime,
-                    like: like
-                })
-            }
+            const playedGame = await updatePlayedGame({
+                playedGameId: playedGameId,
+                platformIgdbId: platformId,
+                playtime: playtime,
+                like: like
+            })
+
+            dispatch(closeModal())
+            setIsProcessing(false)
+        }
+
+    }
+
+    const handleDelete = async () => {
+
+        if (!isProcessing) {
+            setIsProcessing(true)
+
+            const playedGame = await deletePlayedGame(playedGameId)
 
             dispatch(closeModal())
             setIsProcessing(false)
@@ -51,7 +62,7 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
             header={"You played..."}
             footer={
                 <>
-                    <Button text={"Delete"} isDisabled={isProcessing}></Button>
+                    <Button text={"Delete"} isDisabled={isProcessing} onClick={handleDelete}></Button>
                     <Button text={"Save"} isDisabled={isProcessing} onClick={handleSave}></Button>
                 </>
             }

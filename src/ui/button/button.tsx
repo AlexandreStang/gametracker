@@ -9,13 +9,19 @@ interface ButtonProps {
 
 export default function Button({text, isDisabled = false, onClick}: ButtonProps) {
 
+    const handleClick = () => {
+        if (onClick && !isDisabled) {
+            onClick()
+        }
+    }
+
     return (
         <button
             className={clsx(styles.button, {
                 [styles.button_enabled] : !isDisabled,
                 [styles.button_disabled] : isDisabled
             })}
-            onClick={onClick}>
+            onClick={handleClick}>
             {text}
         </button>
     )

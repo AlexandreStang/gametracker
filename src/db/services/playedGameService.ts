@@ -117,3 +117,12 @@ export async function updatePlayedGame(data: updatePlayedGameFormData): Promise<
         return null
     }
 }
+
+export async function deletePlayedGame(id: string) : Promise<PlayedGame | null> {
+    try {
+        return await PlayedGameController.delete(id)
+    } catch (error) {
+        console.error('Error deleting played game: ', error)
+        return null
+    }
+}
