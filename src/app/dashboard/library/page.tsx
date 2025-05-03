@@ -8,7 +8,7 @@ import {useEffect, useState} from "react";
 import ModalManager from "@/ui/modal/modalManager";
 import {formatDistanceToNow} from 'date-fns/formatDistanceToNow'
 
-export default function Collection() {
+export default function Library() {
 
     const [totalPlaytime, setTotalPlaytime] = useState<number | null>(null)
     const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
