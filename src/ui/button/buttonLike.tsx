@@ -4,22 +4,25 @@ import {HeartIcon} from "@heroicons/react/24/solid";
 import styles from "@/styles/modules/toggle.module.css";
 import {useState} from "react";
 import clsx from "clsx";
+import {updateLikePlayedGame} from "@/db/services/playedGameService";
+import {PlayedGame} from "@prisma/client";
 
 interface ButtonLikeProps {
-    initialLike: boolean
-    onClick?: () => void
+    playedGame: PlayedGame
 }
 
-export default function ButtonLike({initialLike, onClick}: ButtonLikeProps) {
+export default function ButtonLike({playedGame}: ButtonLikeProps) {
 
-    const [liked, setLiked] = useState<boolean>(initialLike)
+    const [liked, setLiked] = useState<boolean>(playedGame.like)
 
-    const toggleLike = () => {
-        setLiked(prevState => !prevState)
+    const toggleLike = async () => {
 
-        if (onClick) {
-            onClick()
-        }
+        const newLiked = !liked
+        setLiked(newLiked)
+        const game = await updateLikePlayedGame(playedGame.id, newLiked)
+
+        // setLiked(prevState => !prevState)
+
     }
 
     return (

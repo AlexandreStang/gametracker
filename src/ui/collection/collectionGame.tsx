@@ -49,7 +49,7 @@ export default function CollectionGame({rank, playedGame}: CollectionGameProps) 
                     {/*LIKE*/}
                     <td className={styles.td_like}>
                         <div className="flex justify-center items-center">
-                            <ButtonLike initialLike={playedGame.like}></ButtonLike>
+                            <ButtonLike playedGame={playedGame}></ButtonLike>
                         </div>
                     </td>
                     {/*EDIT*/}

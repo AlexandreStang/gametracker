@@ -118,6 +118,17 @@ export async function updatePlayedGame(data: updatePlayedGameFormData): Promise<
     }
 }
 
+export async function updateLikePlayedGame(id: string, like:boolean): Promise<PlayedGame | null> {
+    try {
+        return PlayedGameController.update(id, {
+            like: like
+        })
+    } catch (error) {
+        console.error('Error updating played game like status:', error)
+        return null
+    }
+}
+
 export async function deletePlayedGame(id: string) : Promise<PlayedGame | null> {
     try {
         return await PlayedGameController.delete(id)
