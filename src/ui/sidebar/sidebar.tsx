@@ -19,7 +19,7 @@ export default function Sidebar() {
     }
 
     const generalLinks: Link[] = [
-        {text: "Collection", icon: ListBulletIcon, href: "/dashboard/collection"},
+        {text: "Library", icon: ListBulletIcon, href: "/dashboard/library"},
         {text: "Statistics", icon: ChartBarIcon, isActive: false},
         {text: "Community", icon: UserGroupIcon, isActive: false},
     ]
