@@ -44,17 +44,24 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
 
     }
 
-    const handleDelete = async () => {
+    const handleDelete = () => {
 
         if (!isProcessing) {
             setIsProcessing(true)
 
-            const playedGame = await deletePlayedGame(playedGameId)
+            if (confirm("Are you sure you want to delete this entry?")) {
+                return confirmDelete();
+            }
 
-            dispatch(closeModal())
             setIsProcessing(false)
         }
 
+    }
+
+    const confirmDelete = async () => {
+        const playedGame = await deletePlayedGame(playedGameId)
+        dispatch(closeModal())
+        setIsProcessing(false)
     }
 
     return (
