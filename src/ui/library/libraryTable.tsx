@@ -1,11 +1,11 @@
 import styles from "@/styles/modules/collection/collectionTable.module.css";
-import CollectionGame from "@/ui/collection/collectionGame";
+import LibraryGame from "@/ui/library/libraryGame";
 import {useEffect, useState} from "react";
 import {getAllFullPlayedGamesFromUser} from "@/db/services/playedGameService";
 import {PlayedGameFull} from "@/db/types";
 import Table from "@/ui/table";
 
-export default function CollectionTable() {
+export default function LibraryTable() {
 
     const [playedGames, setPlayedGames] = useState<PlayedGameFull[] | null>([])
 
@@ -37,7 +37,7 @@ export default function CollectionTable() {
             </thead>
             <tbody>
             {playedGames?.map((playedGame, index) => (
-                <CollectionGame rank={index + 1} playedGame={playedGame} key={playedGame.id}></CollectionGame>
+                <LibraryGame rank={index + 1} playedGame={playedGame} key={playedGame.id}></LibraryGame>
             ))}
             </tbody>
         </Table>

@@ -1,7 +1,7 @@
 'use client'
 
 import {formatHours} from "@/lib/utils";
-import CollectionTable from "@/ui/collection/collectionTable";
+import LibraryTable from "@/ui/library/libraryTable";
 import SearchGames from "@/ui/search/searchGames";
 import {getLastUpdateFromUser, getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
@@ -60,7 +60,7 @@ export default function Collection() {
                         </span>
                     </div>
                 </div>
-                <CollectionTable></CollectionTable>
+                <LibraryTable></LibraryTable>
             </div>
         </>
     );

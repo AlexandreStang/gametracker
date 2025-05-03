@@ -14,7 +14,7 @@ interface CollectionGameProps {
     playedGame: PlayedGameFull
 }
 
-export default function CollectionGame({rank, playedGame}: CollectionGameProps) {
+export default function LibraryGame({rank, playedGame}: CollectionGameProps) {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleEditClick = () => {
