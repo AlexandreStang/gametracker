@@ -3,15 +3,27 @@
 import {formatHours} from "@/lib/utils";
 import CollectionTable from "@/ui/collection/collectionTable";
 import SearchGames from "@/ui/search/searchGames";
-import {getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
+import {getLastUpdateFromUser, getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
 import ModalManager from "@/ui/modal/modalManager";
+import {formatDistanceToNow} from 'date-fns/formatDistanceToNow'
 
 export default function Collection() {
 
     const [totalPlaytime, setTotalPlaytime] = useState<number | null>(null)
+    const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
 
     useEffect(() => {
+        const fetchLastUpdate = async () => {
+            try {
+                const results = await getLastUpdateFromUser("cm7xuh4di0000vmxwj7x7am9r");
+                console.log(results)
+                setLastUpdate(results)
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
         const fetchTotalPlaytime = async () => {
             try {
                 const results = await getTotalPlaytimeFromUser("cm7xuh4di0000vmxwj7x7am9r");
@@ -21,6 +33,7 @@ export default function Collection() {
             }
         };
 
+        fetchLastUpdate();
         fetchTotalPlaytime();
     }, []);
 
@@ -32,9 +45,12 @@ export default function Collection() {
                     <SearchGames></SearchGames>
                 </div>
                 <div className="flex justify-center items-center gap-8">
-                    <div className="flex justify-center items-center gap-4">
-                        <span className="w-full">Last updated on:</span>
-                        <input type="date" className="app_input"/>
+                    <div>
+                        Last updated:
+                        <span className={"app_body_bold"}>
+                            {" "}
+                            {lastUpdate && formatDistanceToNow(lastUpdate, {addSuffix: true})}
+                        </span>
                     </div>
                     <div>
                         Total playtime:

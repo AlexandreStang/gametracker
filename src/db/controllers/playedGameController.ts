@@ -36,8 +36,20 @@ export class PlayedGameController {
         })
     }
 
+    static async getLastUpdateFromUser(id: string) {
+        const playedGame = await prisma.playedGame.findFirst({
+            where: {userId: id},
+            orderBy: {updatedAt: 'desc'},
+            select: {updatedAt: true}
+        })
+
+        if (playedGame) return playedGame.updatedAt
+
+        return null
+    }
+
     static async getTotalPlaytimeFromUser(id: string) {
-        const total = await prisma.playedGame.aggregate({
+        const playedGame = await prisma.playedGame.aggregate({
             where: {
                 userId: id
             },
@@ -46,7 +58,7 @@ export class PlayedGameController {
             }
         })
 
-        return total._sum.playtime
+        return playedGame._sum.playtime
     }
 
     static async create(data: {

@@ -48,6 +48,15 @@ export async function getAllFullPlayedGamesFromUser(id: string): Promise<PlayedG
     }
 }
 
+export async function getLastUpdateFromUser(id: string): Promise<Date | null> {
+    try {
+        return await PlayedGameController.getLastUpdateFromUser(id)
+    } catch (error) {
+        console.error('Error finding last played game update from user: ', error)
+        return null
+    }
+}
+
 export async function getTotalPlaytimeFromUser(id: string): Promise<number | null> {
     try {
         return await PlayedGameController.getTotalPlaytimeFromUser(id);

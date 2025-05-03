@@ -89,7 +89,7 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
                     {formData.game &&
                         <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>
                             {formData.game.name} <span
-                            className={styles.modal_game_heading_date}>({convertDate(formData.game.first_release_date).year})</span>
+                            className={styles.modal_game_heading_date}>({convertDate(formData.game.first_release_date).getFullYear()})</span>
                         </h3>
                     }
 

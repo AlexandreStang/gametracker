@@ -40,7 +40,7 @@ export async function createOrUpdateGame(igdbId: number): Promise<Game | null> {
                 igdbId: fetchedGame.id,
                 slug: fetchedGame.slug,
                 name: fetchedGame.name,
-                firstReleaseDate: convertDate(fetchedGame.first_release_date).date,
+                firstReleaseDate: convertDate(fetchedGame.first_release_date),
                 cover: fetchedGame.cover.image_id,
                 platformsId: platforms,
                 genresId: genres
@@ -56,7 +56,7 @@ export async function createOrUpdateGame(igdbId: number): Promise<Game | null> {
             return await GameController.update(game.id, {
                 slug: fetchedGame.slug,
                 name: fetchedGame.name,
-                firstReleaseDate: convertDate(fetchedGame.first_release_date).date,
+                firstReleaseDate: convertDate(fetchedGame.first_release_date),
                 platformsId: platforms,
                 genresId: genres
             })
