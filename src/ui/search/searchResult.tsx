@@ -6,26 +6,22 @@ import clsx from "clsx";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
 import {openModal} from "@/state/modal/modalSlice";
+import Link from "next/link";
 
 interface searchResultProps {
     name: string
-    year: number
+    year?: number
     igdbId: number
 }
 
 export default function SearchResult({name, year, igdbId}: searchResultProps) {
-    const dispatch = useDispatch<AppDispatch>();
-
-    const handleClick = () => {
-        dispatch(openModal({mode: 'add', igdbId: igdbId}));
-    }
 
     return (
-        <div className={styles.search_result} onClick={handleClick}>
-            <span>
+        <div className={styles.search_result}>
+            <Link href={`/game/${igdbId}`}>
                 {name} {year ? `(${year})` : ""}
-            </span>
-            <PlusIcon className={clsx(styles.search_result_icon, "app_icon_sm")}></PlusIcon>
+            </Link>
+            {/*<PlusIcon className={clsx(styles.search_result_icon, "app_icon_sm")}></PlusIcon>*/}
         </div>
     )
 }

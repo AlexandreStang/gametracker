@@ -4,7 +4,6 @@ import {formatHours} from "@/lib/utils";
 import LibraryTable from "@/ui/library/libraryTable";
 import {getLastUpdateFromUser, getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
-import ModalManager from "@/ui/modal/modalManager";
 import {formatDistanceToNow} from 'date-fns/formatDistanceToNow'
 
 export default function Library() {
@@ -38,7 +37,6 @@ export default function Library() {
 
     return (
         <>
-            <ModalManager></ModalManager>
             <div className="flex flex-col items-center gap-8">
                 <div className="flex justify-center items-center gap-8">
                     <div>

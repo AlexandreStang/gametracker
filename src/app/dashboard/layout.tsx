@@ -6,6 +6,7 @@ import Header from "@/ui/header/header";
 import clsx from "clsx";
 import {Provider} from "react-redux";
 import {store} from "@/state/store";
+import ModalManager from "@/ui/modal/modalManager";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
     return (
@@ -19,6 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     </div>
                 </div>
             </div>
+            <ModalManager></ModalManager>
         </Provider>
     );
 }
