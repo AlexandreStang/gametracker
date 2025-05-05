@@ -2,10 +2,14 @@ import styles from "@/styles/modules/library/libraryTable.module.css";
 import LibraryGame from "@/ui/library/libraryGame";
 import {useEffect, useState} from "react";
 import {getAllFullPlayedGamesFromUser} from "@/db/services/playedGameService";
-import {PlayedGameFull} from "@/db/types";
+import {PlayedGameFull, SortPlayedGames} from "@/db/types";
 import Table from "@/ui/table";
 
-export default function LibraryTable() {
+interface LibraryTableProps {
+    sort?: SortPlayedGames
+}
+
+export default function LibraryTable({sort}: LibraryTableProps) {
 
     const [playedGames, setPlayedGames] = useState<PlayedGameFull[] | null>([])
 

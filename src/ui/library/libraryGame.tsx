@@ -50,7 +50,7 @@ export default function LibraryGame({playedGame}: CollectionGameProps) {
                     </td>
                     {/*LAST UPDATED*/}
                     <td className={clsx(styles.td_update, styles.td_secondary)}>
-                        {format(playedGame.updatedAt, 'MMMM do, yyyy')}
+                        {format(playedGame.updatedAt, 'yyyy-MM-dd')}
                     </td>
                     {/*LIKE*/}
                     <td className={styles.td_like}>

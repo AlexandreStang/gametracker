@@ -18,7 +18,7 @@ export default function Sidebar() {
 
     const generalLinks: Link[] = [
         {text: "Library", icon: ListBulletIcon, href: "/dashboard/library"},
-        {text: "Statistics", icon: ChartBarIcon, isActive: false},
+        {text: "Statistics", icon: ChartBarIcon, href: "/dashboard/statistics"},
         {text: "Community", icon: UserGroupIcon, isActive: false},
     ]
 

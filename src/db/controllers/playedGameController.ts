@@ -1,4 +1,5 @@
 import {prisma} from "@/lib/prisma";
+import {SortPlayedGames} from "@/db/types";
 
 export class PlayedGameController {
     static async getById(id: string) {
@@ -21,7 +22,23 @@ export class PlayedGameController {
         return prisma.playedGame.findMany()
     }
 
-    static async getAllFromUser(id: string) {
+    static async getAllFromUser(id: string, sortBy?: SortPlayedGames) {
+        let orderBy: any
+
+        switch (sortBy.field) {
+            case 'game.name':
+                orderBy = {game: {name: sortBy.order}}
+                break
+            case 'game.firstReleaseDate':
+                orderBy = {game: {firstReleaseDate: sortBy.order}}
+                break
+            case 'platform.name':
+                orderBy = {platform: {name: sortBy.order}}
+                break
+            default:
+                orderBy = { [sortBy.field]: sortBy.order }
+        }
+
         return prisma.playedGame.findMany({
             where: {
                 userId: id
@@ -30,9 +47,7 @@ export class PlayedGameController {
                 game: true,
                 platform: true
             },
-            orderBy: {
-                playtime: 'desc'
-            }
+            orderBy
         })
     }
 

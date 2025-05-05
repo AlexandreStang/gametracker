@@ -1,0 +1,12 @@
+.library_options {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: calc(var(--spacing) * 2);
+
+    margin-bottom: var(--margin-page);
+}
+
+.library_select {
+    min-width: calc(var(--spacing) * 12);
+}

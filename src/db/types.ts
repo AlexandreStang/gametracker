@@ -6,3 +6,8 @@ export type PlayedGameFull = Prisma.PlayedGameGetPayload<{
         platform: true
     }
 }>
+
+export interface SortPlayedGames {
+    field: 'game.name' | 'game.firstReleaseDate' | 'platform.name' | 'playtime' | 'updatedAt'
+    order: 'asc' | 'desc'
+}

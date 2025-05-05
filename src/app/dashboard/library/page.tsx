@@ -1,61 +1,32 @@
 'use client'
 
-import {formatHours} from "@/lib/utils";
 import LibraryTable from "@/ui/library/libraryTable";
-import {getLastUpdateFromUser, getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
-import {useEffect, useState} from "react";
-import {formatDistanceToNow} from 'date-fns/formatDistanceToNow'
+import styles from "@/styles/modules/library/library.module.css"
+import {useState} from "react";
 
 export default function Library() {
-
-    const [totalPlaytime, setTotalPlaytime] = useState<number | null>(null)
-    const [lastUpdate, setLastUpdate] = useState<Date | null>(null)
-
-    useEffect(() => {
-        const fetchLastUpdate = async () => {
-            try {
-                const results = await getLastUpdateFromUser("cm7xuh4di0000vmxwj7x7am9r");
-                console.log(results)
-                setLastUpdate(results)
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        const fetchTotalPlaytime = async () => {
-            try {
-                const results = await getTotalPlaytimeFromUser("cm7xuh4di0000vmxwj7x7am9r");
-                setTotalPlaytime(results)
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchLastUpdate();
-        fetchTotalPlaytime();
-    }, []);
+    const [sort, setSort] = useState<string | null>(null)
 
     return (
         <>
-            <div className="flex flex-col items-center gap-8">
-                <div className="flex justify-center items-center gap-8">
-                    <div>
-                        Last updated:
-                        <span className={"app_body_bold"}>
-                            {" "}
-                            {lastUpdate && formatDistanceToNow(lastUpdate, {addSuffix: true})}
-                        </span>
-                    </div>
-                    <div>
-                        Total playtime:
-                        <span className={"app_body_bold"}>
-                            {" "}
-                            {totalPlaytime && formatHours(totalPlaytime)}
-                        </span>
-                    </div>
+            <div className={styles.library_options}>
+                <span>Sort by: </span>
+                <div className={styles.library_select}>
+                    <select name="sort" id="sort" className={"app_select"}>
+                        <option value="">Name (A to Z)</option>
+                        <option value="">Name (Z to A)</option>
+                        <option value="">Release (newest first)</option>
+                        <option value="">Release (oldest first)</option>
+                        <option value="">Support (A to Z)</option>
+                        <option value="">Support (Z to A)</option>
+                        <option value="">Playtime (highest first)</option>
+                        <option value="">Playtime (lowest first)</option>
+                        <option value="">Last updated (newest first)</option>
+                        <option value="">Last updated (oldest first)</option>
+                    </select>
                 </div>
-                <LibraryTable></LibraryTable>
             </div>
+            <LibraryTable></LibraryTable>
         </>
     );
 }

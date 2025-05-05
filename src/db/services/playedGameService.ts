@@ -4,7 +4,7 @@ import {createOrUpdateGame} from "@/db/services/gameService";
 import {PlayedGameController} from "@/db/controllers/playedGameController";
 import {PlatformController} from "@/db/controllers/platformController";
 import {PlayedGame} from "@prisma/client";
-import {PlayedGameFull} from "@/db/types";
+import {PlayedGameFull, SortPlayedGames} from "@/db/types";
 
 export interface createPlayedGameFormData {
     gameIgdbId: number,
@@ -39,9 +39,13 @@ export async function getFullPlayedGameById(id: string): Promise<PlayedGameFull 
     }
 }
 
-export async function getAllFullPlayedGamesFromUser(id: string): Promise<PlayedGameFull[] | null> {
+export async function getAllFullPlayedGamesFromUser(id: string, sortBy?: SortPlayedGames): Promise<PlayedGameFull[] | null> {
     try {
-        return await PlayedGameController.getAllFromUser(id);
+        if (!sortBy) {
+            sortBy = {field: "playtime", order:"desc"}
+        }
+
+        return await PlayedGameController.getAllFromUser(id, sortBy);
     } catch (error) {
         console.error('Error finding played games from user: ', error)
         return null
