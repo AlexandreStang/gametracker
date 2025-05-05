@@ -9,16 +9,18 @@
     background-color: var(--surface-secondary);
 
     th {
-        height: calc(var(--spacing) * 16);
+        height: calc(var(--spacing) * 10);
         border-bottom: 1px solid var(--border-primary);
 
-        font-weight: var(--fw-normal);
+        font-weight: var(--fw-bold);
+        font-size: var(--fs-small);
+        text-transform: uppercase;
     }
 
     td {
         height: calc(var(--spacing) * 20);
 
-        font-weight: var(--fw-bold);
+        /*font-weight: var(--fw-bold);*/
     }
 
     tr:not(:last-child) td {

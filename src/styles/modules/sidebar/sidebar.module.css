@@ -10,7 +10,7 @@
     gap: calc(var(--spacing) * 14);
 
     color: var(--text-primary);
-    font-size: var(--fs-body-lg);
+    font-size: var(--fs-body);
 }
 
 .sidebar_category {
@@ -18,7 +18,7 @@
     margin-bottom: calc(var(--spacing) * 2);
 
     font-weight: var(--fw-bold);
-    font-size: var(--fs-body);
+    font-size: var(--fs-small);
     text-transform: uppercase;
 }
 

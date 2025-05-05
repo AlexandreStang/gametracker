@@ -31,6 +31,7 @@ export default function LibraryTable() {
                 <th className={styles.th_release}>Released</th>
                 <th className={styles.th_support}>Support</th>
                 <th className={styles.th_playtime}>Playtime</th>
+                <th className={styles.th_update}>Last Updated</th>
                 <th className={styles.th_like}>Like</th>
                 <th className={styles.th_edit}>Edit</th>
             </tr>

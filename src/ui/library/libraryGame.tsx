@@ -8,6 +8,8 @@ import Cover from "@/ui/cover";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "@/state/store";
 import {openModal} from "@/state/modal/modalSlice";
+import {format} from 'date-fns';
+import clsx from "clsx";
 
 interface CollectionGameProps {
     // rank: number
@@ -35,16 +37,20 @@ export default function LibraryGame({playedGame}: CollectionGameProps) {
                         {playedGame.game.name}
                     </td>
                     {/*RELEASE*/}
-                    <td className={styles.td_release}>
+                    <td className={clsx(styles.td_release, styles.td_secondary)}>
                         {playedGame.game.firstReleaseDate ? playedGame.game.firstReleaseDate.getFullYear() : ""}
                     </td>
                     {/*SUPPORT*/}
-                    <td className={styles.td_support}>
+                    <td className={clsx(styles.td_support, styles.td_secondary)}>
                         {playedGame.platform.name}
                     </td>
                     {/*PLAYTIME*/}
-                    <td className={styles.td_playtime}>
+                    <td className={clsx(styles.td_playtime, styles.td_secondary)}>
                         {formatHours(playedGame.playtime)}
+                    </td>
+                    {/*LAST UPDATED*/}
+                    <td className={clsx(styles.td_update, styles.td_secondary)}>
+                        {format(playedGame.updatedAt, 'MMMM do, yyyy')}
                     </td>
                     {/*LIKE*/}
                     <td className={styles.td_like}>
