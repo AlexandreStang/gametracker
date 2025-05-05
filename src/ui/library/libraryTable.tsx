@@ -1,4 +1,4 @@
-import styles from "@/styles/modules/collection/collectionTable.module.css";
+import styles from "@/styles/modules/library/libraryTable.module.css";
 import LibraryGame from "@/ui/library/libraryGame";
 import {useEffect, useState} from "react";
 import {getAllFullPlayedGamesFromUser} from "@/db/services/playedGameService";
@@ -26,7 +26,7 @@ export default function LibraryTable() {
         <Table>
             <thead>
             <tr>
-                <th className={styles.th_rank}>Rank</th>
+                {/*<th className={styles.th_rank}>Rank</th>*/}
                 <th className={styles.th_game}>Game</th>
                 <th className={styles.th_release}>Released</th>
                 <th className={styles.th_support}>Support</th>
@@ -37,7 +37,7 @@ export default function LibraryTable() {
             </thead>
             <tbody>
             {playedGames?.map((playedGame, index) => (
-                <LibraryGame rank={index + 1} playedGame={playedGame} key={playedGame.id}></LibraryGame>
+                <LibraryGame playedGame={playedGame} key={playedGame.id}></LibraryGame>
             ))}
             </tbody>
         </Table>

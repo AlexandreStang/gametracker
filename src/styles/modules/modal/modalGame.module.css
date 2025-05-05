@@ -1,7 +1,7 @@
 .modal_game_content {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: stretch;
     gap: calc(var(--spacing) * 6);
 }
 

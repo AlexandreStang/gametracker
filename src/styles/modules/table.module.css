@@ -28,4 +28,12 @@
     th, td {
         padding: calc(var(--spacing) * 2);
     }
+
+    th:first-child, td:first-child {
+        padding-left: calc(var(--spacing) * 6);
+    }
+
+    th:last-child, td:last-child {
+        padding-right: calc(var(--spacing) * 6);
+    }
 }

@@ -2,7 +2,7 @@ import {PencilIcon} from "@heroicons/react/24/outline";
 import {formatHours} from "@/lib/utils";
 import ButtonLike from "@/ui/button/buttonLike";
 import ButtonIcon from "@/ui/button/buttonIcon";
-import styles from "@/styles/modules/collection/collectionTable.module.css"
+import styles from "@/styles/modules/library/libraryTable.module.css"
 import {PlayedGameFull} from "@/db/types";
 import Cover from "@/ui/cover";
 import {useDispatch} from "react-redux";
@@ -10,11 +10,11 @@ import {AppDispatch} from "@/state/store";
 import {openModal} from "@/state/modal/modalSlice";
 
 interface CollectionGameProps {
-    rank: number
+    // rank: number
     playedGame: PlayedGameFull
 }
 
-export default function LibraryGame({rank, playedGame}: CollectionGameProps) {
+export default function LibraryGame({playedGame}: CollectionGameProps) {
     const dispatch = useDispatch<AppDispatch>();
 
     const handleEditClick = () => {
@@ -26,9 +26,9 @@ export default function LibraryGame({rank, playedGame}: CollectionGameProps) {
             {playedGame.game && playedGame.platform &&
                 <tr>
                     {/*RANK*/}
-                    <td className={styles.td_rank}>
-                        #{rank}
-                    </td>
+                    {/*<td className={styles.td_rank}>*/}
+                    {/*    #{rank}*/}
+                    {/*</td>*/}
                     {/*POSTER + NAME*/}
                     <td className={styles.td_game}>
                         <Cover cover={playedGame.game.cover} size={"small"} alt={playedGame.game.name}></Cover>
