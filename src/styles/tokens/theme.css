@@ -3,6 +3,7 @@
 :root {
     /*BORDER _________________________________________________________________*/
     --border-primary: var(--color-grey-350);
+    --border-muted: var(--color-grey-300);
     --border-brand: var(--color-purple-500);
 
     /*BUTTON _________________________________________________________________*/
@@ -10,9 +11,11 @@
     --button-disabled: var(--color-grey-350);
 
     /*HEADER _________________________________________________________________*/
-    --header-height: calc(var(--spacing) * 14);
+    --header-height: calc(var(--spacing) * 16);
+    --header-margin-bottom: calc(var(--spacing) * 8);
 
     /*ICON _________________________________________________________________*/
+    --icon-size-xm: calc(var(--spacing) * 5);
     --icon-size-sm: calc(var(--spacing) * 6);
     --icon-size-md: calc(var(--spacing) * 8);
     --icon-size-lg: calc(var(--spacing) * 10);
@@ -52,4 +55,5 @@
     --wrapper-xl: 1200px;
     --wrapper-lg: 960px;
     --wrapper-md: 720px;
+    --wrapper-sm: 540px;
 }

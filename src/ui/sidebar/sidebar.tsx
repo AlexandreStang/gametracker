@@ -6,8 +6,6 @@ import {ChartBarIcon} from "@heroicons/react/24/outline";
 import {UserGroupIcon} from "@heroicons/react/24/outline";
 import {Cog6ToothIcon} from "@heroicons/react/24/outline";
 import {ArrowRightStartOnRectangleIcon} from "@heroicons/react/24/outline";
-import {PuzzlePieceIcon} from "@heroicons/react/24/solid";
-import clsx from "clsx";
 
 export default function Sidebar() {
 

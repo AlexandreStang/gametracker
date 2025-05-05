@@ -2,7 +2,6 @@
 
 import {formatHours} from "@/lib/utils";
 import LibraryTable from "@/ui/library/libraryTable";
-import SearchGames from "@/ui/search/searchGames";
 import {getLastUpdateFromUser, getTotalPlaytimeFromUser} from "@/db/services/playedGameService";
 import {useEffect, useState} from "react";
 import ModalManager from "@/ui/modal/modalManager";
@@ -41,9 +40,6 @@ export default function Library() {
         <>
             <ModalManager></ModalManager>
             <div className="flex flex-col items-center gap-8">
-                <div className="app_wrapper_md">
-                    <SearchGames></SearchGames>
-                </div>
                 <div className="flex justify-center items-center gap-8">
                     <div>
                         Last updated:

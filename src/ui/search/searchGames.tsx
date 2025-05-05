@@ -32,7 +32,7 @@ export default function SearchGames() {
 
     return (
         <div className="relative">
-            <SearchBar placeholder={"Search games..."} onSearch={setQuery}></SearchBar>
+            <SearchBar placeholder={"Search game..."} onSearch={setQuery}></SearchBar>
             <SearchDropdown games={games}></SearchDropdown>
         </div>
     )

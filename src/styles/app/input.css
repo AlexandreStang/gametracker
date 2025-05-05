@@ -1,5 +1,5 @@
 .app_input, .app_select {
-    height: calc(var(--spacing) * 12);
+    height: calc(var(--spacing) * 10);
     width: 100%;
 
     border: 1px solid var(--border-primary);
@@ -21,12 +21,12 @@
 }
 
 .app_input.app_input_text_w_icon {
-    padding-left: calc(var(--input-padding-x) + var(--icon-size-sm) + calc(var(--spacing) * 4));
+    padding-left: calc(var(--input-padding-x) + var(--icon-size-xm) + calc(var(--spacing) * 4));
 }
 
 .app_input_icon {
-    width: var(--icon-size-sm);
-    height: var(--icon-size-sm);
+    width: var(--icon-size-xm);
+    height: var(--icon-size-xm);
 
     margin-left: var(--input-padding-x);
 

@@ -27,6 +27,7 @@
     --color-white-100: #FFFFFF;
 
     /*FONT SIZES _________________________________________________________________*/
+    --fs-small: 0.75rem; /* 12px */
     --fs-body: 0.875rem; /* 14px */
     --fs-body-lg: 1rem; /* 16px */
     --fs-heading-3: 1.25rem; /* 20px */

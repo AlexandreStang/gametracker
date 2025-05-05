@@ -4,17 +4,21 @@
 
     height: var(--header-height);
 
-    margin-bottom: calc(var(--spacing) * 8);
+    margin-bottom: var(--header-margin-bottom);
 
-    background-color: var(--surface-brand);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
-    color: var(--text-brand-invert);
+    color: var(--text-primary);
+
+    border-bottom: 1px solid var(--border-muted);
 
     position: sticky;
     top: 0;
     z-index: var(--z-index-header);
 
-    box-shadow: var(--shadow-header);
+    /*box-shadow: var(--shadow-header);*/
 }
 
 .header_content {

@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <Provider store={store}>
             <Header></Header>
-            <div className="app_wrapper_xl">
+            <div className="app_wrapper app_wrapper_xl">
                 <div className={clsx(styles.dashboard_layout, "app_wrapper_margin")}>
                     <Sidebar></Sidebar>
                     <div className={styles.dashboard_content}>

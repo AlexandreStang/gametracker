@@ -1,19 +1,22 @@
-.app_wrapper_xl {
+.app_wrapper {
     width: 100%;
     margin: 0 auto;
+}
+
+.app_wrapper_xl {
     max-width: var(--wrapper-xl);
 }
 
 .app_wrapper_lg {
-    width: 100%;
-    margin: 0 auto;
     max-width: var(--wrapper-lg);
 }
 
 .app_wrapper_md {
-    width: 100%;
-    margin: 0 auto;
     max-width: var(--wrapper-md);
+}
+
+.app_wrapper_sm {
+    max-width: var(--wrapper-sm);
 }
 
 .app_wrapper_margin {
