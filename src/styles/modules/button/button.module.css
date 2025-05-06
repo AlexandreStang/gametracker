@@ -27,3 +27,15 @@
     opacity: 0.50;
     cursor: default;
 }
+
+.button_danger {
+    background-color: var(--surface-danger);
+}
+
+.button_danger:hover {
+    background-color: var(--surface-danger-hover);
+}
+
+.button_danger:active {
+    background-color: var(--surface-danger-active);
+}

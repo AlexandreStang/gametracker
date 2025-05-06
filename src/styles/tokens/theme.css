@@ -6,10 +6,6 @@
     --border-muted: var(--color-grey-300);
     --border-brand: var(--color-purple-500);
 
-    /*BUTTON _________________________________________________________________*/
-    --button-primary: var(--color-purple-500);
-    --button-disabled: var(--color-grey-350);
-
     /*HEADER _________________________________________________________________*/
     --header-height: calc(var(--spacing) * 16);
     --header-margin-bottom: calc(var(--spacing) * 8);
@@ -43,6 +39,10 @@
     --surface-secondary-active: var(--color-grey-350);
     --surface-tertiary: var(--color-grey-300);
 
+    --surface-danger: var(--color-red-400);
+    --surface-danger-hover: var(--color-red-450);
+    --surface-danger-active: var(--color-red-500);
+
     --surface-opaque: rgba(255, 255, 255, 0.7);
 
     /*TEXT _________________________________________________________________*/
@@ -52,6 +52,11 @@
     --text-brand: var(--color-purple-500);
     --text-brand-muted: var(--color-purple-300);
     --text-brand-invert: var(--color-white-100);
+
+    /*TOGGLE _________________________________________________________________*/
+    --toggle_on: var(--color-purple-500);
+    --toggle_off: var(--color-grey-350);
+
 
     /*WRAPPER _________________________________________________________________*/
     --wrapper-xl: 1200px;

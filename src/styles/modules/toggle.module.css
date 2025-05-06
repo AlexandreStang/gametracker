@@ -8,9 +8,9 @@
 }
 
 .toggle_active {
-    color: var(--button-primary);
+    color: var(--toggle_on);
 }
 
 .toggle_inactive {
-    color: var(--button-disabled);
+    color: var(--toggle_off);
 }

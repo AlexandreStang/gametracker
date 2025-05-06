@@ -69,7 +69,7 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
             header={"You played..."}
             footer={
                 <>
-                    <Button text={"Delete"} isDisabled={isProcessing} onClick={handleDelete}></Button>
+                    <Button text={"Delete"} isDisabled={isProcessing} type={"danger"} onClick={handleDelete}></Button>
                     <Button text={"Save"} isDisabled={isProcessing} onClick={handleSave}></Button>
                 </>
             }
