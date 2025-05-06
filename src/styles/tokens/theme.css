@@ -11,7 +11,8 @@
     --header-margin-bottom: calc(var(--spacing) * 8);
 
     /*ICON _________________________________________________________________*/
-    --icon-size-xm: calc(var(--spacing) * 5);
+    --icon-size-xxs: calc(var(--spacing) * 4);
+    --icon-size-xs: calc(var(--spacing) * 5);
     --icon-size-sm: calc(var(--spacing) * 6);
     --icon-size-md: calc(var(--spacing) * 8);
     --icon-size-lg: calc(var(--spacing) * 10);
@@ -43,7 +44,7 @@
     --surface-danger-hover: var(--color-red-450);
     --surface-danger-active: var(--color-red-500);
 
-    --surface-opaque: rgba(255, 255, 255, 0.7);
+    --surface-opaque: rgba(255, 255, 255, 0.6);
 
     /*TEXT _________________________________________________________________*/
     --text-primary: var(--color-neutral-600);
@@ -54,9 +55,8 @@
     --text-brand-invert: var(--color-white-100);
 
     /*TOGGLE _________________________________________________________________*/
-    --toggle_on: var(--color-purple-500);
-    --toggle_off: var(--color-grey-350);
-
+    --toggle_enabled: var(--color-purple-500);
+    --toggle_disabled: var(--color-grey-350);
 
     /*WRAPPER _________________________________________________________________*/
     --wrapper-xl: 1200px;

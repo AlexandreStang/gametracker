@@ -1,4 +1,5 @@
 import {SortPlayedGames} from "@/db/types";
+import Select from "@/ui/form/select";
 
 interface Option {
     text: string
@@ -30,17 +31,15 @@ export default function SelectSortPlayedGames({defaultValue = "6", onChange}: Pl
     }
 
     return (
-        <div>
-            <select
-                name="sort"
-                id="sort"
-                className={"app_select"}
-                defaultValue={defaultValue}
-                onChange={(e) => handleChange(e.target.value)}>
-                {sortOptions?.map((option, index) => (
-                    <option value={index} key={index}>{option.text}</option>
-                ))}
-            </select>
-        </div>
+        <Select
+            name="sort"
+            id="sort"
+            defaultValue={defaultValue}
+            onChange={(e) => handleChange(e.target.value)}
+        >
+            {sortOptions?.map((option, index) => (
+                <option value={index} key={index}>{option.text}</option>
+            ))}
+        </Select>
     )
 }

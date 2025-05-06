@@ -1,3 +1,13 @@
+.app_icon_xxs {
+    width: var(--icon-size-xxs);
+    height: var(--icon-size-xxs);
+}
+
+.app_icon_xs {
+    width: var(--icon-size-xs);
+    height: var(--icon-size-xs);
+}
+
 .app_icon_sm {
     width: var(--icon-size-sm);
     height: var(--icon-size-sm);
