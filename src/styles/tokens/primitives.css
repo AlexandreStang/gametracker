@@ -6,6 +6,8 @@
     --blur-global: 12px;
 
     /*COLORS _________________________________________________________________*/
+    --color-white-100: #FFFFFF;
+
     --color-grey-200: #F6F8FA;
     --color-grey-250: #EAEFF4;
     --color-grey-300: #DEE5EC;
@@ -22,9 +24,6 @@
     --color-grey-850: #141F2A;
     --color-grey-900: #0A1117;
 
-    --color-neutral-600: #515151;
-    --color-neutral-800: #353535;
-
     --color-purple-550: #984FE5;
     --color-purple-500: #AC58FF;
     --color-purple-400: #BC79FF;
@@ -35,8 +34,6 @@
     --color-red-400: #f44336;
     --color-red-450: #db3c30;
     --color-red-500: #c3352b;
-
-    --color-white-100: #FFFFFF;
 
     /*FONT SIZES _________________________________________________________________*/
     --fs-small: 0.75rem; /* 12px */

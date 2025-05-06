@@ -51,7 +51,7 @@
     --surface-opaque: rgba(246, 248, 250, 0.8);
 
     /*TEXT _________________________________________________________________*/
-    --text-primary: var(--color-neutral-600);
+    --text-primary: var(--color-grey-700);
     --text-muted: var(--color-grey-550);
 
     --text-brand: var(--color-purple-500);
