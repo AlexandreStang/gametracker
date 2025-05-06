@@ -2,6 +2,8 @@
 
 import {MagnifyingGlassIcon} from "@heroicons/react/24/outline";
 import {useDebouncedCallback} from "use-debounce";
+import clsx from "clsx";
+import styles from "@/styles/modules/search/searchBar.module.css"
 
 interface SearchProps {
     placeholder: string
@@ -15,16 +17,16 @@ export default function SearchBar({placeholder, onSearch}: SearchProps) {
     }, 300)
 
     return (
-        <div className="relative">
+        <div className={styles.search_bar_container}>
             <input type="text"
                    placeholder={placeholder}
                    onChange={e => {
                        handleSearch(e.target.value)
                    }}
-                   className={"app_input app_input_text_w_icon"}
+                   className={clsx("app_input", styles.search_bar_input)}
             />
-            <div className="absolute top-0 h-full flex items-center">
-                <MagnifyingGlassIcon className="app_input_icon" />
+            <div className={styles.search_bar_icon_container}>
+                <MagnifyingGlassIcon className={clsx("app_icon_xs", styles.search_bar_icon)} />
             </div>
         </div>
     )

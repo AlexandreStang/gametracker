@@ -1,6 +1,6 @@
 'use client'
 
-import styles from "@/styles/modules/search/search.module.css"
+import styles from "@/styles/modules/search/searchResult.module.css"
 import {PlusIcon} from "@heroicons/react/24/solid";
 import clsx from "clsx";
 import {useDispatch} from "react-redux";

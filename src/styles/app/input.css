@@ -19,16 +19,3 @@
     outline: none;
     border: 1px solid var(--border-brand);
 }
-
-.app_input.app_input_text_w_icon {
-    padding-left: calc(var(--input-padding-x) + var(--icon-size-xs) + calc(var(--spacing) * 4));
-}
-
-.app_input_icon {
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
-
-    margin-left: var(--input-padding-x);
-
-    color: var(--text-muted);
-}
