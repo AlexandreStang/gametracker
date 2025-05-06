@@ -27,10 +27,6 @@ export default function LibraryGame({playedGame}: CollectionGameProps) {
         <>
             {playedGame.game && playedGame.platform &&
                 <tr>
-                    {/*RANK*/}
-                    {/*<td className={styles.td_rank}>*/}
-                    {/*    #{rank}*/}
-                    {/*</td>*/}
                     {/*POSTER + NAME*/}
                     <td className={styles.td_game}>
                         <Cover cover={playedGame.game.cover} size={"small"} alt={playedGame.game.name}></Cover>
@@ -41,7 +37,7 @@ export default function LibraryGame({playedGame}: CollectionGameProps) {
                         {playedGame.game.firstReleaseDate ? playedGame.game.firstReleaseDate.getFullYear() : ""}
                     </td>
                     {/*SUPPORT*/}
-                    <td className={clsx(styles.td_support, styles.td_secondary)}>
+                    <td className={clsx(styles.td_platform, styles.td_secondary)}>
                         {playedGame.platform.name}
                     </td>
                     {/*PLAYTIME*/}

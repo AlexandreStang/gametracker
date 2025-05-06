@@ -7,25 +7,25 @@ import {UserGroupIcon} from "@heroicons/react/24/outline";
 import {Cog6ToothIcon} from "@heroicons/react/24/outline";
 import {ArrowRightStartOnRectangleIcon} from "@heroicons/react/24/outline";
 
+interface Link {
+    text: string
+    icon: React.ElementType
+    href?: string
+    isActive?: boolean
+}
+
+const generalLinks: Link[] = [
+    {text: "Library", icon: ListBulletIcon, href: "/dashboard/library"},
+    {text: "Statistics", icon: ChartBarIcon, href: "/dashboard/statistics"},
+    {text: "Community", icon: UserGroupIcon, isActive: false},
+]
+
+const accountLinks: Link[] = [
+    {text: "Settings", icon: Cog6ToothIcon, isActive: false},
+    {text: "Log Out", icon: ArrowRightStartOnRectangleIcon, isActive: false}
+]
+
 export default function Sidebar() {
-
-    interface Link {
-        text: string;
-        icon: React.ElementType;
-        href?: string;
-        isActive?: boolean;
-    }
-
-    const generalLinks: Link[] = [
-        {text: "Library", icon: ListBulletIcon, href: "/dashboard/library"},
-        {text: "Statistics", icon: ChartBarIcon, href: "/dashboard/statistics"},
-        {text: "Community", icon: UserGroupIcon, isActive: false},
-    ]
-
-    const accountLinks: Link[] = [
-        {text: "Settings", icon: Cog6ToothIcon, isActive: false},
-        {text: "Log Out", icon: ArrowRightStartOnRectangleIcon, isActive: false}
-    ]
 
     const renderLinks = (links: Link[]) => {
         return links.map((link, index) => {

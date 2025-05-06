@@ -6,34 +6,37 @@ import {PlayedGameFull, SortPlayedGames} from "@/db/types";
 import Table from "@/ui/table";
 
 interface LibraryTableProps {
-    sort?: SortPlayedGames
+    sortBy?: SortPlayedGames
 }
 
-export default function LibraryTable({sort}: LibraryTableProps) {
+export default function LibraryTable({sortBy}: LibraryTableProps) {
 
-    const [playedGames, setPlayedGames] = useState<PlayedGameFull[] | null>([])
+    const [playedGames, setPlayedGames] = useState<PlayedGameFull[] | null>(null)
 
     useEffect(() => {
         const fetchPlayedGames = async () => {
             try {
-                const results = await getAllFullPlayedGamesFromUser("cm7xuh4di0000vmxwj7x7am9r");
-                setPlayedGames(results)
+                const results = await getAllFullPlayedGamesFromUser("cm7xuh4di0000vmxwj7x7am9r", sortBy);
+                setPlayedGames(results);
             } catch (error) {
                 console.error(error);
             }
         };
 
         fetchPlayedGames();
-    }, []);
+    }, [sortBy]);
+
+    if (!playedGames) {
+        return
+    }
 
     return (
         <Table>
             <thead>
             <tr>
-                {/*<th className={styles.th_rank}>Rank</th>*/}
                 <th className={styles.th_game}>Game</th>
                 <th className={styles.th_release}>Released</th>
-                <th className={styles.th_support}>Support</th>
+                <th className={styles.th_platform}>Platform</th>
                 <th className={styles.th_playtime}>Playtime</th>
                 <th className={styles.th_update}>Last Updated</th>
                 <th className={styles.th_like}>Like</th>

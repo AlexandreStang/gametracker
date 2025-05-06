@@ -22,7 +22,7 @@ export class PlayedGameController {
         return prisma.playedGame.findMany()
     }
 
-    static async getAllFromUser(id: string, sortBy?: SortPlayedGames) {
+    static async getAllFromUser(id: string, sortBy: SortPlayedGames) {
         let orderBy: any
 
         switch (sortBy.field) {

@@ -43,6 +43,8 @@
     --surface-secondary-active: var(--color-grey-350);
     --surface-tertiary: var(--color-grey-300);
 
+    --surface-opaque: rgba(255, 255, 255, 0.7);
+
     /*TEXT _________________________________________________________________*/
     --text-primary: var(--color-neutral-600);
     --text-muted: var(--color-grey-500);

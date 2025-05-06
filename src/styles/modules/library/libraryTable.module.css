@@ -19,7 +19,7 @@
     text-align: center;
 }
 
-.th_support, .td_support {
+.th_platform, .td_platform {
     width: 15%;
     text-align: center;
 }
@@ -38,7 +38,3 @@
     width: 7.5%;
     text-align: center;
 }
-
-/*.td_secondary {*/
-/*    color: var(--text-muted);*/
-/*}*/
