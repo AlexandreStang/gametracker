@@ -2,7 +2,7 @@
 
 :root {
     /*BORDER _________________________________________________________________*/
-    --border-primary: var(--color-grey-350);
+    --border-primary: var(--color-grey-400);
     --border-muted: var(--color-grey-300);
     --border-brand: var(--color-purple-500);
 
@@ -35,9 +35,13 @@
     --surface-brand-active: var(--color-purple-600);
 
     --surface-primary: var(--color-grey-200);
+    --surface-primary-hover: var(--color-grey-250);
+    --surface-primary-active: var(--color-grey-300);
+
     --surface-secondary: var(--color-grey-250);
     --surface-secondary-hover: var(--color-grey-300);
     --surface-secondary-active: var(--color-grey-350);
+
     --surface-tertiary: var(--color-grey-300);
 
     --surface-danger: var(--color-red-400);
@@ -48,7 +52,7 @@
 
     /*TEXT _________________________________________________________________*/
     --text-primary: var(--color-neutral-600);
-    --text-muted: var(--color-grey-500);
+    --text-muted: var(--color-grey-550);
 
     --text-brand: var(--color-purple-500);
     --text-brand-muted: var(--color-purple-300);
@@ -56,7 +60,7 @@
 
     /*TOGGLE _________________________________________________________________*/
     --toggle_enabled: var(--color-purple-500);
-    --toggle_disabled: var(--color-grey-350);
+    --toggle_disabled: var(--color-grey-400);
 
     /*WRAPPER _________________________________________________________________*/
     --wrapper-xl: 1200px;

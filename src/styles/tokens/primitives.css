@@ -7,13 +7,20 @@
 
     /*COLORS _________________________________________________________________*/
     --color-grey-200: #F6F8FA;
-    --color-grey-250: #EEF1F4;
-    --color-grey-300: #E0E6EB;
-    --color-grey-350: #C8D0D7;
-    --color-grey-400: #BBC3CA;
-    --color-grey-450: #AAB3BB;
-    --color-grey-500: #969FA8;
-    --color-grey-600: #7e868f;
+    --color-grey-250: #EAEFF4;
+    --color-grey-300: #DEE5EC;
+    --color-grey-350: #D1DAE3;
+    --color-grey-400: #C4CFDA;
+    --color-grey-450: #B7C4D1;
+    --color-grey-500: #AAB9C8;
+    --color-grey-550: #909EAF;
+    --color-grey-600: #768495;
+    --color-grey-650: #5C6A7B;
+    --color-grey-700: #424F61;
+    --color-grey-750: #313E4F;
+    --color-grey-800: #212E3C;
+    --color-grey-850: #141F2A;
+    --color-grey-900: #0A1117;
 
     --color-neutral-600: #515151;
     --color-neutral-800: #353535;

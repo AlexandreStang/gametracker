@@ -36,11 +36,11 @@
 }
 
 .sidebar_link:hover, .sidebar_link_current {
-    background-color: var(--surface-secondary-hover);
+    background-color: var(--surface-primary-hover);
 }
 
 .sidebar_link:active {
-    background-color: var(--surface-secondary-active);
+    background-color: var(--surface-primary-active);
 }
 
 .sidebar_link_inactive {
