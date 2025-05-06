@@ -12,6 +12,7 @@ import {closeModal} from "@/state/modal/modalSlice";
 import {createPlayedGame} from "@/db/services/playedGameService";
 import FormLike from "@/ui/form/formLike";
 import {modalGameForm} from "@/ui/modal/modalManager";
+import Select from "@/ui/form/select";
 
 interface modalGameAddProps {
     formData: modalGameForm
@@ -73,11 +74,12 @@ export default function ModalGameAdd({formData}: modalGameAddProps) {
                     <form className={styles.modal_game_form}>
 
                         <FormItem label={"Console"} htmlFor={"modalGameConsole"}>
-                            <select
+                            <Select
                                 name="console"
                                 id="modalGameConsole"
                                 className="app_select"
-                                onChange={(e) => setPlatformId(Number(e.target.value))}>
+                                onChange={(e) => setPlatformId(Number(e.target.value))}
+                            >
                                 {formData.game && formData.game.platforms?.map((platform: { id: number; name: string }) => (
                                     <option
                                         key={platform.id}
@@ -86,7 +88,7 @@ export default function ModalGameAdd({formData}: modalGameAddProps) {
                                         {platform.name}
                                     </option>
                                 ))}
-                            </select>
+                            </Select>
                         </FormItem>
 
                         <div className={styles.modal_game_form_row}>

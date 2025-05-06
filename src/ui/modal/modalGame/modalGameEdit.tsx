@@ -12,6 +12,7 @@ import FormLike from "@/ui/form/formLike";
 import {useState} from "react";
 import {modalGameForm} from "@/ui/modal/modalManager";
 import {deletePlayedGame, updatePlayedGame} from "@/db/services/playedGameService";
+import Select from "@/ui/form/select";
 
 interface modalGameEditProps {
     formData: modalGameForm
@@ -96,7 +97,7 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
                     <form className={styles.modal_game_form}>
 
                         <FormItem label={"Console"} htmlFor={"modalGameConsole"}>
-                            <select
+                            <Select
                                 name="console"
                                 id="modalGameConsole"
                                 className="app_select"
@@ -111,7 +112,7 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
                                         {platform.name}
                                     </option>
                                 ))}
-                            </select>
+                            </Select>
                         </FormItem>
 
                         <div className={styles.modal_game_form_row}>
