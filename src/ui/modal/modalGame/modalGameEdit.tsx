@@ -12,7 +12,7 @@ import FormLike from "@/ui/form/formLike";
 import {useState} from "react";
 import {modalGameForm} from "@/ui/modal/modalManager";
 import {deletePlayedGame, updatePlayedGame} from "@/db/services/playedGameService";
-import Select from "@/ui/form/select";
+import Select from "@/ui/select/select";
 
 interface modalGameEditProps {
     formData: modalGameForm

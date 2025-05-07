@@ -1,4 +1,4 @@
-import styles from "@/styles/modules/form/select.module.css"
+import styles from "@/styles/modules/select/select.module.css"
 import clsx from "clsx";
 import {ChevronDownIcon} from "@heroicons/react/24/outline";
 

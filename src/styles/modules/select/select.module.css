@@ -3,7 +3,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
 
-    padding-right: calc(var(--input-padding-x) + var(--icon-size-xxs));
+    padding-right: calc(var(--input-padding-x)*2 + var(--icon-size-xxs));
 }
 
 .select_container {
@@ -17,7 +17,7 @@
     position: absolute;
 
     top: 0;
-    right: calc(var(--spacing) * 3);
+    right: var(--input-padding-x);
 
     height: 100%;
 

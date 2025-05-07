@@ -12,7 +12,7 @@ import {closeModal} from "@/state/modal/modalSlice";
 import {createPlayedGame} from "@/db/services/playedGameService";
 import FormLike from "@/ui/form/formLike";
 import {modalGameForm} from "@/ui/modal/modalManager";
-import Select from "@/ui/form/select";
+import Select from "@/ui/select/select";
 
 interface modalGameAddProps {
     formData: modalGameForm

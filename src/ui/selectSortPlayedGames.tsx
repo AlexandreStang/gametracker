@@ -1,5 +1,5 @@
 import {SortPlayedGames} from "@/db/types";
-import Select from "@/ui/form/select";
+import Select from "@/ui/select/select";
 
 interface Option {
     text: string
