@@ -2,11 +2,11 @@ import SearchBar from "@/ui/search/searchBar";
 import SearchDropdown from "@/ui/search/searchDropdown";
 import {useEffect, useState} from "react";
 import {searchGamesFromIGDB} from "@/api/actions";
-import {GameIGDB} from "@/api/types";
+import {GamePreviewIGDB} from "@/api/types";
 
 export default function SearchGames() {
 
-    const [games, setGames] = useState<GameIGDB[]>([]);
+    const [games, setGames] = useState<GamePreviewIGDB[]>([]);
     const [query, setQuery] = useState('');
 
     useEffect(() => {

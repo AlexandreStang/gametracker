@@ -1,4 +1,4 @@
-export interface GameIGDB {
+export interface GamePreviewIGDB {
     id: number
     name: string
     slug: string

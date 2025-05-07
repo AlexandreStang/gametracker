@@ -4,7 +4,7 @@ import {convertDate} from "@/lib/utils";
 import {GameController} from "@/db/controllers/gameController";
 import {createOrUpdatePlatform} from "@/db/services/platformService";
 import {createOrUpdateGenre} from "@/db/services/genreService";
-import {fetchGameFromIGDB} from "@/api/actions";
+import {fetchGamePreviewFromIGDB} from "@/api/actions";
 import {GenreIGDB, PlatformIGDB} from "@/api/types";
 import {Game} from "@prisma/client";
 
@@ -21,7 +21,7 @@ export async function getGameById(id: string): Promise<Game | null> {
 export async function createOrUpdateGame(igdbId: number): Promise<Game | null> {
 
     try {
-        const fetchedGame = await fetchGameFromIGDB(igdbId)
+        const fetchedGame = await fetchGamePreviewFromIGDB(igdbId)
 
         if (!fetchedGame) {
             console.error("There are no games with this id on IGDB")

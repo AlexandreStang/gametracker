@@ -1,10 +1,10 @@
-import {GameIGDB} from "@/api/types";
+import {GamePreviewIGDB} from "@/api/types";
 import SearchResult from "@/ui/search/searchResult";
 import {convertDate} from "@/lib/utils";
 import styles from "@/styles/modules/search/searchDropdown.module.css"
 
 interface searchDropdownInterface {
-    games: GameIGDB[]
+    games: GamePreviewIGDB[]
 }
 
 export default function SearchDropdown({games}: searchDropdownInterface) {

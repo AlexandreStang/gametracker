@@ -1,10 +1,10 @@
 'use server'
 
 import {getToken} from "@/api/token";
-import {GameIGDB} from "@/api/types";
+import {GamePreviewIGDB} from "@/api/types";
 
 // Search for games that fit a certain query
-export async function searchGamesFromIGDB(query: string): Promise<GameIGDB[] | null> {
+export async function searchGamesFromIGDB(query: string): Promise<GamePreviewIGDB[] | null> {
     const token = await getToken()
 
     const response = await
@@ -26,7 +26,8 @@ export async function searchGamesFromIGDB(query: string): Promise<GameIGDB[] | n
     return data || null;
 }
 
-export async function fetchGameFromIGDB(igdbId: number): Promise<GameIGDB | null> {
+// Fetch game data for game modals
+export async function fetchGamePreviewFromIGDB(igdbId: number): Promise<GamePreviewIGDB | null> {
     const token = await getToken()
 
     const response = await

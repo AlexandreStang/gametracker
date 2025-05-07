@@ -3,12 +3,12 @@ import ModalGameEdit from "@/ui/modal/modalGame/modalGameEdit";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "@/state/store";
 import {useEffect, useState} from "react";
-import {fetchGameFromIGDB} from "@/api/actions";
-import {GameIGDB} from "@/api/types";
+import {fetchGamePreviewFromIGDB} from "@/api/actions";
+import {GamePreviewIGDB} from "@/api/types";
 import {getFullPlayedGameById} from "@/db/services/playedGameService";
 
 export interface modalGameForm {
-    game: GameIGDB
+    game: GamePreviewIGDB
     platformId: number
     playtime: number
     like: boolean
@@ -30,7 +30,7 @@ export default function ModalManager() {
 
                 if (mode === 'add' && igdbId) {
 
-                    const results = await fetchGameFromIGDB(igdbId);
+                    const results = await fetchGamePreviewFromIGDB(igdbId);
 
                     if (results) {
                         setFormData({
@@ -50,7 +50,7 @@ export default function ModalManager() {
                         return null
                     }
 
-                    const results = await fetchGameFromIGDB(playedGame.game.igdbId);
+                    const results = await fetchGamePreviewFromIGDB(playedGame.game.igdbId);
 
                     if (results) {
                         setFormData({
