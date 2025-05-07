@@ -33,7 +33,7 @@ export class PlayedGameController {
                 orderBy = {game: {firstReleaseDate: sortBy.order}}
                 break
             case 'platform.name':
-                orderBy = {platform: {name: sortBy.order}}
+                orderBy = [{platform: {name: sortBy.order}}, {playtime: 'desc'}]
                 break
             default:
                 orderBy = { [sortBy.field]: sortBy.order }
