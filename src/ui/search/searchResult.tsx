@@ -17,11 +17,11 @@ interface searchResultProps {
 export default function SearchResult({name, year, igdbId}: searchResultProps) {
 
     return (
-        <div className={styles.search_result}>
-            <Link href={`/game/${igdbId}`}>
+        <>
+            <Link href={`/game/${igdbId}`} className={styles.search_result}>
                 {name} {year ? `(${year})` : ""}
             </Link>
             {/*<PlusIcon className={clsx(styles.search_result_icon, "app_icon_sm")}></PlusIcon>*/}
-        </div>
+        </>
     )
 }
