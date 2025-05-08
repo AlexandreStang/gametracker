@@ -6,8 +6,8 @@
     --blur-global: 12px;
 
     /*COLORS _________________________________________________________________*/
-    --color-white-100: #FFFFFF;
-
+    --color-grey-100: #FFFFFF;
+    --color-grey-150: #FAFBFD;
     --color-grey-200: #F6F8FA;
     --color-grey-250: #EAEFF4;
     --color-grey-300: #DEE5EC;

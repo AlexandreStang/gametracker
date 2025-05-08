@@ -1,5 +1,5 @@
 .app_input, .app_select {
-    height: calc(var(--spacing) * 10);
+    height: var(--input-height);
     width: 100%;
 
     border: 1px solid var(--border-primary);
@@ -8,7 +8,7 @@
     padding: 0 var(--input-padding-x);
 
     color: var(--text-primary);
-    background-color: var(--input-background);
+    background-color: var(--input-surface);
 }
 
 .app_input::placeholder {
