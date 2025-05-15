@@ -42,7 +42,7 @@ export default function LibraryGame({playedGame}: CollectionGameProps) {
                     </td>
                     {/*PLAYTIME*/}
                     <td className={clsx(styles.td_playtime, styles.td_secondary)}>
-                        {formatHours(playedGame.playtime)}
+                        {playedGame.playtime > 0 && formatHours(playedGame.playtime)}
                     </td>
                     {/*LAST UPDATED*/}
                     <td className={clsx(styles.td_update, styles.td_secondary)}>

@@ -5,5 +5,9 @@ export const convertDate= (unix_timestamp: number)=> {
 
 // Format hours
 export const formatHours = (hours: number) => {
-    return `${hours} hrs`
+    if (Math.abs(hours) > 1) {
+        return `${hours} hrs`
+    }
+
+    return `${hours} hr`
 }
