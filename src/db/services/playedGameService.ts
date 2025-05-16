@@ -4,7 +4,7 @@ import {createOrUpdateGame} from "@/db/services/gameService";
 import {PlayedGameController} from "@/db/controllers/playedGameController";
 import {PlatformController} from "@/db/controllers/platformController";
 import {PlayedGame} from "@prisma/client";
-import {PlayedGameFull, SortPlayedGames} from "@/db/types";
+import {GamesPerPlatform, PlayedGameFull, PlaytimePerPlatform, SortPlayedGames, UserStatistics} from "@/db/types";
 
 export interface createPlayedGameFormData {
     gameIgdbId: number,
@@ -42,7 +42,7 @@ export async function getFullPlayedGameById(id: string): Promise<PlayedGameFull 
 export async function getAllFullPlayedGamesFromUser(id: string, sortBy?: SortPlayedGames): Promise<PlayedGameFull[] | null> {
     try {
         if (!sortBy) {
-            sortBy = {field: "playtime", order:"desc"}
+            sortBy = {field: "playtime", order: "desc"}
         }
 
         return await PlayedGameController.getAllFromUser(id, sortBy);
@@ -52,20 +52,66 @@ export async function getAllFullPlayedGamesFromUser(id: string, sortBy?: SortPla
     }
 }
 
-export async function getLastUpdateFromUser(id: string): Promise<Date | null> {
+export async function getStatisticsFromUser(id: string): Promise<any | null> {
     try {
-        return await PlayedGameController.getLastUpdateFromUser(id)
-    } catch (error) {
-        console.error('Error finding last played game update from user: ', error)
-        return null
-    }
-}
+        // Get data from database
+        const totalGamesDB = await PlayedGameController.getTotalGamesFromUser(id);
+        const gamesPerPlatformDB = await PlayedGameController.getTotalGamesPerPlatformFromUser(id);
+        const totalPlaytimeDB = await PlayedGameController.getTotalPlaytimeFromUser(id);
+        const playtimePerPlatformDB = await PlayedGameController.getTotalPlaytimePerPlatformFromUser(id);
+        const averagePlaytimePerPlatformDB = await PlayedGameController.getAveragePlaytimePerPlatformFromUser(id);
 
-export async function getTotalPlaytimeFromUser(id: string): Promise<number | null> {
-    try {
-        return await PlayedGameController.getTotalPlaytimeFromUser(id);
+        // Assign platform data to game and playtime stats
+        const gamesPerPlatform = (await Promise.all(
+            gamesPerPlatformDB.map(async (platformStats) => {
+                const platform = await PlatformController.getById(platformStats.platformId);
+                if (platform) return {platformName: platform.name, totalGames: platformStats._count.gameId};
+                return null
+            })
+        )).filter(Boolean) as GamesPerPlatform[]
+
+        const playtimePerPlatform = (await Promise.all(
+            playtimePerPlatformDB.map(async (platformStats) => {
+                const platform = await PlatformController.getById(platformStats.platformId);
+
+                if (!platform) return null
+
+                const averagePlaytime = averagePlaytimePerPlatformDB.find(
+                    (avg) => avg.platformId === platformStats.platformId
+                    // (avg) is the first element in the array that fits the criteria
+                )
+
+                return {
+                    platformName: platform.name,
+                    totalPlaytime: platformStats._sum.playtime,
+                    avgPlaytime: averagePlaytime?._avg.playtime ?? 0
+                };
+            })
+        )).filter(Boolean) as PlaytimePerPlatform[]
+
+        // Assemble and return user statistics
+        const totalPlatform: number = gamesPerPlatform.length
+
+        const userStatistics: UserStatistics = {
+            games: {
+                total: totalGamesDB,
+                perPlatform: gamesPerPlatform,
+                avgPerPlatform: totalGamesDB / totalPlatform
+            },
+            playtime: {
+                total: totalPlaytimeDB ? totalPlaytimeDB : 0,
+                perPlatform: playtimePerPlatform,
+                avgPerGame: totalPlaytimeDB ? totalPlaytimeDB / totalGamesDB : 0
+            },
+            platforms: {
+                total: totalPlatform
+            }
+        }
+
+        return (userStatistics)
+
     } catch (error) {
-        console.error('Error finding total playtime from user: ', error)
+        console.error('Error finding statistics from user: ', error)
         return null
     }
 }
@@ -131,7 +177,7 @@ export async function updatePlayedGame(data: updatePlayedGameFormData): Promise<
     }
 }
 
-export async function updateLikePlayedGame(id: string, like:boolean): Promise<PlayedGame | null> {
+export async function updateLikePlayedGame(id: string, like: boolean): Promise<PlayedGame | null> {
     try {
         return PlayedGameController.update(id, {
             like: like
@@ -142,7 +188,7 @@ export async function updateLikePlayedGame(id: string, like:boolean): Promise<Pl
     }
 }
 
-export async function deletePlayedGame(id: string) : Promise<PlayedGame | null> {
+export async function deletePlayedGame(id: string): Promise<PlayedGame | null> {
     try {
         return await PlayedGameController.delete(id)
     } catch (error) {

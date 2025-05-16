@@ -51,16 +51,34 @@ export class PlayedGameController {
         })
     }
 
-    static async getLastUpdateFromUser(id: string) {
-        const playedGame = await prisma.playedGame.findFirst({
-            where: {userId: id},
-            orderBy: {updatedAt: 'desc'},
-            select: {updatedAt: true}
+    static async getTotalGamesFromUser(id: string) {
+        const playeGame = await prisma.playedGame.aggregate({
+            where: {
+                userId: id
+            },
+            _count: {
+                id: true
+            }
         })
 
-        if (playedGame) return playedGame.updatedAt
+        return playeGame._count.id
+    }
 
-        return null
+    static async getTotalGamesPerPlatformFromUser(id: string) {
+        return prisma.playedGame.groupBy({
+            where: {
+                userId: id
+            },
+            by: "platformId",
+            _count: {
+                gameId: true
+            },
+            orderBy: {
+                _count: {
+                    gameId: 'desc'
+                },
+            }
+        });
     }
 
     static async getTotalPlaytimeFromUser(id: string) {
@@ -74,6 +92,40 @@ export class PlayedGameController {
         })
 
         return playedGame._sum.playtime
+    }
+
+    static async getTotalPlaytimePerPlatformFromUser(id: string) {
+        return prisma.playedGame.groupBy({
+            where: {
+                userId: id
+            },
+            by: "platformId",
+            _sum: {
+                playtime: true
+            },
+            orderBy: {
+                _sum: {
+                    playtime: 'desc'
+                }
+            }
+        });
+    }
+
+    static async getAveragePlaytimePerPlatformFromUser(id: string) {
+        return prisma.playedGame.groupBy({
+            where: {
+                userId: id
+            },
+            by: "platformId",
+            _avg: {
+                playtime: true
+            },
+            orderBy: {
+                _avg: {
+                    playtime: 'desc'
+                }
+            }
+        });
     }
 
     static async create(data: {
