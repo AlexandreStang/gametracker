@@ -10,6 +10,7 @@ import {AppDispatch} from "@/state/store";
 import {openModal} from "@/state/modal/modalSlice";
 import {format} from 'date-fns';
 import clsx from "clsx";
+import Link from "next/link";
 
 interface CollectionGameProps {
     // rank: number
@@ -29,8 +30,8 @@ export default function LibraryGame({playedGame}: CollectionGameProps) {
                 <tr>
                     {/*POSTER + NAME*/}
                     <td className={styles.td_game}>
-                        <Cover cover={playedGame.game.cover} size={"small"} alt={playedGame.game.name}></Cover>
-                        {playedGame.game.name}
+                        <Link href={`/game/${playedGame.game.igdbId}`} className={"h-full"}><Cover cover={playedGame.game.cover} size={"small"} alt={playedGame.game.name}></Cover></Link>
+                        <Link href={`/game/${playedGame.game.igdbId}`} className={"app_link_inline"}>{playedGame.game.name}</Link>
                     </td>
                     {/*RELEASE*/}
                     <td className={clsx(styles.td_release, styles.td_secondary)}>
