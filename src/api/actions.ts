@@ -1,7 +1,7 @@
 'use server'
 
 import {getToken} from "@/api/token";
-import {GamePreviewIGDB} from "@/api/types";
+import {GameIGDB, GamePreviewIGDB} from "@/api/types";
 
 // Search for games that fit a certain query
 export async function searchGamesFromIGDB(query: string): Promise<GamePreviewIGDB[] | null> {
@@ -38,6 +38,29 @@ export async function fetchGamePreviewFromIGDB(igdbId: number): Promise<GamePrev
                 'Authorization': `Bearer ${token}`,
             },
             body: `fields name, slug, cover.image_id, first_release_date, genres.name, genres.updated_at, platforms.name, platforms.updated_at, updated_at; where id = ${igdbId};`,
+        })
+
+    if (!response.ok) {
+        throw new Error('Game not found on IGDB')
+    }
+
+    const data = await response.json()
+
+    return data[0] || null
+}
+
+// Fetch game data for game page
+export async function fetchGameFromIGDB(igdbId: number): Promise<GameIGDB | null> {
+    const token = await getToken()
+
+    const response = await
+        fetch(`https://api.igdb.com/v4/games`, {
+            method: 'POST',
+            headers: {
+                'Client-ID': process.env.TWITCH_CLIENT_ID as string,
+                'Authorization': `Bearer ${token}`,
+            },
+            body: `fields name, cover.image_id, first_release_date, genres.name, platforms.name, summary, involved_companies, involved_companies.developer, involved_companies.publisher, involved_companies.company.name; where id = ${igdbId};`,
         })
 
     if (!response.ok) {

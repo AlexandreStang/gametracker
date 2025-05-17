@@ -25,7 +25,7 @@ export async function createOrUpdatePlatform(data: PlatformIGDB): Promise<Platfo
         }
 
         // Update the platform inside the database if the IGDB platform has been updated recently
-        if (platform.updatedAt.getTime() < data.updated_at) {
+        if (data.updated_at && platform.updatedAt.getTime() < data.updated_at) {
             return await PlatformController.update(platform.id, {name: data.name})
         }
 

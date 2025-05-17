@@ -15,7 +15,7 @@ export async function createOrUpdateGenre(data: GenreIGDB): Promise<Genre | null
         }
 
         // Update the genre inside the database if the IGDB genre has been updated recently
-        if (genre.updatedAt.getTime() < data.updated_at) {
+        if (data.updated_at && genre.updatedAt.getTime() < data.updated_at) {
             return await GenreController.update(genre.id, {name: data.name})
         }
 
