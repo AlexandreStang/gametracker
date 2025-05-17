@@ -58,7 +58,8 @@ export default function ModalGameAdd({formData}: modalGameAddProps) {
                 {/*COVER*/}
                 {formData.game &&
                     <div className={styles.modal_game_cover}>
-                        <Cover cover={formData.game.cover.image_id} size={"big"} alt={formData.game.name}></Cover>
+                        <Cover cover={formData.game.cover.image_id} size={"big"} alt={formData.game.name}
+                               href={`/game/${formData.game.id}`} openTab={true}></Cover>
                     </div>
                 }
 

@@ -81,7 +81,8 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
                 {/*COVER*/}
                 {formData.game &&
                     <div className={styles.modal_game_cover}>
-                        <Cover cover={formData.game.cover.image_id} size={"big"} alt={formData.game.name}></Cover>
+                        <Cover cover={formData.game.cover.image_id} size={"big"} alt={formData.game.name}
+                               href={`/game/${formData.game.id}`} openTab={true}></Cover>
                     </div>
                 }
 
@@ -104,7 +105,10 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
                                 onChange={(e) => setPlatformId(Number(e.target.value))}
                                 value={platformId}
                             >
-                                {formData.game && formData.game.platforms?.map((platform: { id: number; name: string }) => (
+                                {formData.game && formData.game.platforms?.map((platform: {
+                                    id: number;
+                                    name: string
+                                }) => (
                                     <option
                                         key={platform.id}
                                         value={platform.id}

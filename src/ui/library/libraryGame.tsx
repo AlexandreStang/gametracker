@@ -30,7 +30,7 @@ export default function LibraryGame({playedGame}: CollectionGameProps) {
                 <tr>
                     {/*POSTER + NAME*/}
                     <td className={styles.td_game}>
-                        <Link href={`/game/${playedGame.game.igdbId}`} className={"h-full"}><Cover cover={playedGame.game.cover} size={"small"} alt={playedGame.game.name}></Cover></Link>
+                        <Cover cover={playedGame.game.cover} size={"small"} alt={playedGame.game.name} href={`/game/${playedGame.game.igdbId}`}></Cover>
                         <Link href={`/game/${playedGame.game.igdbId}`} className={"app_link_inline"}>{playedGame.game.name}</Link>
                     </td>
                     {/*RELEASE*/}
