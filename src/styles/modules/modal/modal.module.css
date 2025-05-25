@@ -43,6 +43,10 @@
     border-radius: var(--radius-global) var(--radius-global) 0 0;
 
     background-color: var(--surface-secondary);
+
+    * {
+        margin: 0;
+    }
 }
 
 .modal_content {

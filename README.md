@@ -1,7 +1,8 @@
 # Gametracker
 
 > This website helps users keep track of their video game playtime across different consoles, allowing them to easily
-> see what their favorite games and consoles are. All game data is sourced from the [IGDB API](https://www.igdb.com/api).
+> see what their favorite games and consoles are. All game data is sourced from
+> the [IGDB API](https://www.igdb.com/api).
 > This project is still under construction.
 
 
@@ -39,7 +40,9 @@ TWITCH_CLIENT_SECRET=***
 5. Seed the database with a test user with `npx prisma db seed`
 6. Run the project locally with `npm run dev`
 
-Optionally, use `npx prisma studio` for a direct look inside the database. 
+If you make any changes to to the Prisma schema, you can push those changes to the database using `npx prisma db push` (
+during production) or `npx prisma migrate dev --name [...]` (during development; replace [...] with the name of the
+migration). Optionally, use `npx prisma studio` to directly look inside the database and manually change data.
 
 ## 📩 Contact
 

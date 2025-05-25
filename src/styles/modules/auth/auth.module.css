@@ -1,0 +1,31 @@
+.auth_page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+}
+
+.auth_container {
+    width: min(100%, 360px);
+    margin: 0 var(--margin-page);
+}
+
+.auth_form_items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--form-gap);
+}
+
+.auth_heading {
+    text-align: center;
+}
+
+.auth_margin {
+    margin: var(--form-gap) 0;
+}
+
+.auth_centered {
+    display: flex;
+    justify-content: center;
+}

@@ -1,42 +1,37 @@
 "use client";
 
-import {useState} from "react";
-import {useRouter} from "next/navigation";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
-import {signIn} from "next-auth/react";
+import FormItem from "@/ui/form/formItem";
 import styles from "@/styles/modules/auth/auth.module.css";
 import clsx from "clsx";
-import FormItem from "@/ui/form/formItem";
 import Button from "@/ui/button/button";
 
-export default function SignUpPage() {
+export default function LoginPage() {
     const router = useRouter();
     const [error, setError] = useState<string | null>(null);
 
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault();
+        try {
+            event.preventDefault();
+            const formData = new FormData(event.currentTarget);
+            const response = await signIn("credentials", {
+                ...Object.fromEntries(formData),
+                redirect: false,
+            });
 
-        const form = event.target;
-        if (!(form instanceof HTMLFormElement)) {
-            console.error("Form element not found.");
-            return;
+            if (response?.error) {
+                setError("Invalid credentials");
+                return;
+            }
+
+            router.push("/");
+            router.refresh();
+        } catch {
+            setError("An error occurred during login");
         }
-
-        const formData = new FormData(form);
-        console.log("Form entries:", [...formData.entries()]);
-
-        const signInResult = await signIn("credentials", {
-            ...Object.fromEntries(formData),
-            redirect: false,
-        });
-
-        if (signInResult?.error) {
-            setError("Failed to sign in after registration");
-            return;
-        }
-
-        router.push("/");
-        router.refresh();
     }
 
     return (
@@ -44,21 +39,11 @@ export default function SignUpPage() {
             <div className={styles.auth_container}>
                 <div>
                     <h2 className={clsx("app_heading_2", styles.auth_heading)}>
-                        Create your account
+                        Log in to your account
                     </h2>
                 </div>
                 <form onSubmit={handleSubmit}>
                     <div className={styles.auth_form_items}>
-                        <FormItem label={"Name"} htmlFor={"name"}>
-                            <input
-                                id="name"
-                                name="name"
-                                type="text"
-                                required
-                                className={"app_input"}
-                            />
-                        </FormItem>
-
                         <FormItem label={"Email address"} htmlFor={"email"}>
                             <input
                                 id="email"
@@ -86,13 +71,13 @@ export default function SignUpPage() {
 
                     <div className={clsx(styles.auth_margin, styles.auth_centered)}>
                         <Button type={"submit"}>
-                            Sign up
+                            Log In
                         </Button>
                     </div>
                 </form>
                 <div className={styles.auth_centered}>
-                    <Link href="/login" className={"app_link_inline"}>
-                        Already have an account? Sign in.
+                    <Link href="/signup" className={"app_link_inline"}>
+                        No account? Register.
                     </Link>
                 </div>
             </div>

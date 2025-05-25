@@ -70,8 +70,8 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
             header={"You played..."}
             footer={
                 <>
-                    <Button text={"Delete"} isDisabled={isProcessing} type={"danger"} onClick={handleDelete}></Button>
-                    <Button text={"Save"} isDisabled={isProcessing} onClick={handleSave}></Button>
+                    <Button isDisabled={isProcessing} variant={"danger"} onClick={handleDelete}>Delete</Button>
+                    <Button isDisabled={isProcessing} onClick={handleSave}>Save</Button>
                 </>
             }
             onClose={() => dispatch(closeModal())}
@@ -89,10 +89,10 @@ export default function ModalGameEdit({formData, playedGameId}: modalGameEditPro
                 {/*GAME TITLE AND FORM*/}
                 <div className={styles.modal_game_text_content}>
                     {formData.game &&
-                        <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>
+                        <h4 className={clsx(styles.modal_game_heading, "app_heading_4")}>
                             {formData.game.name} <span
                             className={styles.modal_game_heading_date}>({convertDate(formData.game.first_release_date).getFullYear()})</span>
-                        </h3>
+                        </h4>
                     }
 
                     <form className={styles.modal_game_form}>

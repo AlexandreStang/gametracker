@@ -39,8 +39,9 @@
     --fs-small: 0.75rem; /* 12px */
     --fs-body: 0.875rem; /* 14px */
     --fs-body-lg: 1rem; /* 16px */
-    --fs-heading-3: 1.25rem; /* 20px */
-    --fs-heading-2: 1.5rem; /* 24px */
+    --fs-heading-4: 1.25rem; /* 20px */
+    --fs-heading-3: 1.5rem; /* 24px */
+    --fs-heading-2: 2rem; /* 32px */
 
     /*FONT WEIGHT _________________________________________________________________*/
     --fw-normal: 400;

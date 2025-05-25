@@ -22,5 +22,5 @@
 }
 
 .search_bar_input {
-    padding-left: calc(var(--input-padding-x) + var(--icon-size-xs) + calc(var(--spacing) * 4));
+    padding-left: calc(var(--input-padding-x) + var(--icon-size-xs) + var(--input-padding-x) - var(--spacing));
 }

@@ -2,14 +2,29 @@
 .app_heading_2 {
     font-size: var(--fs-heading-2);
     font-weight: var(--fw-bold);
+
+    margin-bottom: calc(var(--spacing) * 8);
 }
 
 .app_heading_3 {
     font-size: var(--fs-heading-3);
     font-weight: var(--fw-bold);
+
+    margin-bottom: calc(var(--spacing) * 6);
+}
+
+.app_heading_4 {
+    font-size: var(--fs-heading-4);
+    font-weight: var(--fw-bold);
+
+    margin-bottom: calc(var(--spacing) * 4);
 }
 
 /*TEXT _________________________________________________________________*/
 .app_body_bold {
     font-weight: var(--fw-bold);
+}
+
+.app_body_error {
+    color: var(--text-error);
 }

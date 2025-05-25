@@ -1,3 +1,16 @@
-.app_link_inline:hover {
+.app_link_inline {
     color: var(--text-brand);
+    transition: var(--transition-global);
+}
+
+.app_link_inline:hover {
+    text-decoration: underline;
+}
+
+.app_link_inline_hidden {
+    transition: var(--transition-global);
+}
+
+.app_link_inline_hidden:hover {
+    color: var(--text-brand-hover);
 }

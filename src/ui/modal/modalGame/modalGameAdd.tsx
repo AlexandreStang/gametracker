@@ -50,7 +50,7 @@ export default function ModalGameAdd({formData}: modalGameAddProps) {
     return (
         <Modal
             header={"You played..."}
-            footer={<Button text={"Save"} isDisabled={isProcessing} onClick={handleSave}></Button>}
+            footer={<Button isDisabled={isProcessing} onClick={handleSave}>Save</Button>}
             onClose={() => dispatch(closeModal())}
         >
             <div className={styles.modal_game_content}>
@@ -66,10 +66,10 @@ export default function ModalGameAdd({formData}: modalGameAddProps) {
                 {/*GAME TITLE AND FORM*/}
                 <div className={styles.modal_game_text_content}>
                     {formData.game &&
-                        <h3 className={clsx(styles.modal_game_heading, "app_heading_3")}>
+                        <h4 className={clsx(styles.modal_game_heading, "app_heading_4")}>
                             {formData.game.name} <span
                             className={styles.modal_game_heading_date}>({convertDate(formData.game.first_release_date).getFullYear()})</span>
-                        </h3>
+                        </h4>
                     }
 
                     <form className={styles.modal_game_form}>

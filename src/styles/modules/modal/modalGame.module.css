@@ -13,10 +13,6 @@
     width: 100%;
 }
 
-.modal_game_heading {
-    margin-bottom: calc(var(--spacing) * 4);
-}
-
 .modal_game_heading_date {
     color: var(--text-muted);
 }
@@ -24,7 +20,7 @@
 .modal_game_form {
     display: flex;
     flex-direction: column;
-    gap: calc(var(--spacing) * 6);
+    gap: var(--form-gap);
 }
 
 .modal_game_form_row {

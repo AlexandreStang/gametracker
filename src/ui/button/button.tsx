@@ -1,14 +1,14 @@
 import styles from "@/styles/modules/button/button.module.css"
 import clsx from "clsx";
 
-interface ButtonProps {
-    text?: string
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     isDisabled?: boolean
-    type?: "default" | "danger"
+    variant?: "default" | "danger"
     onClick?: () => void
+    children: React.ReactNode
 }
 
-export default function Button({text, isDisabled = false, type = "default", onClick}: ButtonProps) {
+export default function Button({isDisabled = false, variant = "default", onClick, children, ...rest}: ButtonProps) {
 
     const handleClick = () => {
         if (onClick && !isDisabled) {
@@ -17,14 +17,14 @@ export default function Button({text, isDisabled = false, type = "default", onCl
     }
 
     return (
-        <button
+        <button {...rest}
             className={clsx(styles.button, {
                 [styles.button_enabled] : !isDisabled,
                 [styles.button_disabled] : isDisabled,
-                [styles.button_danger] : type === "danger"
+                [styles.button_danger] : variant === "danger"
             })}
             onClick={handleClick}>
-            {text}
+            {children}
         </button>
     )
 }
